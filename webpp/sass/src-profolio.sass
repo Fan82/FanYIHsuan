@@ -1,0 +1,769 @@
+$white: #fff
+$dark: #4C4C4C
+$grey-1: #808080
+$grey-2: #EBEBEB
+$main: #e6b71d
+$letterspace: 0.016em
+// -------------------
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap')
+// 一些預設樣式
+
+body
+    font-family: "Urbanist" ,"Roboto" ,"SF Pro TC","PingFang TC",'Noto Sans TC',"微軟正黑體"
+a
+    text-decoration: none
+    color: $dark
+p, div
+    padding: 0
+    margin: 0
+ul
+    margin: 0
+// --------------------------
+
+body.main
+    scroll-behavior: smooth
+    width: 100vw
+    overflow: hidden
+    overflow-y: auto
+    padding: 0 40px
+    .header_nav
+        position: fixed
+        width: 100%
+        top: 0
+        left: 0
+        display: flex
+        justify-content: flex-start
+        height: 60px
+        gap: 0 40px
+        // background: $white
+        backdrop-filter: blur(10px) opacity(90%)
+        -webkit-backdrop-filter: blur(10px) opacity(90%)
+        z-index: 1000
+        &:has(.logo)
+            // background: $white
+            padding: 0px 8px
+            align-items: center
+        > a.logo
+            position: relative
+            max-width: 130px
+            width: 100%
+            height: 40px
+            cursor: pointer
+            img
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                object-fit: contain
+        nav
+            width: 100%
+            display: inline-flex
+            align-items: center
+            justify-content: center
+            &::before
+                content: ''
+                position: relative
+                width: 100%
+                height: 1px
+                background: $dark
+                z-index: -1
+            .menu
+                display: flex
+                justify-content: space-around
+                align-items: center
+                border-radius: 50px
+                width: 20%
+                a
+                    position: relative
+                    padding: 4px 8px
+                    width: 40%
+                    height: 100%
+                    text-align: center
+                    white-space: nowrap
+                    color: $dark
+                    border-radius: 10px
+                    text-transform: capitalize
+                    line-height: 25px
+                    transition: 0.2s ease-in-out
+                    cursor: pointer
+                    &:hover
+                        background: $grey-2
+                    .contact-menu
+                        position: absolute
+
+    // --------------------------
+    main
+        position: relative
+        margin-top: 100px
+        .logoBox
+            position: absolute
+            left: 80px
+            top: -50px
+            z-index: 2
+            img
+                width: 250px
+                aspect-ratio: 1/1
+                object-fit: contain
+            .slogan
+                font-size: 1.8rem
+                margin-top: -30px
+                letter-spacing: 2.2px
+                white-space: nowrap
+                color: $grey-1
+                font-family: "Playfair Display", serif
+                line-height: 35px
+                &:last-child
+                    margin-top: 8px
+                    margin-left: 100px
+
+        .carouselBox
+            margin: 80px auto 0 400px
+            padding: 60px 0
+            width: 70%
+            display: flex
+            justify-content: flex-end
+            align-items: center
+            gap: 30px
+            user-select: none
+            .carousel
+                width: 30%
+            .carousel-inner
+                border-radius: 30px
+                background: $grey-2
+                padding: 4px
+                .carousel-item
+                    aspect-ratio: 9/16
+                    img
+                        width: 100%
+                        height: 100%
+                        border-radius: 24px
+                        object-fit: cover
+                        object-position: top
+    // 一些共用-----------------------------------------
+    .big-title
+        position: relative
+        display: block
+        text-align: center
+        width: 100%
+        font-size: 2rem
+        font-weight: 600
+        letter-spacing: $letterspace
+        color: $dark
+        text-transform: uppercase
+        padding: 8px 0
+        z-index: 100
+        a.icon
+            position: absolute
+            transform: translateX(-40px) scale(0.7)
+
+    .second-title
+        position: relative
+        font-size: 1.5rem
+        padding: 16px 0
+        display: block
+        text-align: center
+        width: 100%
+        color: $grey-1
+        z-index: 100
+        &::before
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 100%
+            height: 1px
+            background: $grey-2
+    a.btn-default
+        padding: 8px 16px
+        border-radius: 4px
+        background: $grey-2
+        color: $dark
+        text-transform: capitalize
+        font-weight: normal
+        font-size: 16px
+        letter-spacing: 0.003em
+        &:hover,
+        &:focus,
+        &:active
+            background: $main
+            color: $white
+
+    .btn-tab
+        padding: 8px 16px
+        color: $grey-1
+        font-weight: 400
+        &:hover,
+        &:focus,
+        &:active
+            color: $dark
+            box-shadow: inset 0 -2px 0 $dark
+    footer
+        position: fixed
+        bottom: 0
+        left: 0
+        width: 100%
+        min-height: 40px
+        backdrop-filter: blur(10px) opacity(90%)
+        -webkit-backdrop-filter: blur(10px) opacity(90%)
+        padding: 8px 40px
+        z-index: 1000
+        ul
+            display: flex
+            justify-content: center
+            align-items: center
+            gap: 24px
+
+            li
+                width: fit-content
+                border-radius: 4px
+                padding: 8px 16px
+                background: rgba($white ,0.5 )
+                display: flex
+                justify-content: center
+                align-items: center
+                text-transform: capitalize
+                letter-spacing: 1.2px
+                color: $dark
+                transition: 0.3s linear
+                cursor: pointer
+                &:hover
+                    a
+                        color: $main
+// ============================================
+// 關於 ==============================
+// ============================================
+.main-about
+    width: 100%
+    margin: 8px 0
+
+    .about-box
+        width: 100%
+        height: 50%
+        display: flex
+        justify-content: center
+        align-items: center
+        padding: 0 40px
+        gap: 20px
+        .main-box
+            display: inline-block
+            width: 50%
+            h3
+                font-size: 2rem
+                white-space: nowrap
+                margin: 0
+                text-align: right
+            .tool-list
+                display: inline-flex
+                width: 100%
+                justify-content: flex-end
+                align-items: center
+                flex-wrap: wrap
+                padding: 16px 0
+                .badge
+                    display: inline-block
+                    width: 45px
+                    height: 45px
+                    margin: 8px
+                    filter: drop-shadow(0px 4px 4px rgba($grey-2, 0.4 ))
+                    &.vscode
+                        background: url("../library/img-common/img-main/icon/vscode.png") center no-repeat
+                        background-size: contain
+                    &.illustrator
+                        background: url("../library/img-common/img-main/icon/illustrator.png") center no-repeat
+                        background-size: contain
+                    &.photoshop
+                        background: url("../library/img-common/img-main/icon/photoshop.png") center no-repeat
+                        background-size: contain
+                    &.github
+                        background: url("../library/img-common/img-main/icon/github.png") center no-repeat
+                        background-size: contain
+                    &.figma
+                        background: url("../library/img-common/img-main/icon/figma.png") center no-repeat
+                        background-size: contain
+
+        .progeress-box
+            display: inline-flex
+            width: 50%
+            flex-direction: column
+            align-items: flex-start
+            gap: 8px 0
+            .progress
+                position: relative
+                background: transparent
+                width: 100%
+                margin: 4px 0
+                .progress-bar
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    background: #ffb43e
+                    border-radius: 50px
+                &.HTML
+                    .progress-bar
+                        background: #e5532f
+                &.SASS
+                    .progress-bar
+                        background: #d56fa4
+                &.JS
+                    .progress-bar
+                        background: #67ac20
+                &.ILLUSTRATOR
+                    .progress-bar
+                        background: #ff9a00
+                &.PHOTOSHOP
+                    .progress-bar
+                        background: #31a8ff
+                &[data-percentage="60"]
+                    .progress-bar
+                        width: 60%
+                &[data-percentage="77"]
+                    .progress-bar
+                        width: 77%
+                &[data-percentage="80"]
+                    .progress-bar
+                        width: 80%
+                &[data-percentage="83"]
+                    .progress-bar
+                        width: 83%
+                &[data-percentage="88"]
+                    .progress-bar
+                        width: 88%
+
+                .progress-value
+                    position: relative
+                    width: 100%
+                    padding-left: 8px
+                    font-size: 16px
+                    color: $white
+                    z-index: 1
+                    span
+                        text-transform: uppercase
+    .container
+        max-width: 900px
+        .timeline
+            position: relative
+            display: flex
+            flex-direction: column
+            list-style: none
+            padding-top: 20px
+            padding-bottom: 20px
+            transform: rotate(-45deg)
+            &::before
+                content: ""
+                position: absolute
+                top: -300px
+                left: 50%
+                width: 1px
+                background: $grey-2
+                min-height: 200vh
+            li
+                position: relative
+                height: 30vh
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 100px
+                text-align: right
+                transition: .3s
+                transform: translateX(-10%) rotate(45deg)
+                opacity: 0
+
+                &:first-child
+                    h3
+                        margin: 0
+
+                &:nth-child(even)
+                    flex-direction: row-reverse
+                    h3,
+                    h3 div
+                        text-align: left
+                    .job
+                        text-align: right
+
+                &::before
+                    content: ""
+                    position: absolute
+                    top: 50%
+                    right: 50%
+                    width: 8px
+                    height: 8px
+                    border-radius: 50%
+                    background: $main
+                    transform: translate(50%,-50%)
+
+                h3
+                    width: 50%
+                    font-size: 28px
+                    font-weight: bold
+                    margin: -20px 0 0 0
+                    text-transform: uppercase
+                    color: $main
+
+                    > div
+                        font-weight: normal
+                        font-size: 20px
+                        letter-spacing: 1.3px
+                        color: $dark
+                .job
+                    font-size: 20px
+                    line-height: 25px
+                    width: 50%
+                    text-align: left
+                    margin-top: 40px
+
+                    p
+                        font-size: 16px
+                        color: $grey-1
+                        line-height: 28px
+
+                &.visible
+                    opacity: 1
+                    transform: translateX(0) rotate(45deg)
+
+// ============================================
+// project ==============================
+// ============================================
+.main.main-project,
+.main.main-wireframe
+    main
+        margin-top: 60px !important
+        margin-bottom: 30px
+        .container.container-side
+            width: 40%
+        .container
+            position: relative
+            display: grid
+            grid-template-columns: repeat(5, 1fr)
+            gap: 24px
+            width: 100%
+            padding: 20px 0
+            overflow-x: auto
+            overflow-y: hidden
+
+            .project
+                position: relative
+                width: fit-content
+                height: 100%
+                > a
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    z-index: 10
+
+                .project-img
+                    position: relative
+                    width: 100%
+                    padding: 4px
+                    border-radius: 32px
+                    overflow: hidden
+                    &::before
+                        content: ''
+                        position: absolute
+                        bottom: 12px
+                        left: 50%
+                        transform: translateX(-50%)
+                        background: $dark
+                        width: 40%
+                        height: 6px
+                        border-radius: 8px
+                    img
+                        width: 100%
+                        height: 100%
+                        object-fit: cover
+                        border-radius: 28px
+                        object-position: top
+
+                .project-content
+                    display: flex
+                    justify-content: flex-start
+                    align-items: flex-start
+                    column-gap: 16px
+                    margin-top: 20px
+                    .project-pic
+                        position: relative
+                        width: 28px
+                        height: 28px
+                        border-radius: 4px
+                        overflow: hidden
+                        box-shadow: 0 2px 8px $grey-2
+                        img
+                            position: absolute
+                            top: 0
+                            left: 0
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                    .project-detail
+                        width: calc( 100% - 25px )
+                        color: $dark
+                        > p
+                            font-size: 16px
+                            margin: 0
+                            padding: 0
+                            letter-spacing: $letterspace
+                            font-weight: 500
+                        > span
+                            width: 120px
+                            font-size: 14px
+                            line-height: 24px
+                            color: $grey-1
+                            letter-spacing: $letterspace
+                            text-overflow: ellipsis
+                            overflow: hidden
+                            white-space: nowrap
+        .container-side
+            display: inline-flex
+            flex-direction: column
+            width: calc( 100% - 80% - 20px )
+            height: 100%
+            .side-box
+                padding-left: 8px
+                margin-bottom: 16px
+                &.HOME
+                    padding: 0
+                .side-titel
+                    text-transform: capitalize
+                    margin-bottom: 8px
+                    letter-spacing: $letterspace
+                .side-container
+                    display: flex
+                    flex-direction: column
+                    padding-left: 8px
+                    gap: 4px
+                    li
+                        padding: 4px 0
+                        line-height: 20px
+                        color: $grey-1
+                        &::before
+                            content: ''
+                            display: inline-block
+                            width: 4px
+                            height: 2px
+                            background: $grey-1
+                            margin-right: 8px
+                            margin-bottom: 3px
+
+    // 每個project的版面控制
+    main.project-wrapper
+        .container-side
+            display: none
+
+        .tab
+            position: relative
+            margin: 8px 0
+            &::before
+                content: ''
+                position: absolute
+                bottom: 0
+                width: 100%
+                height: 1px
+                background: $grey-2
+            a.btn-tab
+                position: relative
+                &:hover,
+                &:active,
+                &:focus
+                    color: $dark
+
+        .container
+            flex-wrap: wrap
+            overflow: visible
+            .container-intro
+                grid-column: 1 / 3
+                font-size: 1.2rem
+                display: flex
+                flex-direction: column
+                align-items: flex-start
+                justify-content: center
+                img
+                    width: 35px
+                    height: 35px
+                    object-fit: contain
+                    border-radius: 4px
+                    margin-right: 8px
+                .intro
+                    position: relative
+                    line-height: 26px
+                    letter-spacing: 0.3px
+                    display: block
+                    color: $grey-1
+                    font-size: 17px
+                    padding: 20px 0px
+
+            .project
+                // width: 23%
+                .project-img
+                    box-shadow: inset 0 0 0 4px $dark
+                    padding: 3px
+                    img
+                        object-position: center
+                img.wireframe
+                    display: none
+
+.main.main-wireframe
+    main.project-wrapper
+        .container-side
+            position: absolute
+            display: flex
+            padding-top: 20px
+        .container-intro
+            display: none !important
+        .container
+            display: inline-flex
+            padding-left: 20%
+            .project
+                width: 22%
+                img
+                    display: none
+                img.wireframe
+                    display: block !important
+// =====================================
+body.mobile
+    .header_nav
+        justify-content: space-between
+        align-items: center
+        // border-bottom: 1px solid $grey-1
+        height: 50px
+        a.logo
+            max-width: 50px
+            height: 30px
+            img
+                aspect-ratio: 1/1
+
+        nav
+            position: relative
+            width: 35px
+            height: 35px
+            background: $main
+            border-radius: 100px
+            transition: all 0.2s linear
+            &::before,
+            &::after
+                content: ''
+                position: absolute
+                top: 37%
+                left: 50%
+                transform: translate(-50%, -50%)
+                width: 60%
+                height: 2.2px
+                background: $white
+                border-radius: 10px
+                z-index: 1
+            &::after
+                top: auto
+                bottom: 37%
+                width: 50%
+            .menu
+                display: none
+            &.active
+                background: $white
+                box-shadow: inset 0 0 0 1px $grey-2
+                &::before,
+                &::after
+                    background: $dark
+                .menu
+                    position: absolute
+                    top: 50px
+                    right: 3px
+                    width: auto
+                    min-height: 100px
+                    padding: 4px 16px
+                    border-radius: 8px
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    background: $white
+                    box-shadow: 0 0 0 1px rgba($grey-2, 0.5), 0 4px 10px rgba($grey-2, 0.8)
+                    a
+                        padding: 0
+                        width: 100%
+                        line-height: 45px
+
+    &.main
+        padding: 0 8px
+    .big-title
+        font-size: 24px
+    .second-title
+        font-size: 1rem
+    a.btn-default
+        font-size: 14px
+        padding: 4px 8px
+        line-height: 20px
+        letter-spacing: $letterspace
+        font-weight: 500
+
+    &.main.main-project,
+    &.main.main-wireframe
+        main
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            margin-top: 50px !important
+        .project-wrapper
+            .tab
+                display: flex
+                justify-content: center
+                align-items: center
+                width: 100%
+
+        .container
+            display: grid
+            justify-content: center
+            align-items: center
+            grid-template-columns: repeat(2, 50%)
+            gap: 16px 8px
+            .container-intro
+                display: flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                font-size: 24px
+                line-height: 32px
+                letter-spacing: $letterspace
+                font-weight: 600
+                gap: 16px
+                > img
+                    margin: 0
+                    border-radius: 20px
+                    width: 64px
+                    height: 64px
+                .intro
+                    display: none
+                a.btn
+                    margin-top: 35px
+            .project
+                width: 100%
+                padding: 4px
+                .project-img
+                    padding: 2px
+                    border-radius: 16px
+                    img
+                        border-radius: 14px
+                .project-content
+                    column-gap: 8px
+                    .project-detail
+                        p,
+                        span
+                            font-size: 14px
+                        span
+                            font-size: 12px
+    &.main.main-wireframe
+        .container-side,
+        .container-intro
+            display: none !important
+        .container
+            padding: 0 !important
+
+    footer
+        ul
+            gap: 16px
+            li
+                padding: 4px 8px
+                a
+                    line-height: 16px
+                    font-size: 14px

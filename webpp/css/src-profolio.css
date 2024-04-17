@@ -1,0 +1,876 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: "Urbanist", "Roboto", "SF Pro TC", "PingFang TC", "Noto Sans TC", "微軟正黑體";
+}
+
+a {
+  text-decoration: none;
+  color: #4C4C4C;
+}
+
+p, div {
+  padding: 0;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+body.main {
+  scroll-behavior: smooth;
+  width: 100vw;
+  overflow: hidden;
+  overflow-y: auto;
+  padding: 0 40px;
+}
+body.main .header_nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  height: 60px;
+  gap: 0 40px;
+  backdrop-filter: blur(10px) opacity(90%);
+  -webkit-backdrop-filter: blur(10px) opacity(90%);
+  z-index: 1000;
+}
+body.main .header_nav:has(.logo) {
+  padding: 0px 8px;
+  align-items: center;
+}
+body.main .header_nav > a.logo {
+  position: relative;
+  max-width: 130px;
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+}
+body.main .header_nav > a.logo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+body.main .header_nav nav {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+body.main .header_nav nav::before {
+  content: "";
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: #4C4C4C;
+  z-index: -1;
+}
+body.main .header_nav nav .menu {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 50px;
+  width: 20%;
+}
+body.main .header_nav nav .menu a {
+  position: relative;
+  padding: 4px 8px;
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  white-space: nowrap;
+  color: #4C4C4C;
+  border-radius: 10px;
+  text-transform: capitalize;
+  line-height: 25px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+body.main .header_nav nav .menu a:hover {
+  background: #EBEBEB;
+}
+body.main .header_nav nav .menu a .contact-menu {
+  position: absolute;
+}
+body.main main {
+  position: relative;
+  margin-top: 100px;
+}
+body.main main .logoBox {
+  position: absolute;
+  left: 80px;
+  top: -50px;
+  z-index: 2;
+}
+body.main main .logoBox img {
+  width: 250px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+body.main main .logoBox .slogan {
+  font-size: 1.8rem;
+  margin-top: -30px;
+  letter-spacing: 2.2px;
+  white-space: nowrap;
+  color: #808080;
+  font-family: "Playfair Display", serif;
+  line-height: 35px;
+}
+body.main main .logoBox .slogan:last-child {
+  margin-top: 8px;
+  margin-left: 100px;
+}
+body.main main .carouselBox {
+  margin: 80px auto 0 400px;
+  padding: 60px 0;
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 30px;
+  user-select: none;
+}
+body.main main .carouselBox .carousel {
+  width: 30%;
+}
+body.main main .carouselBox .carousel-inner {
+  border-radius: 30px;
+  background: #EBEBEB;
+  padding: 4px;
+}
+body.main main .carouselBox .carousel-inner .carousel-item {
+  aspect-ratio: 9/16;
+}
+body.main main .carouselBox .carousel-inner .carousel-item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  object-position: top;
+}
+body.main .big-title {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.016em;
+  color: #4C4C4C;
+  text-transform: uppercase;
+  padding: 8px 0;
+  z-index: 100;
+}
+body.main .big-title a.icon {
+  position: absolute;
+  transform: translateX(-40px) scale(0.7);
+}
+body.main .second-title {
+  position: relative;
+  font-size: 1.5rem;
+  padding: 16px 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  color: #808080;
+  z-index: 100;
+}
+body.main .second-title::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #EBEBEB;
+}
+body.main a.btn-default {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #EBEBEB;
+  color: #4C4C4C;
+  text-transform: capitalize;
+  font-weight: normal;
+  font-size: 16px;
+  letter-spacing: 0.003em;
+}
+body.main a.btn-default:hover, body.main a.btn-default:focus, body.main a.btn-default:active {
+  background: #ff0909;
+  color: #fff;
+}
+body.main .btn-tab {
+  padding: 8px 16px;
+  color: #808080;
+  font-weight: 400;
+}
+body.main .btn-tab:hover, body.main .btn-tab:focus, body.main .btn-tab:active {
+  color: #4C4C4C;
+  box-shadow: inset 0 -2px 0 #4C4C4C;
+}
+body.main footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 40px;
+  backdrop-filter: blur(10px) opacity(90%);
+  -webkit-backdrop-filter: blur(10px) opacity(90%);
+  padding: 8px 40px;
+  z-index: 1000;
+}
+body.main footer ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+body.main footer ul li {
+  width: fit-content;
+  border-radius: 4px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  letter-spacing: 1.2px;
+  color: #4C4C4C;
+  transition: 0.3s linear;
+  cursor: pointer;
+}
+body.main footer ul li:hover a {
+  color: #ff0909;
+}
+
+.main-about {
+  width: 100%;
+  margin: 8px 0;
+}
+.main-about .about-box {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  gap: 20px;
+}
+.main-about .about-box .main-box {
+  display: inline-block;
+  width: 50%;
+}
+.main-about .about-box .main-box h3 {
+  font-size: 2rem;
+  white-space: nowrap;
+  margin: 0;
+  text-align: right;
+}
+.main-about .about-box .main-box .tool-list {
+  display: inline-flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 16px 0;
+}
+.main-about .about-box .main-box .tool-list .badge {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  margin: 8px;
+  filter: drop-shadow(0px 4px 4px rgba(235, 235, 235, 0.4));
+}
+.main-about .about-box .main-box .tool-list .badge.vscode {
+  background: url("../library/img-common/img-main/icon/vscode.png") center no-repeat;
+  background-size: contain;
+}
+.main-about .about-box .main-box .tool-list .badge.illustrator {
+  background: url("../library/img-common/img-main/icon/illustrator.png") center no-repeat;
+  background-size: contain;
+}
+.main-about .about-box .main-box .tool-list .badge.photoshop {
+  background: url("../library/img-common/img-main/icon/photoshop.png") center no-repeat;
+  background-size: contain;
+}
+.main-about .about-box .main-box .tool-list .badge.github {
+  background: url("../library/img-common/img-main/icon/github.png") center no-repeat;
+  background-size: contain;
+}
+.main-about .about-box .main-box .tool-list .badge.figma {
+  background: url("../library/img-common/img-main/icon/figma.png") center no-repeat;
+  background-size: contain;
+}
+.main-about .about-box .progeress-box {
+  display: inline-flex;
+  width: 50%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px 0;
+}
+.main-about .about-box .progeress-box .progress {
+  position: relative;
+  background: transparent;
+  width: 100%;
+  margin: 4px 0;
+}
+.main-about .about-box .progeress-box .progress .progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffb43e;
+  border-radius: 50px;
+}
+.main-about .about-box .progeress-box .progress.HTML .progress-bar {
+  background: #e5532f;
+}
+.main-about .about-box .progeress-box .progress.SASS .progress-bar {
+  background: #d56fa4;
+}
+.main-about .about-box .progeress-box .progress.JS .progress-bar {
+  background: #67ac20;
+}
+.main-about .about-box .progeress-box .progress.ILLUSTRATOR .progress-bar {
+  background: #ff9a00;
+}
+.main-about .about-box .progeress-box .progress.PHOTOSHOP .progress-bar {
+  background: #31a8ff;
+}
+.main-about .about-box .progeress-box .progress[data-percentage="60"] .progress-bar {
+  width: 60%;
+}
+.main-about .about-box .progeress-box .progress[data-percentage="77"] .progress-bar {
+  width: 77%;
+}
+.main-about .about-box .progeress-box .progress[data-percentage="80"] .progress-bar {
+  width: 80%;
+}
+.main-about .about-box .progeress-box .progress[data-percentage="83"] .progress-bar {
+  width: 83%;
+}
+.main-about .about-box .progeress-box .progress[data-percentage="88"] .progress-bar {
+  width: 88%;
+}
+.main-about .about-box .progeress-box .progress .progress-value {
+  position: relative;
+  width: 100%;
+  padding-left: 8px;
+  font-size: 16px;
+  color: #fff;
+  z-index: 1;
+}
+.main-about .about-box .progeress-box .progress .progress-value span {
+  text-transform: uppercase;
+}
+.main-about .container {
+  max-width: 900px;
+}
+.main-about .container .timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transform: rotate(-45deg);
+}
+.main-about .container .timeline::before {
+  content: "";
+  position: absolute;
+  top: -300px;
+  left: 50%;
+  width: 1px;
+  background: #EBEBEB;
+  min-height: 200vh;
+}
+.main-about .container .timeline li {
+  position: relative;
+  height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  text-align: right;
+  transition: 0.3s;
+  transform: translateX(-10%) rotate(45deg);
+  opacity: 0;
+}
+.main-about .container .timeline li:first-child h3 {
+  margin: 0;
+}
+.main-about .container .timeline li:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.main-about .container .timeline li:nth-child(even) h3,
+.main-about .container .timeline li:nth-child(even) h3 div {
+  text-align: left;
+}
+.main-about .container .timeline li:nth-child(even) .job {
+  text-align: right;
+}
+.main-about .container .timeline li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff0909;
+  transform: translate(50%, -50%);
+}
+.main-about .container .timeline li h3 {
+  width: 50%;
+  font-size: 28px;
+  font-weight: bold;
+  margin: -20px 0 0 0;
+  text-transform: uppercase;
+  color: #ff0909;
+}
+.main-about .container .timeline li h3 > div {
+  font-weight: normal;
+  font-size: 20px;
+  letter-spacing: 1.3px;
+  color: #4C4C4C;
+}
+.main-about .container .timeline li .job {
+  font-size: 20px;
+  line-height: 25px;
+  width: 50%;
+  text-align: left;
+  margin-top: 40px;
+}
+.main-about .container .timeline li .job p {
+  font-size: 16px;
+  color: #808080;
+  line-height: 28px;
+}
+.main-about .container .timeline li.visible {
+  opacity: 1;
+  transform: translateX(0) rotate(45deg);
+}
+
+.main.main-project main,
+.main.main-wireframe main {
+  margin-top: 60px !important;
+  margin-bottom: 30px;
+}
+.main.main-project main .container.container-side,
+.main.main-wireframe main .container.container-side {
+  width: 40%;
+}
+.main.main-project main .container,
+.main.main-wireframe main .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  width: 100%;
+  padding: 20px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.main.main-project main .container .project,
+.main.main-wireframe main .container .project {
+  position: relative;
+  width: fit-content;
+  height: 100%;
+}
+.main.main-project main .container .project > a,
+.main.main-wireframe main .container .project > a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.main.main-project main .container .project .project-img,
+.main.main-wireframe main .container .project .project-img {
+  position: relative;
+  width: 100%;
+  padding: 4px;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.main.main-project main .container .project .project-img::before,
+.main.main-wireframe main .container .project .project-img::before {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4C4C4C;
+  width: 40%;
+  height: 6px;
+  border-radius: 8px;
+}
+.main.main-project main .container .project .project-img img,
+.main.main-wireframe main .container .project .project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 28px;
+  object-position: top;
+}
+.main.main-project main .container .project .project-content,
+.main.main-wireframe main .container .project .project-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 16px;
+  margin-top: 20px;
+}
+.main.main-project main .container .project .project-content .project-pic,
+.main.main-wireframe main .container .project .project-content .project-pic {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px #EBEBEB;
+}
+.main.main-project main .container .project .project-content .project-pic img,
+.main.main-wireframe main .container .project .project-content .project-pic img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.main.main-project main .container .project .project-content .project-detail,
+.main.main-wireframe main .container .project .project-content .project-detail {
+  width: calc(100% - 25px);
+  color: #4C4C4C;
+}
+.main.main-project main .container .project .project-content .project-detail > p,
+.main.main-wireframe main .container .project .project-content .project-detail > p {
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.016em;
+  font-weight: 500;
+}
+.main.main-project main .container .project .project-content .project-detail > span,
+.main.main-wireframe main .container .project .project-content .project-detail > span {
+  width: 120px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #808080;
+  letter-spacing: 0.016em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.main.main-project main .container-side,
+.main.main-wireframe main .container-side {
+  display: inline-flex;
+  flex-direction: column;
+  width: calc(20% - 20px);
+  height: 100%;
+}
+.main.main-project main .container-side .side-box,
+.main.main-wireframe main .container-side .side-box {
+  padding-left: 8px;
+  margin-bottom: 16px;
+}
+.main.main-project main .container-side .side-box.HOME,
+.main.main-wireframe main .container-side .side-box.HOME {
+  padding: 0;
+}
+.main.main-project main .container-side .side-box .side-titel,
+.main.main-wireframe main .container-side .side-box .side-titel {
+  text-transform: capitalize;
+  margin-bottom: 8px;
+  letter-spacing: 0.016em;
+}
+.main.main-project main .container-side .side-box .side-container,
+.main.main-wireframe main .container-side .side-box .side-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 8px;
+  gap: 4px;
+}
+.main.main-project main .container-side .side-box .side-container li,
+.main.main-wireframe main .container-side .side-box .side-container li {
+  padding: 4px 0;
+  line-height: 20px;
+  color: #808080;
+}
+.main.main-project main .container-side .side-box .side-container li::before,
+.main.main-wireframe main .container-side .side-box .side-container li::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 2px;
+  background: #808080;
+  margin-right: 8px;
+  margin-bottom: 3px;
+}
+.main.main-project main.project-wrapper .container-side,
+.main.main-wireframe main.project-wrapper .container-side {
+  display: none;
+}
+.main.main-project main.project-wrapper .tab,
+.main.main-wireframe main.project-wrapper .tab {
+  position: relative;
+  margin: 8px 0;
+}
+.main.main-project main.project-wrapper .tab::before,
+.main.main-wireframe main.project-wrapper .tab::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: #EBEBEB;
+}
+.main.main-project main.project-wrapper .tab a.btn-tab,
+.main.main-wireframe main.project-wrapper .tab a.btn-tab {
+  position: relative;
+}
+.main.main-project main.project-wrapper .tab a.btn-tab:hover, .main.main-project main.project-wrapper .tab a.btn-tab:active, .main.main-project main.project-wrapper .tab a.btn-tab:focus,
+.main.main-wireframe main.project-wrapper .tab a.btn-tab:hover,
+.main.main-wireframe main.project-wrapper .tab a.btn-tab:active,
+.main.main-wireframe main.project-wrapper .tab a.btn-tab:focus {
+  color: #4C4C4C;
+}
+.main.main-project main.project-wrapper .container,
+.main.main-wireframe main.project-wrapper .container {
+  flex-wrap: wrap;
+  overflow: visible;
+}
+.main.main-project main.project-wrapper .container .container-intro,
+.main.main-wireframe main.project-wrapper .container .container-intro {
+  grid-column: 1/3;
+  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.main.main-project main.project-wrapper .container .container-intro img,
+.main.main-wireframe main.project-wrapper .container .container-intro img {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-right: 8px;
+}
+.main.main-project main.project-wrapper .container .container-intro .intro,
+.main.main-wireframe main.project-wrapper .container .container-intro .intro {
+  position: relative;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  display: block;
+  color: #808080;
+  font-size: 17px;
+  padding: 20px 0px;
+}
+.main.main-project main.project-wrapper .container .project .project-img,
+.main.main-wireframe main.project-wrapper .container .project .project-img {
+  box-shadow: inset 0 0 0 4px #4C4C4C;
+  padding: 3px;
+}
+.main.main-project main.project-wrapper .container .project .project-img img,
+.main.main-wireframe main.project-wrapper .container .project .project-img img {
+  object-position: center;
+}
+.main.main-project main.project-wrapper .container .project img.wireframe,
+.main.main-wireframe main.project-wrapper .container .project img.wireframe {
+  display: none;
+}
+
+.main.main-wireframe main.project-wrapper .container-side {
+  position: absolute;
+  display: flex;
+  padding-top: 20px;
+}
+.main.main-wireframe main.project-wrapper .container-intro {
+  display: none !important;
+}
+.main.main-wireframe main.project-wrapper .container {
+  display: inline-flex;
+  padding-left: 20%;
+}
+.main.main-wireframe main.project-wrapper .container .project {
+  width: 22%;
+}
+.main.main-wireframe main.project-wrapper .container .project img {
+  display: none;
+}
+.main.main-wireframe main.project-wrapper .container .project img.wireframe {
+  display: block !important;
+}
+
+body.mobile .header_nav {
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+}
+body.mobile .header_nav a.logo {
+  max-width: 50px;
+  height: 30px;
+}
+body.mobile .header_nav a.logo img {
+  aspect-ratio: 1/1;
+}
+body.mobile .header_nav nav {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  background: #ff0909;
+  border-radius: 100px;
+  transition: all 0.2s linear;
+}
+body.mobile .header_nav nav::before, body.mobile .header_nav nav::after {
+  content: "";
+  position: absolute;
+  top: 37%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 2.2px;
+  background: #fff;
+  border-radius: 10px;
+  z-index: 1;
+}
+body.mobile .header_nav nav::after {
+  top: auto;
+  bottom: 37%;
+  width: 50%;
+}
+body.mobile .header_nav nav .menu {
+  display: none;
+}
+body.mobile .header_nav nav.active {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #EBEBEB;
+}
+body.mobile .header_nav nav.active::before, body.mobile .header_nav nav.active::after {
+  background: #4C4C4C;
+}
+body.mobile .header_nav nav.active .menu {
+  position: absolute;
+  top: 50px;
+  right: 3px;
+  width: auto;
+  min-height: 100px;
+  padding: 4px 16px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(235, 235, 235, 0.5), 0 4px 10px rgba(235, 235, 235, 0.8);
+}
+body.mobile .header_nav nav.active .menu a {
+  padding: 0;
+  width: 100%;
+  line-height: 45px;
+}
+body.mobile.main {
+  padding: 0 8px;
+}
+body.mobile .big-title {
+  font-size: 24px;
+}
+body.mobile .second-title {
+  font-size: 1rem;
+}
+body.mobile a.btn-default {
+  font-size: 14px;
+  padding: 4px 8px;
+  line-height: 20px;
+  letter-spacing: 0.016em;
+  font-weight: 500;
+}
+body.mobile.main.main-project main, body.mobile.main.main-wireframe main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px !important;
+}
+body.mobile.main.main-project .project-wrapper .tab, body.mobile.main.main-wireframe .project-wrapper .tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+body.mobile.main.main-project .container, body.mobile.main.main-wireframe .container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(2, 50%);
+  gap: 16px 8px;
+}
+body.mobile.main.main-project .container .container-intro, body.mobile.main.main-wireframe .container .container-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.016em;
+  font-weight: 600;
+  gap: 16px;
+}
+body.mobile.main.main-project .container .container-intro > img, body.mobile.main.main-wireframe .container .container-intro > img {
+  margin: 0;
+  border-radius: 20px;
+  width: 64px;
+  height: 64px;
+}
+body.mobile.main.main-project .container .container-intro .intro, body.mobile.main.main-wireframe .container .container-intro .intro {
+  display: none;
+}
+body.mobile.main.main-project .container .container-intro a.btn, body.mobile.main.main-wireframe .container .container-intro a.btn {
+  margin-top: 35px;
+}
+body.mobile.main.main-project .container .project, body.mobile.main.main-wireframe .container .project {
+  width: 100%;
+  padding: 4px;
+}
+body.mobile.main.main-project .container .project .project-img, body.mobile.main.main-wireframe .container .project .project-img {
+  padding: 2px;
+  border-radius: 16px;
+}
+body.mobile.main.main-project .container .project .project-img img, body.mobile.main.main-wireframe .container .project .project-img img {
+  border-radius: 14px;
+}
+body.mobile.main.main-project .container .project .project-content, body.mobile.main.main-wireframe .container .project .project-content {
+  column-gap: 8px;
+}
+body.mobile.main.main-project .container .project .project-content .project-detail p,
+body.mobile.main.main-project .container .project .project-content .project-detail span, body.mobile.main.main-wireframe .container .project .project-content .project-detail p,
+body.mobile.main.main-wireframe .container .project .project-content .project-detail span {
+  font-size: 14px;
+}
+body.mobile.main.main-project .container .project .project-content .project-detail span, body.mobile.main.main-wireframe .container .project .project-content .project-detail span {
+  font-size: 12px;
+}
+body.mobile.main.main-wireframe .container-side,
+body.mobile.main.main-wireframe .container-intro {
+  display: none !important;
+}
+body.mobile.main.main-wireframe .container {
+  padding: 0 !important;
+}
+body.mobile footer ul {
+  gap: 16px;
+}
+body.mobile footer ul li {
+  padding: 4px 8px;
+}
+body.mobile footer ul li a {
+  line-height: 16px;
+  font-size: 14px;
+}

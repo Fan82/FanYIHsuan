@@ -1,0 +1,884 @@
+$white: #fff
+$dark: #4C4C4C
+$grey-1: #808080
+$grey-2: #EBEBEB
+$main: #FF2A2A
+
+body.main
+    scroll-behavior: smooth
+    width: 100vw
+    overflow: hidden
+    overflow-y: auto
+    background: $white
+    .header_nav
+        position: fixed
+        width: 100%
+        top: 0
+        left: 0
+        display: flex
+        justify-content: flex-start
+        height: 60px
+        gap: 0 40px
+        background: $white
+        z-index: 1000
+        &:has(.logo)
+            background: $white
+            padding: 0px 10px
+            align-items: center
+        > a.logo
+            position: relative
+            height: 55px
+            aspect-ratio: 1/1
+            cursor: pointer
+            border-radius: 10px
+            overflow: hidden
+            img
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                object-fit: cover
+        nav
+            padding: 10px 0
+            width: 100%
+            display: inline-flex
+            align-items: center
+            justify-content: center
+            &::before
+                content: ''
+                position: relative
+                width: 100%
+                height: 1px
+                background: $main
+                z-index: -1
+            .menu
+                display: flex
+                justify-content: space-around
+                align-items: center
+                border-radius: 50px
+                padding: 3px
+                height: 100%
+                width: 20%
+                a
+                    position: relative
+                    padding: 5px 10px
+                    width: auto
+                    height: 100%
+                    text-align: center
+                    white-space: nowrap
+                    color: $grey-2
+                    text-transform: uppercase
+                    line-height: 25px
+                    transition: 0.2s ease-in-out
+                a.link
+                    &::before
+                        content: ''
+                        position: absolute
+                        display: inline-block
+                        top: 50%
+                        left: -5px
+                        transform: translateY(-50%)
+                        margin: 0
+                        opacity: 0
+                        width: 10px
+                        height: 10px
+                        background: #ff9811
+                        border-radius: 20px
+                        transition: 0.2s ease-in
+
+                    &:hover,
+                    &:focus
+                        &::before
+                            opacity: 1
+                .contact-menu
+                    position: absolute
+                    top: 50px
+                    right: 30px
+                    width: auto
+                    display: none
+                    justify-content: center
+                    align-items: center
+                    gap: 20px
+                    transition: all 0.2s linear
+                    &.show
+                        display: flex
+                    li
+                        width: 40px
+                        height: 40px
+                        background: $main
+                        line-height: 40px
+                        border-radius: 20px
+                        text-align: center
+                        &:hover
+                            background: #ff9811
+                            box-shadow: 0 0 30px #ffdc9b
+
+                        a
+                            width: 100%
+                            height: 100%
+                            padding: 0
+                            border-radius: 100px
+                            line-height: 50px
+                            font-size: 23px
+                            color: $white
+
+    main
+        position: relative
+        height: 100vh
+        > img
+            position: absolute
+            top: 20vh
+            left: 20vh
+            width: 230px
+            aspect-ratio: 1/1
+            object-fit: contain
+            z-index: 3
+        .maintitle
+            position: absolute
+            right: 50%
+            bottom: -200px
+            line-height: 1
+            display: flex
+            justify-content: space-between
+            align-items: center
+            font-size: 34rem
+            letter-spacing: 100px
+            color: #ffffff62
+            transform: translate(50%, -50%)
+            font-weight: bolder
+            font-family: 'Josefin Sans' ,"calibri", "Roboto", "SF Pro TC", "PingFang TC", "Noto Sans TC", "微軟正黑體"
+            z-index: 2
+            user-select: none
+            cursor: none
+            &::before
+                content: ''
+                position: absolute
+                right: -30px
+                bottom: 30px
+                width: 80px
+                height: 80px
+                border-radius: 100px
+                background: #fff
+        .img-box
+            position: absolute
+            left: 0
+            top: 40vh
+            width: 100%
+            z-index: 1
+        .main-p
+            position: absolute
+            right: 15%
+            top: -160px
+            line-height: 120px
+            writing-mode: vertical-rl
+            font-size: 3rem
+            z-index: 2
+            > div
+                margin-top: 50px
+        .imgbg
+            background: $grey-1
+            width: 100%
+            min-height: 400px
+        // h2,
+        // .main-p
+        //     position: absolute
+        //     right: 50%
+        //     transform: translate(50%, -50%)
+        //     color: $main
+        //     animation: tracking-in-expand 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) both
+        //     z-index: 2
+        //     transition: all 0.2s linear
+        //     white-space: nowrap
+        //     div
+        //         display: inline-block
+        //         font-size: 10rem
+        // h2
+        //     top: 26%
+        //     font-size: 12rem
+        // h2:last-of-type
+        //     top: calc( 30% + 12rem )
+        // .main-p
+        //     font-size: 20px
+        //     top: calc( 28% + 7rem )
+        //     font-style: italic
+        //     font-weight: normal
+        //     user-select: none
+        //     pointer-events: none
+
+        a.btn-default
+            // background: $grey-1
+            padding: 10px 20px
+            border-radius: 8px
+            color: $main
+            font-weight: normal
+            &.primary
+                position: absolute
+                top: calc( 30% + 22rem )
+                left: 50%
+                transform: translate(-50%, -50%)
+                border-radius: 100px
+                background: #ff9811
+                font-size: 30px
+                color: $white
+                display: flex
+                justify-content: space-between
+                align-items: center
+                transition: 0.2s linear
+                z-index: 10
+                &:hover
+                    box-shadow: 0 0 30px #ffdc9b
+
+                small
+                    color: $white
+                    font-size: initial
+                    margin-top: 8px
+                    animation: bounce-in-top 1.4s infinite both
+// ============================================
+// 關於 ==============================
+// ============================================
+main.main-about
+    // .header_nav
+    //     nav
+    //         &::before
+    //             width: 70%
+    //         .menu
+    //             width: 30%
+
+        // display: flex
+        // justify-content: space-between
+    .tltle
+        position: relative
+        display: block
+        text-align: center
+        width: 100%
+        font-size: 20px
+        color: $grey-2
+        text-transform: uppercase
+        margin: 20px 0
+        &::before
+            content: ''
+            position: absolute
+            bottom: -20%
+            left: 50%
+            transform: translate(-50%, -50%)
+            width: 30px
+            height: 1px
+            background: #ff9811
+    .main-box.experience
+        width: 100%
+        .job-list
+            display: inline-flex
+            justify-content: space-between
+            margin-top: 30px
+            width: 100%
+            li
+                width: 100%
+                &:first-child
+                    .time
+                        justify-content: space-between
+                        &::before
+                            width: 55%
+                            right: 55px
+                            left: auto
+
+                .time
+                    position: relative
+                    width: 100%
+                    display: flex
+                    align-items: center
+                    justify-content: flex-end
+                    font-size: 18px
+                    .line
+                        width: 75%
+                        height: 2px
+                        background: #ff9811
+                        border-radius: 50px
+
+                    p
+                        position: relative
+                        padding: 0 10px
+                        display: inline-block
+                        &::before
+                            content: ''
+                            position: absolute
+                            bottom: -10px
+                            left: 50%
+                            transform: translateX(-50%)
+                            width: 5px
+                            height: 5px
+                            background: #ff9811
+                            border-radius: 50px
+                .job
+                    margin-top: 10px
+                    width: 100%
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    justify-content: center
+                    font-size: 20px
+                    white-space: nowrap
+                    > p
+                        font-size: 14px
+                        white-space: pre-line
+                    .job-title
+                        line-height: 40px
+                    .company
+                        font-size: 14px
+                        color: $grey-2
+                        font-style: italic
+    .about-box
+        width: 100%
+        height: 50%
+        > img
+            position: absolute
+            left: 0
+            width: 30%
+            aspect-ratio: 1/1
+            object-fit: contain
+            user-select: none
+            z-index: -1
+        .main-box
+            display: inline-block
+            width: 100%
+            height: 33.33%
+            padding: 0 0 0 28%
+            h3
+                font-size: 2rem
+                white-space: nowrap
+                margin: 0
+                text-align: left
+            .secdond-title
+                font-size: 22px
+                text-align: left
+                color: $grey-2
+                line-height: 50px
+
+            .progress-title
+                margin: 5px 0
+                text-transform: uppercase
+                position: relative
+            .row
+                display: inline-flex
+                width: 100%
+                justify-content: center
+                align-items: center
+                flex-wrap: wrap
+                margin: 20px 0
+            .skill-box
+                display: flex
+                justify-content: space-between
+                align-items: center
+            .progress
+                position: relative
+                width: 100px
+                height: 100px
+                line-height: 100px
+                background: none
+                margin: 0 20px
+                box-shadow: none
+                &.HTML
+                    .progress-bar
+                        border-color: #e5532f
+                &.SASS
+                    .progress-bar
+                        border-color: #d56fa4
+                &.JS
+                    .progress-bar
+                        border-color: #67ac20
+                &.ILLUSTRATOR
+                    .progress-bar
+                        border-color: #ff9a00
+                &.PHOTOSHOP
+                    .progress-bar
+                        border-color: #31a8ff
+                &:after
+                    content: ""
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    border-radius: 50%
+                    border: 5px solid $grey-1
+
+                > span
+                    position: absolute
+                    top: 0
+                    width: 50%
+                    height: 100%
+                    overflow: hidden
+                    z-index: 1
+
+                .progress-bar
+                    width: 100%
+                    height: 100%
+                    background: none
+                    border-width: 5px
+                    border-style: solid
+                    position: absolute
+                    top: 0
+                    border-color: #ffb43e
+
+                .progress-left
+                    left: 0
+                    .progress-bar
+                        left: 100%
+                        border-top-right-radius: 50px
+                        border-bottom-right-radius: 50px
+                        border-left: 0
+                        transform-origin: center left
+
+                .progress-right
+                    right: 0
+                    .progress-bar
+                        left: -100%
+                        border-top-left-radius: 50px
+                        border-bottom-left-radius: 50px
+                        border-right: 0
+                        transform-origin: center right
+
+                .progress-value
+                    display: flex
+                    border-radius: 50%
+                    font-size: 20px
+                    text-align: center
+                    flex-direction: column
+                    line-height: 20px
+                    align-items: center
+                    justify-content: center
+                    height: 100%
+                    font-weight: 300
+                    width: 100%
+                    div
+                        margin-top: 10px
+                        font-weight: 700
+                    span
+                        font-size: 10px
+                        text-transform: uppercase
+
+                &[data-percentage="60"]
+                    .progress-right
+                        .progress-bar
+                            animation: loading-5 1.5s linear forwards
+                    .progress-left
+                        .progress-bar
+                            animation: loading-1 1.5s linear forwards 1.5s
+                &[data-percentage="70"]
+                    .progress-right
+                        .progress-bar
+                            animation: loading-5 1.5s linear forwards
+                    .progress-left
+                        .progress-bar
+                            animation: loading-2 1.5s linear forwards 1.5s
+                &[data-percentage="80"]
+                    .progress-right
+                        .progress-bar
+                            animation: loading-5 1.5s linear forwards
+                    .progress-left
+                        .progress-bar
+                            animation: loading-3 1.5s linear forwards 1.5s
+                &[data-percentage="85"]
+                    .progress-right
+                        .progress-bar
+                            animation: loading-5 1.5s linear forwards
+                    .progress-left
+                        .progress-bar
+                            animation: loading-4 1.5s linear forwards 1.5s
+            .tool-list
+                display: inline-flex
+                width: 100%
+                justify-content: flex-start
+                align-items: center
+                flex-wrap: wrap
+                padding: 10px 0
+                .badge
+                    display: inline-block
+                    width: 45px
+                    height: 45px
+                    margin: 10px
+                    filter: drop-shadow(0px 5px 5px rgba($grey-2, 0.4 ))
+                    &.vscode
+                        background: url("../library/img-common/img-main/icon/vscode.png") center no-repeat
+                        background-size: contain
+                    &.illustrator
+                        background: url("../library/img-common/img-main/icon/illustrator.png") center no-repeat
+                        background-size: contain
+                    &.photoshop
+                        background: url("../library/img-common/img-main/icon/photoshop.png") center no-repeat
+                        background-size: contain
+                    &.github
+                        background: url("../library/img-common/img-main/icon/github.png") center no-repeat
+                        background-size: contain
+                    &.figma
+                        background: url("../library/img-common/img-main/icon/figma.png") center no-repeat
+                        background-size: contain
+
+// ============================================
+// project ==============================
+// ============================================
+.main.main-project,
+.main.main-wireframe
+    .header_nav
+        nav
+            &::before
+                width: 70%
+            .menu
+                width: 30%
+    main
+        padding: 60px 20px 30px 20px
+        overflow-y: auto
+        overflow-x: hidden
+        &::before,
+        &::after
+            display: none
+        .container.container-title
+            padding-bottom: 0
+            font-size: 20px
+            font-weight: 900
+        .container.container-side
+            width: 40%
+        .container
+            position: relative
+            display: flex
+            justify-content: flex-start
+            align-items: center
+            flex-direction: row
+            gap: 30px
+            width: 100%
+            padding-top: 10px
+            padding-bottom: 50px
+            padding-right: 0
+            padding-left: 0
+            overflow-x: auto
+            overflow-y: hidden
+
+            .project
+                position: relative
+                width: fit-content
+                min-width: 20%
+                height: 100%
+                > a
+                    position: absolute
+                    width: 100%
+                    height: 100%
+                    border-radius: 25px
+                    z-index: 10
+
+                .project-img
+                    position: relative
+                    background: $grey-1
+                    width: 100%
+                    padding: 10px
+                    border-radius: 32px
+                    overflow: hidden
+                    img
+                        width: 100%
+                        height: 100%
+                        object-fit: cover
+                        border-radius: 26px
+                        max-height: 450px
+                        object-position: top
+
+                .project-content
+                    display: flex
+                    justify-content: flex-start
+                    align-items: center
+                    column-gap: 10px
+                    margin-top: 20px
+                    .project-pic
+                        position: relative
+                        width: 50px
+                        height: 50px
+                        border-radius: 10px
+                        overflow: hidden
+                        img
+                            position: absolute
+                            top: 0
+                            left: 0
+                            width: 100%
+                            height: 100%
+                            object-fit: cover
+                    .project-detail
+                        width: calc( 100% - 50px )
+                        > p
+                            font-size: 15px
+                            color: $dark
+                            margin: 0
+                            padding: 0
+                        > span
+                            font-size: 12px
+                            color: $grey-2
+        .container-side
+            display: inline-flex
+            flex-direction: column
+            width: calc( 100% - 80% - 20px )
+            height: 100%
+            .side-box
+                padding-left: 10px
+                &.HOME
+                    padding: 0
+                .side-titel
+                    font-weight: 800
+                    text-transform: capitalize
+                    margin-bottom: 10px
+                .side-container
+                    display: flex
+                    flex-direction: column
+                    padding-left: 10px
+                    li
+                        padding: 5px 0
+                        line-height: 20px
+                        &::before
+                            content: ''
+                            display: inline-block
+                            width: 5px
+                            height: 2px
+                            background: rgba($grey-2 , 0.8 )
+                            margin-right: 8px
+                            margin-bottom: 3px
+
+    // 每個project的版面控制
+    main.project-wrapper
+        // padding: 40px
+        .container-title
+            margin: 0
+            gap: 0
+            a.icon
+                color: $dark
+                width: 40px
+                height: 40px
+                display: inline-flex
+                justify-content: center
+                align-items: center
+        .container-side
+            display: none
+
+        .tab
+            position: relative
+            margin: 10px 0
+            &::before
+                content: ''
+                position: absolute
+                bottom: 0
+                width: 100%
+                height: 1px
+                background: rgba($main ,0.3 )
+            a
+                position: relative
+                &::before
+                    opacity: 0
+                    content: ''
+                    position: absolute
+                    bottom: 0
+                    left: 0
+                    width: 100%
+                    height: 1px
+                    background: rgba($main ,0.3 )
+                &:focus,
+                &:hover
+                    color: $grey-2
+                    &::before
+                        opacity: 1
+                        background: $grey-2
+
+        .container
+            flex-wrap: wrap
+            overflow: visible
+            &:not(.container-title)
+                gap: 20px
+                padding-top: 20px
+                justify-content: space-between
+
+            .container-intro
+                width: 46.5%
+                padding-left: 0px
+                font-weight: 700
+                a.btn-default
+                    background: $grey-1
+                    margin-right: 10px
+                    margin-top: 10px
+                    transition: all 0.1s linear
+                    &:last-child
+                        color: $white
+                        background: #ff9811
+                        &:hover
+                            background: #f08902
+                    &:hover
+                        background: $grey-2
+                img
+                    width: 35px
+                    height: 35px
+                    object-fit: contain
+                    border-radius: 5px
+                    margin-right: 10px
+                .intro
+                    position: relative
+                    line-height: 24px
+                    font-weight: normal
+                    display: block
+                    color: $grey-2
+                    padding-left: 20px
+                    margin: 20px 0
+                    &::before
+                        content: ''
+                        position: absolute
+                        left: 5px
+                        width: 5px
+                        height: 100%
+                        background: $grey-1
+
+            .project
+                width: 20%
+                img.wireframe
+                    display: none
+
+.main.main-wireframe
+    main.project-wrapper
+        .container
+            &:not(.container-title)
+                gap: 30px
+                vertical-align: top
+        .container-side
+            display: inline-flex
+            padding-top: 20px
+        .container-side ~ .container
+            width: 80%
+            display: inline-flex
+        .container-intro
+            display: none
+        .project
+            img
+                display: none
+            img.wireframe
+                display: block !important
+// =====================================
+body.mobile
+    .header_nav
+        nav
+            &::before
+                position: absolute
+            .menu
+                width: auto
+                background: $white
+                gap: 5px
+
+                .contact-menu
+                    right: 50%
+                    transform: translateX(50%)
+    main
+        &::before
+            background-position: center 250px
+            filter: blur(4px) opacity(0.07)
+
+        &::after
+            display: none
+        h2,
+        h2 div
+            font-size: 7rem
+            &:hover
+                font-size: 7rem
+        h2:last-of-type
+            top: calc(35% + 7rem)
+        .main-p
+            top: calc(35% + 3rem)
+            font-size: 14px
+        a.btn-default.primary
+            top: calc(35% + 13rem)
+            padding: 5px 20px
+            font-size: 20px
+            small
+                animation: bounce-in-top 2s infinite both
+
+// =====================================
+@keyframes loading-1
+    0%
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+
+    100%
+        -webkit-transform: rotate(36)
+        transform: rotate(36deg)
+
+@keyframes loading-2
+    0%
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+
+    100%
+        -webkit-transform: rotate(72)
+        transform: rotate(72deg)
+
+@keyframes loading-3
+    0%
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+
+    100%
+        -webkit-transform: rotate(108)
+        transform: rotate(108deg)
+
+@keyframes loading-4
+    0%
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+
+    100%
+        -webkit-transform: rotate(130)
+        transform: rotate(130deg)
+
+@keyframes loading-5
+    0%
+        -webkit-transform: rotate(0deg)
+        transform: rotate(0deg)
+
+    100%
+        -webkit-transform: rotate(180)
+        transform: rotate(180deg)
+@keyframes tracking-in-expand
+    0%
+        letter-spacing: -0.05em
+        opacity: 0
+
+    40%
+        letter-spacing: 0.2em
+        opacity: 0.6
+
+    100%
+        opacity: 1
+        letter-spacing: normal
+
+@keyframes bounce-in-top
+    0%
+        transform: translateY(-20px)
+        animation-timing-function: ease-in
+        opacity: 0
+
+    38%
+        transform: translateY(0)
+        animation-timing-function: ease-out
+        opacity: 1
+
+    55%
+        transform: translateY(-12px)
+        animation-timing-function: ease-in
+
+    72%
+        transform: translateY(0)
+        animation-timing-function: ease-out
+
+    81%
+        transform: translateY(-2px)
+        animation-timing-function: ease-in
+
+    90%
+        transform: translateY(0)
+        animation-timing-function: ease-out
+
+    95%
+        transform: translateY(-2px)
+        animation-timing-function: ease-in
+
+    100%
+        transform: translateY(0)
+        animation-timing-function: ease-out
