@@ -201,7 +201,7 @@ body.main a.btn-default {
   letter-spacing: 0.003em;
 }
 body.main a.btn-default:hover, body.main a.btn-default:focus, body.main a.btn-default:active {
-  background: #ff0909;
+  background: #fdcb25;
   color: #fff;
 }
 body.main .btn-tab {
@@ -245,7 +245,7 @@ body.main footer ul li {
   cursor: pointer;
 }
 body.main footer ul li:hover a {
-  color: #ff0909;
+  color: #fdcb25;
 }
 
 .main-about {
@@ -423,7 +423,7 @@ body.main footer ul li:hover a {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ff0909;
+  background: #fdcb25;
   transform: translate(50%, -50%);
 }
 .main-about .container .timeline li h3 {
@@ -432,7 +432,7 @@ body.main footer ul li:hover a {
   font-weight: bold;
   margin: -20px 0 0 0;
   text-transform: uppercase;
-  color: #ff0909;
+  color: #fdcb25;
 }
 .main-about .container .timeline li h3 > div {
   font-weight: normal;
@@ -725,7 +725,7 @@ body.mobile .header_nav nav {
   position: relative;
   width: 35px;
   height: 35px;
-  background: #ff0909;
+  background: #fdcb25;
   border-radius: 100px;
   transition: all 0.2s linear;
 }
@@ -874,3 +874,5 @@ body.mobile footer ul li a {
   line-height: 16px;
   font-size: 14px;
 }
+
+/*# sourceMappingURL=src-profolio.css.map */

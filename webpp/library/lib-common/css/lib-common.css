@@ -551,7 +551,7 @@ ul li {
   transform: translateY(-50%);
 }
 .modal-bottom .search-Btn a.icon i {
-  color: rgba(0, 0, 0, 0.315);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 input {
@@ -633,3 +633,5 @@ input {
   background: #ff3b30;
   color: #fff;
 }
+
+/*# sourceMappingURL=lib-common.css.map */
