@@ -10,7 +10,7 @@
   "license": "ISC",
   "scripts": {
     "sass": "sass webpp/library/lib-common/lib-common.sass webpp/library/lib-common/css/lib-common.css --watch",
-    "sass": "sass /webpp/sass/src-profolio.sass fan_profile/webpp/css/src-profolio.css --watch",
-    "sass": "sass webpp/sass/src-common.sass webpp/css/src-common.css --watch"
+    "sass": "sass webpp/sass/src-common.sass webpp/css/src-common.css --watch",
+    "sass": "sass webpp/sass/src-profolio.sass webpp/css/src-profolio.css --watch"
   }
 }
