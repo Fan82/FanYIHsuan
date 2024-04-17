@@ -442,7 +442,6 @@ body.main
             padding: 20px 0
             overflow-x: auto
             overflow-y: hidden
-
             .project
                 position: relative
                 width: fit-content
@@ -625,7 +624,6 @@ body.mobile
     .header_nav
         justify-content: space-between
         align-items: center
-        // border-bottom: 1px solid $grey-1
         height: 50px
         a.logo
             max-width: 50px
@@ -637,8 +635,9 @@ body.mobile
             position: relative
             width: 35px
             height: 35px
-            background: $main
-            border-radius: 100px
+            border-radius: 8px
+            background: $white
+            box-shadow: inset 0 0 0 1px $grey-2
             transition: all 0.2s linear
             &::before,
             &::after
@@ -649,7 +648,7 @@ body.mobile
                 transform: translate(-50%, -50%)
                 width: 60%
                 height: 2.2px
-                background: $white
+                background: $dark
                 border-radius: 10px
                 z-index: 1
             &::after
@@ -659,11 +658,11 @@ body.mobile
             .menu
                 display: none
             &.active
-                background: $white
-                box-shadow: inset 0 0 0 1px $grey-2
+                background: $main
+                box-shadow: none
                 &::before,
                 &::after
-                    background: $dark
+                    background: $white
                 .menu
                     position: absolute
                     top: 50px
@@ -716,7 +715,8 @@ body.mobile
             justify-content: center
             align-items: center
             grid-template-columns: repeat(2, 50%)
-            gap: 16px 8px
+            gap: 16px 0
+            overflow: unset
             .container-intro
                 display: flex
                 flex-direction: column
@@ -738,7 +738,7 @@ body.mobile
                     margin-top: 35px
             .project
                 width: 100%
-                padding: 4px
+                padding: 8px
                 .project-img
                     padding: 2px
                     border-radius: 16px
