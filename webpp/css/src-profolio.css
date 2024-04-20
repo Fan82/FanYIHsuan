@@ -34,13 +34,10 @@ body.main .header_nav {
   justify-content: flex-start;
   height: 60px;
   gap: 0 40px;
+  padding: 0px 8px;
   backdrop-filter: blur(10px) opacity(90%);
   -webkit-backdrop-filter: blur(10px) opacity(90%);
   z-index: 1000;
-}
-body.main .header_nav:has(.logo) {
-  padding: 0px 8px;
-  align-items: center;
 }
 body.main .header_nav > a.logo {
   position: relative;
@@ -201,7 +198,7 @@ body.main a.btn-default {
   letter-spacing: 0.003em;
 }
 body.main a.btn-default:hover, body.main a.btn-default:focus, body.main a.btn-default:active {
-  background: #e9a106;
+  background: #F84519;
   color: #fff;
 }
 body.main .btn-tab {
@@ -245,7 +242,7 @@ body.main footer ul li {
   cursor: pointer;
 }
 body.main footer ul li:hover a {
-  color: #e9a106;
+  color: #F84519;
 }
 
 .main-about {
@@ -377,29 +374,28 @@ body.main footer ul li:hover a {
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  transform: rotate(-45deg);
+  padding-top: 120px;
+  padding-bottom: 280px;
 }
 .main-about .container .timeline::before {
   content: "";
   position: absolute;
-  top: -300px;
+  top: 0;
   left: 50%;
   width: 1px;
   background: #EBEBEB;
-  min-height: 200vh;
+  height: 100%;
 }
 .main-about .container .timeline li {
   position: relative;
-  height: 30vh;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 100px;
   text-align: right;
   transition: 0.3s;
-  transform: translateX(-10%) rotate(45deg);
+  transform: translateX(-10%);
   opacity: 0;
 }
 .main-about .container .timeline li:first-child h3 {
@@ -423,7 +419,7 @@ body.main footer ul li:hover a {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #e9a106;
+  background: #F84519;
   transform: translate(50%, -50%);
 }
 .main-about .container .timeline li h3 {
@@ -432,7 +428,7 @@ body.main footer ul li:hover a {
   font-weight: bold;
   margin: -20px 0 0 0;
   text-transform: uppercase;
-  color: #e9a106;
+  color: #F84519;
 }
 .main-about .container .timeline li h3 > div {
   font-weight: normal;
@@ -454,7 +450,7 @@ body.main footer ul li:hover a {
 }
 .main-about .container .timeline li.visible {
   opacity: 1;
-  transform: translateX(0) rotate(45deg);
+  transform: translateX(0);
 }
 
 .main.main-project main,
@@ -751,7 +747,7 @@ body.mobile .header_nav nav .menu {
   display: none;
 }
 body.mobile .header_nav nav.active {
-  background: #e9a106;
+  background: #F84519;
   box-shadow: none;
 }
 body.mobile .header_nav nav.active::before, body.mobile .header_nav nav.active::after {
@@ -776,6 +772,9 @@ body.mobile .header_nav nav.active .menu a {
   padding: 0;
   width: 100%;
   line-height: 45px;
+}
+body.mobile main .carouselBox {
+  margin: 0;
 }
 body.mobile.main {
   padding: 0 8px;
@@ -859,7 +858,27 @@ body.mobile.main.main-wireframe .container .project .project-content .project-de
 body.mobile.main.main-project .container .project .project-content .project-detail span, body.mobile.main.main-wireframe .container .project .project-content .project-detail span {
   font-size: 12px;
 }
-body.mobile.main.main-wireframe .container-side,
+body.mobile.main.main-wireframe .container-side-btn {
+  position: fixed;
+  right: 8px;
+  bottom: calc(40px + 5%);
+  width: 40px;
+  height: 40px;
+  box-shadow: rgba(22, 22, 22, 0.2) 0px 7px 29px 0px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px;
+  z-index: 1;
+}
+body.mobile.main.main-wireframe .container-side {
+  width: auto;
+  background: #fff;
+  max-height: 50vh;
+  border-radius: 4px;
+  z-index: 10;
+}
 body.mobile.main.main-wireframe .container-intro {
   display: none !important;
 }

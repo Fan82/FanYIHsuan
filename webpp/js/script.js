@@ -2,7 +2,7 @@ $(document).ready(function () {
   screenWidthCheck();
   gameHall_JS();
   timeLine();
-  initializeCarousel(); // 重命名为initializeCarousel以更清晰地表示其作用
+  initializeCarousel();
 });
 
 function screenWidthCheck() {
@@ -10,16 +10,29 @@ function screenWidthCheck() {
 
   if (screenWidth < 1000) {
     $("body").addClass("mobile");
+
+    if ($("body").hasClass("main-wireframe")) {
+      $(".container-side-btn").show();
+    }
+
+    $(".container-side-btn").click(function () {
+      $(".container-side").toggleClass("show");
+    });
+  } else {
+    // 如果不符合螢幕寬度小於 1000 的條件，可能需要隱藏 ".container-side-btn"
+    $(".container-side-btn").hide();
   }
 }
 
 function gameHall_JS() {
+  $(".container-side-btn").hide();
   $("a.contact").click(function () {
     $(".contact-menu").toggleClass("show");
   });
   $("a.btn-tab.Flow").click(function () {
     $(".main").addClass("main-project").removeClass("main-wireframe");
   });
+
   $("a.btn-tab.Wireframe").click(function () {
     $(".main").addClass("main-wireframe").removeClass("main-project");
     $(".project").each(function () {
