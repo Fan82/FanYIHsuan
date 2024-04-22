@@ -5,7 +5,7 @@ $grey-2: #EBEBEB
 $main: #F84519
 $letterspace: 0.016em
 // -------------------
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..9001,100..900&display=swap')
 // 一些預設樣式
 
 body
@@ -88,15 +88,19 @@ body.main
                     line-height: 25px
                     transition: 0.2s ease-in-out
                     cursor: pointer
-                    &:hover
-                        background: $grey-2
+                    &:hover,
+                    &:active,
+                    &:focus
+                        // background: $grey-2
+                        color: $main
                     .contact-menu
                         position: absolute
 
     // --------------------------
     main
         position: relative
-        margin-top: 100px
+        width: 100%
+        margin-top: 80px
         .logoBox
             position: absolute
             left: 80px
@@ -117,30 +121,99 @@ body.main
                 &:last-child
                     margin-top: 8px
                     margin-left: 100px
-
-        .carouselBox
-            margin: 80px auto 0 400px
-            padding: 60px 0
-            width: 70%
+        > section
+            position: relative
+            top: 0
+            height: auto !important
             display: flex
-            justify-content: flex-end
-            align-items: center
-            gap: 30px
-            user-select: none
-            .carousel
-                width: 30%
-            .carousel-inner
-                border-radius: 30px
-                background: $grey-2
-                padding: 4px
-                .carousel-item
-                    aspect-ratio: 9/16
-                    img
-                        width: 100%
-                        height: 100%
-                        border-radius: 24px
-                        object-fit: cover
-                        object-position: top
+            flex-direction: column
+            place-items: center
+        section
+            height: 100vh
+            h1
+                font-weight: 140
+                font-size: clamp(2rem, 4vw + 1rem, 6rem)
+                background: linear-gradient($grey-1, $dark)
+                -webkit-background-clip: text
+                background-clip: text
+                color: transparent
+                font-weight: 900
+                -webkit-animation: scale-down linear both
+                animation: scale-down linear both
+                animation-timeline: scroll()
+                animation-range: 0 50vh
+            p
+                font-size: clamp(0.5rem, 1.8rem, 4rem)
+                font-weight: 300
+                color: $grey-1
+        .content
+            position: relative
+            background: $dark
+            width: 100%
+            // overflow: hidden
+            border-radius: 64px 64px 0 0
+            scale: 0.95
+            svg
+                position: absolute
+                height: 100%
+                right: 0%
+                top: 0
+                overflow: visible !important
+                z-index: -1
+                path
+                    stroke-width: clamp(20px, 40px, 4rem)
+                .backers
+                    path
+                        stroke: rgba($white ,0.05 )
+                .fillers
+                    path
+                        stroke-dasharray: var(--len)
+                        stroke-dashoffset: var(--len)
+                        stroke: $white
+                        stroke: $main
+                        &:nth-of-type(1)
+                            --len: 8620
+                        &:nth-of-type(2)
+                            --len: 7200
+                        &:nth-of-type(3)
+                            --len: 7952
+            section
+                display: grid
+                align-content: center
+                padding: 0 6rem
+                h2
+                    font-size: clamp(2rem, 4vw + 1rem, 4rem)
+                    font-weight: 120
+                    color: $white
+                    width: 10ch
+                    white-space: nowrap
+                &:nth-of-type(3),
+                &:nth-of-type(4)
+                    justify-items: end
+
+        // .carouselBox
+        //     margin: 80px auto 0 400px
+        //     padding: 60px 0
+        //     width: 70%
+        //     display: flex
+        //     justify-content: flex-end
+        //     align-items: center
+        //     gap: 30px
+        //     user-select: none
+        //     .carousel
+        //         width: 30%
+        //     .carousel-inner
+        //         border-radius: 30px
+        //         background: $grey-2
+        //         padding: 4px
+        //         .carousel-item
+        //             aspect-ratio: 9/16
+        //             img
+        //                 width: 100%
+        //                 height: 100%
+        //                 border-radius: 24px
+        //                 object-fit: cover
+        //                 object-position: top
     // 一些共用-----------------------------------------
     .big-title
         position: relative
@@ -217,9 +290,9 @@ body.main
 
             li
                 width: fit-content
-                border-radius: 4px
+                border-radius: 40px
                 padding: 8px 16px
-                background: rgba($white ,0.5 )
+                background: rgba($white ,0.9 )
                 display: flex
                 justify-content: center
                 align-items: center
@@ -234,195 +307,224 @@ body.main
 // ============================================
 // 關於 ==============================
 // ============================================
-.main-about
+.about-container
+    position: relative
+    display: flex
+    justify-content: space-evenly
+    align-items: flex-end
+    margin-top: 80vh
     width: 100%
-    margin: 8px 0
+    height: 100vh
+    padding: 5rem 2vw
+    z-index: 500
+    &::before
+        content: ''
+        position: absolute
+        inset: 0
+        background: linear-gradient(rgba($dark , 0.3) 30%,rgba($dark , 0.6) 40%,rgba($dark , 0.8) 50%,$dark 100%,)
+        z-index: -7
+    .col
+        flex-direction: column
+        align-items: flex-start
+        justify-content: flex-start
+        padding: calc(0.3 * var(4rem)) calc(0.8 * var(4rem))
+        width: 50%
+        background-color: #121212
+        border-radius: calc(0.5 * var(4rem))
+        img
+            width: 50px
+            aspect-ratio: 1/1
+            object-fit: contain
+            border-radius: 8px
+// .main-about
+//     width: 100%
+//     margin: 8px 0
 
-    .about-box
-        width: 100%
-        height: 50%
-        display: flex
-        justify-content: center
-        align-items: center
-        padding: 0 40px
-        gap: 20px
-        .main-box
-            display: inline-block
-            width: 50%
-            h3
-                font-size: 2rem
-                white-space: nowrap
-                margin: 0
-                text-align: right
-            .tool-list
-                display: inline-flex
-                width: 100%
-                justify-content: flex-end
-                align-items: center
-                flex-wrap: wrap
-                padding: 16px 0
-                .badge
-                    display: inline-block
-                    width: 45px
-                    height: 45px
-                    margin: 8px
-                    filter: drop-shadow(0px 4px 4px rgba($grey-2, 0.4 ))
-                    &.vscode
-                        background: url("../library/img-common/img-main/icon/vscode.png") center no-repeat
-                        background-size: contain
-                    &.illustrator
-                        background: url("../library/img-common/img-main/icon/illustrator.png") center no-repeat
-                        background-size: contain
-                    &.photoshop
-                        background: url("../library/img-common/img-main/icon/photoshop.png") center no-repeat
-                        background-size: contain
-                    &.github
-                        background: url("../library/img-common/img-main/icon/github.png") center no-repeat
-                        background-size: contain
-                    &.figma
-                        background: url("../library/img-common/img-main/icon/figma.png") center no-repeat
-                        background-size: contain
+//     .about-box
+//         width: 100%
+//         height: 50%
+//         display: flex
+//         justify-content: center
+//         align-items: center
+//         padding: 0 40px
+//         gap: 20px
+//         .main-box
+//             display: inline-block
+//             width: 50%
+//             h3
+//                 font-size: 2rem
+//                 white-space: nowrap
+//                 margin: 0
+//                 text-align: right
+//             .tool-list
+//                 display: inline-flex
+//                 width: 100%
+//                 justify-content: flex-end
+//                 align-items: center
+//                 flex-wrap: wrap
+//                 padding: 16px 0
+//                 .badge
+//                     display: inline-block
+//                     width: 45px
+//                     height: 45px
+//                     margin: 8px
+//                     filter: drop-shadow(0px 4px 4px rgba($grey-2, 0.4 ))
+//                     &.vscode
+//                         background: url("../library/img-common/img-main/icon/vscode.png") center no-repeat
+//                         background-size: contain
+//                     &.illustrator
+//                         background: url("../library/img-common/img-main/icon/illustrator.png") center no-repeat
+//                         background-size: contain
+//                     &.photoshop
+//                         background: url("../library/img-common/img-main/icon/photoshop.png") center no-repeat
+//                         background-size: contain
+//                     &.github
+//                         background: url("../library/img-common/img-main/icon/github.png") center no-repeat
+//                         background-size: contain
+//                     &.figma
+//                         background: url("../library/img-common/img-main/icon/figma.png") center no-repeat
+//                         background-size: contain
 
-        .progeress-box
-            display: inline-flex
-            width: 50%
-            flex-direction: column
-            align-items: flex-start
-            gap: 8px 0
-            .progress
-                position: relative
-                background: transparent
-                width: 100%
-                margin: 4px 0
-                .progress-bar
-                    position: absolute
-                    top: 0
-                    left: 0
-                    width: 100%
-                    height: 100%
-                    background: #ffb43e
-                    border-radius: 50px
-                &.HTML
-                    .progress-bar
-                        background: #e5532f
-                &.SASS
-                    .progress-bar
-                        background: #d56fa4
-                &.JS
-                    .progress-bar
-                        background: #67ac20
-                &.ILLUSTRATOR
-                    .progress-bar
-                        background: #ff9a00
-                &.PHOTOSHOP
-                    .progress-bar
-                        background: #31a8ff
-                &[data-percentage="60"]
-                    .progress-bar
-                        width: 60%
-                &[data-percentage="77"]
-                    .progress-bar
-                        width: 77%
-                &[data-percentage="80"]
-                    .progress-bar
-                        width: 80%
-                &[data-percentage="83"]
-                    .progress-bar
-                        width: 83%
-                &[data-percentage="88"]
-                    .progress-bar
-                        width: 88%
+//         .progeress-box
+//             display: inline-flex
+//             width: 50%
+//             flex-direction: column
+//             align-items: flex-start
+//             gap: 8px 0
+//             .progress
+//                 position: relative
+//                 background: transparent
+//                 width: 100%
+//                 margin: 4px 0
+//                 .progress-bar
+//                     position: absolute
+//                     top: 0
+//                     left: 0
+//                     width: 100%
+//                     height: 100%
+//                     background: #ffb43e
+//                     border-radius: 50px
+//                 &.HTML
+//                     .progress-bar
+//                         background: #e5532f
+//                 &.SASS
+//                     .progress-bar
+//                         background: #d56fa4
+//                 &.JS
+//                     .progress-bar
+//                         background: #67ac20
+//                 &.ILLUSTRATOR
+//                     .progress-bar
+//                         background: #ff9a00
+//                 &.PHOTOSHOP
+//                     .progress-bar
+//                         background: #31a8ff
+//                 &[data-percentage="60"]
+//                     .progress-bar
+//                         width: 60%
+//                 &[data-percentage="77"]
+//                     .progress-bar
+//                         width: 77%
+//                 &[data-percentage="80"]
+//                     .progress-bar
+//                         width: 80%
+//                 &[data-percentage="83"]
+//                     .progress-bar
+//                         width: 83%
+//                 &[data-percentage="88"]
+//                     .progress-bar
+//                         width: 88%
 
-                .progress-value
-                    position: relative
-                    width: 100%
-                    padding-left: 8px
-                    font-size: 16px
-                    color: $white
-                    z-index: 1
-                    span
-                        text-transform: uppercase
-    .container
-        max-width: 900px
-        .timeline
-            position: relative
-            display: flex
-            flex-direction: column
-            list-style: none
-            padding-top: 120px
-            padding-bottom: 280px
-            // transform: rotate(-45deg)
-            &::before
-                content: ""
-                position: absolute
-                top: 0
-                left: 50%
-                width: 1px
-                background: $grey-2
-                height: 100%
-            li
-                position: relative
-                height: 20vh
-                display: flex
-                justify-content: center
-                align-items: center
-                gap: 100px
-                text-align: right
-                transition: .3s
-                transform: translateX(-10%)
-                opacity: 0
+//                 .progress-value
+//                     position: relative
+//                     width: 100%
+//                     padding-left: 8px
+//                     font-size: 16px
+//                     color: $white
+//                     z-index: 1
+//                     span
+//                         text-transform: uppercase
+//     .container
+//         max-width: 900px
+//         .timeline
+//             position: relative
+//             display: flex
+//             flex-direction: column
+//             list-style: none
+//             padding-top: 120px
+//             padding-bottom: 280px
+//             // transform: rotate(-45deg)
+//             &::before
+//                 content: ""
+//                 position: absolute
+//                 top: 0
+//                 left: 50%
+//                 width: 1px
+//                 background: $grey-2
+//                 height: 100%
+//             li
+//                 position: relative
+//                 height: 20vh
+//                 display: flex
+//                 justify-content: center
+//                 align-items: center
+//                 gap: 100px
+//                 text-align: right
+//                 transition: .3s
+//                 transform: translateX(-10%)
+//                 opacity: 0
 
-                &:first-child
-                    h3
-                        margin: 0
+//                 &:first-child
+//                     h3
+//                         margin: 0
 
-                &:nth-child(even)
-                    flex-direction: row-reverse
-                    h3,
-                    h3 div
-                        text-align: left
-                    .job
-                        text-align: right
+//                 &:nth-child(even)
+//                     flex-direction: row-reverse
+//                     h3,
+//                     h3 div
+//                         text-align: left
+//                     .job
+//                         text-align: right
 
-                &::before
-                    content: ""
-                    position: absolute
-                    top: 50%
-                    right: 50%
-                    width: 8px
-                    height: 8px
-                    border-radius: 50%
-                    background: $main
-                    transform: translate(50%,-50%)
+//                 &::before
+//                     content: ""
+//                     position: absolute
+//                     top: 50%
+//                     right: 50%
+//                     width: 8px
+//                     height: 8px
+//                     border-radius: 50%
+//                     background: $main
+//                     transform: translate(50%,-50%)
 
-                h3
-                    width: 50%
-                    font-size: 28px
-                    font-weight: bold
-                    margin: -20px 0 0 0
-                    text-transform: uppercase
-                    color: $main
+//                 h3
+//                     width: 50%
+//                     font-size: 28px
+//                     font-weight: bold
+//                     margin: -20px 0 0 0
+//                     text-transform: uppercase
+//                     color: $main
 
-                    > div
-                        font-weight: normal
-                        font-size: 20px
-                        letter-spacing: 1.3px
-                        color: $dark
-                .job
-                    font-size: 20px
-                    line-height: 25px
-                    width: 50%
-                    text-align: left
-                    margin-top: 40px
+//                     > div
+//                         font-weight: normal
+//                         font-size: 20px
+//                         letter-spacing: 1.3px
+//                         color: $dark
+//                 .job
+//                     font-size: 20px
+//                     line-height: 25px
+//                     width: 50%
+//                     text-align: left
+//                     margin-top: 40px
 
-                    p
-                        font-size: 16px
-                        color: $grey-1
-                        line-height: 28px
+//                     p
+//                         font-size: 16px
+//                         color: $grey-1
+//                         line-height: 28px
 
-                &.visible
-                    opacity: 1
-                    transform: translateX(0)
+//                 &.visible
+//                     opacity: 1
+//                     transform: translateX(0)
 
 // ============================================
 // project ==============================
@@ -789,3 +891,30 @@ body.mobile
                 a
                     line-height: 16px
                     font-size: 14px
+@keyframes scale-down
+    to
+        scale: 0.75
+
+@supports (animation-timeline: scroll())
+    .content
+        view-timeline: --content
+        -webkit-animation: grow linear both
+        animation: grow linear both
+        animation-timeline: scroll()
+        animation-range: 0 50vh
+
+@keyframes grow
+    to
+        scale: 1
+
+@supports (animation-timeline: scroll())
+    .fillers
+        path
+            -webkit-animation: fill linear both
+            animation: fill linear both
+            animation-timeline: --content
+            animation-range: entry-crossing -38% exit 12%
+
+@keyframes fill
+    to
+        stroke-dashoffset: 0
