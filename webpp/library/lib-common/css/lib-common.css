@@ -448,7 +448,7 @@ ul li {
 }
 .modal-bottom .modal-body.modal-passenger, .modal-bottom .modal-body.modal-class {
   height: 100%;
-  min-height: 45vh;
+  min-height: 44vh;
 }
 .modal-bottom .modal-body.modal-passenger .row, .modal-bottom .modal-body.modal-class .row {
   gap: 15px;
