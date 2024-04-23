@@ -22,7 +22,7 @@ ul
 
 body.main
     scroll-behavior: smooth
-    width: 100vw
+    width: 100%
     overflow: hidden
     overflow-y: auto
     padding: 0 40px
@@ -132,7 +132,7 @@ body.main
             height: 100vh
             h1
                 font-weight: 140
-                font-size: clamp(2rem, 4vw + 1rem, 6rem)
+                font-size: clamp(32px, 72px + 16px, 96px)
                 background: linear-gradient($grey-1, $dark)
                 -webkit-background-clip: text
                 background-clip: text
@@ -143,7 +143,7 @@ body.main
                 animation-timeline: scroll()
                 animation-range: 0 50vh
             p
-                font-size: clamp(0.5rem, 1.8rem, 4rem)
+                font-size: clamp(0.5rem, 1.8rem, 80px)
                 font-weight: 300
                 color: $grey-1
         .content
@@ -161,7 +161,7 @@ body.main
                 overflow: visible !important
                 z-index: -1
                 path
-                    stroke-width: clamp(20px, 40px, 4rem)
+                    stroke-width: clamp(20px, 40px, 80px)
                 .backers
                     path
                         stroke: rgba($white ,0.05 )
@@ -180,9 +180,9 @@ body.main
             section
                 display: grid
                 align-content: center
-                padding: 0 6rem
+                padding: 0 96px
                 h2
-                    font-size: clamp(2rem, 4vw + 1rem, 4rem)
+                    font-size: clamp(32px, 72px + 16px, 80px)
                     font-weight: 120
                     color: $white
                     width: 10ch
@@ -220,7 +220,7 @@ body.main
         display: block
         text-align: center
         width: 100%
-        font-size: 2rem
+        font-size: 32px
         font-weight: 600
         letter-spacing: $letterspace
         color: $dark
@@ -312,25 +312,25 @@ body.main
     display: flex
     justify-content: space-evenly
     align-items: flex-end
-    margin-top: 80vh
+    margin-top: 20px
     width: 100%
-    height: 100vh
-    padding: 5rem 2vw
+    height: 100px
+    padding: 80px 2vw
     z-index: 500
     &::before
         content: ''
         position: absolute
         inset: 0
-        background: linear-gradient(rgba($dark , 0.3) 30%,rgba($dark , 0.6) 40%,rgba($dark , 0.8) 50%,$dark 100%,)
+        background: rgba($dark ,0.7 )
         z-index: -7
     .col
         flex-direction: column
         align-items: flex-start
         justify-content: flex-start
-        padding: calc(0.3 * var(4rem)) calc(0.8 * var(4rem))
+        padding: 24px 64px
         width: 50%
         background-color: #121212
-        border-radius: calc(0.5 * var(4rem))
+        border-radius: calc(0.5 * 80px)
         img
             width: 50px
             aspect-ratio: 1/1
@@ -352,7 +352,7 @@ body.main
 //             display: inline-block
 //             width: 50%
 //             h3
-//                 font-size: 2rem
+//                 font-size: 32px
 //                 white-space: nowrap
 //                 margin: 0
 //                 text-align: right
@@ -675,7 +675,7 @@ body.main
             overflow: visible
             .container-intro
                 grid-column: 1 / 3
-                font-size: 1.2rem
+                font-size: 1.32px
                 display: flex
                 flex-direction: column
                 align-items: flex-start
@@ -792,7 +792,7 @@ body.mobile
     .big-title
         font-size: 24px
     .second-title
-        font-size: 1rem
+        font-size: 16px
     a.btn-default
         font-size: 14px
         padding: 4px 8px
