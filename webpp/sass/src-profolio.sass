@@ -1,20 +1,18 @@
-$white: #161616
-$dark: #fff
-$grey-1: #cac9c9
-$grey-2: #EBEBEB
+$dark-clr: #050206
+$light-clr: #EBEBEB
+$grey-clr: #9d9d9d
 $main: #F84519
 $letterspace: 0.016em
 
 // -------------------
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..7001,100..700&family=Rubik+Mono+One&display=swap')
-// @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..9001,100..900&display=swap')
 // 一些預設樣式
 
 body
     font-family: "Josefin Sans" ,"Roboto" ,"SF Pro TC","PingFang TC",'Noto Sans TC',"微軟正黑體"
 a
     text-decoration: none
-    color: $dark
+    color: $light-clr
 p, div
     padding: 0
     margin: 0
@@ -29,7 +27,7 @@ body.main
     margin: 0 auto
     overflow: hidden
     overflow-y: auto
-    background: $white
+    background: $dark-clr
     a.logo
         position: fixed
         max-width: 130px
@@ -55,17 +53,17 @@ body.main
             left: 0
             bottom: -40px
             width: auto
-            background: $white
+            background: $dark-clr
             text-align: center
             padding: 4px 8px
-            color: $grey-1
+            color: $grey-clr
             font-size: 20px
             white-space: nowrap
             opacity: 0.8
 
     .header_nav
         position: fixed
-        bottom: 30px
+        bottom: 20px
         left: 50%
         transform: translateX(-50%)
         min-width: 200px
@@ -74,7 +72,7 @@ body.main
         align-items: center
         height: 60px
         border-radius: 50px
-        background: $dark
+        background: $light-clr
         z-index: 1000
         &::before
             content: ''
@@ -83,72 +81,60 @@ body.main
             top: 50%
             height: 50%
             width: 2px
-            background: rgba($grey-2 ,0.1 )
+            background: rgba($light-clr ,0.1 )
             border-radius: 50px
             transform: translate(-50%, -50%)
 
-        // nav
-        //     width: 100%
-        //     display: inline-flex
-        //     align-items: center
-        //     justify-content: center
-        //     .menu
-        //         display: flex
-        //         justify-content: space-around
-        //         align-items: center
-        //         width: 20%
         a
             position: relative
             text-align: center
             white-space: nowrap
-            color: $white
+            color: $dark-clr
             text-transform: capitalize
             line-height: 60px
             width: 100%
             height: 100%
             transition: 0.2s ease-in-out
             cursor: pointer
-            border-radius: 50px 0 0 50px
+            border-radius: 50px
             &:hover,
             &:active,
             &:focus
                 color: $main
                 font-weight: 600
-            &:last-of-type
-                border-radius: 0 50px 50px 0
 
         .contact-menu
             position: absolute
             bottom: 70px
             width: 100%
-            background: $dark
+            background: $light-clr
             display: flex
             flex-direction: column
             justify-content: center
             align-items: center
             border-radius: 8px
             padding: 4px 8px
-            box-shadow: 0px 0px 5px rgba($dark, 0.05), 0px 10px 20px rgba($dark, 0.05)
+            box-shadow: 0px 0px 5px rgba($light-clr, 0.05), 0px 10px 20px rgba($light-clr, 0.05)
             &::before
                 content: ''
                 position: absolute
-                right: 40px
+                right: 45%
                 bottom: -30px
                 width: 0
                 height: 0
                 border: 15px solid
-                border-color: $white transparent transparent transparent
+                border-color: $dark-clr transparent transparent transparent
             li
                 padding: 4px 8px
                 border-radius: 4px
                 width: 100%
                 a
-                    color: $white
+                    color: $dark-clr
                     transition: all 0.02s linear
                 &:hover
                     background: $main
                     a
-                        color: $white
+                        color: $dark-clr
 
     // --------------------------
     main
@@ -169,7 +155,7 @@ body.main
                 margin-top: -30px
                 letter-spacing: 2.2px
                 white-space: nowrap
-                color: $grey-1
+                color: $grey-clr
                 font-family: "Playfair Display", serif
                 line-height: 35px
                 &:last-child
@@ -182,13 +168,12 @@ body.main
             display: flex
             flex-direction: column
             place-items: center
-            // font-family: "Josefin Sans","sans-serif"
         section
             height: 100vh
             h1
                 font-weight: 140
                 font-size: clamp(32px, 72px + 16px, 96px)
-                background: $grey-1
+                background: $grey-clr
                 -webkit-background-clip: text
                 background-clip: text
                 color: transparent
@@ -200,7 +185,7 @@ body.main
             p
                 font-size: clamp(0.5rem, 1.8rem, 80px)
                 font-weight: 300
-                color: $grey-1
+                color: $grey-clr
         .content
             position: relative
             width: 100%
@@ -218,12 +203,12 @@ body.main
                     stroke-width: clamp(20px, 40px, 80px)
                 .backers
                     path
-                        stroke: rgba($white ,0.05 )
+                        stroke: rgba($dark-clr ,0.05 )
                 .fillers
                     path
                         stroke-dasharray: var(--len)
                         stroke-dashoffset: var(--len)
-                        stroke: $white
+                        stroke: $dark-clr
                         stroke: $main
                         &:nth-of-type(1)
                             --len: 8620
@@ -241,13 +226,14 @@ body.main
                     height: 60vh
                     justify-items: start
                     transition: all 0.2s linear
-                    color: $dark
+                    color: $light-clr
                     &:hover
-                        color: $main
+                        h2
+                            color: $main
 
                 h2
                     font-size: clamp(32px, 72px + 16px, 80px)
-                    color: $dark
+                    color: $light-clr
                     width: 100%
                     font-size: 2.4rem
                     white-space: nowrap
@@ -272,7 +258,7 @@ body.main
         font-size: 32px
         font-weight: 600
         letter-spacing: $letterspace
-        color: $dark
+        color: $light-clr
         text-transform: uppercase
         padding: 8px 0
         z-index: 100
@@ -287,7 +273,7 @@ body.main
         display: block
         text-align: center
         width: 100%
-        color: $grey-1
+        color: $grey-clr
         z-index: 100
         &::before
             content: ''
@@ -296,12 +282,12 @@ body.main
             left: 0
             width: 100%
             height: 1px
-            background: $grey-2
+            background: $light-clr
     a.btn-default
         padding: 8px 16px
         border-radius: 4px
-        background: $grey-2
-        color: $dark
+        background: $light-clr
+        color: $light-clr
         text-transform: capitalize
         font-weight: normal
         font-size: 16px
@@ -310,56 +296,22 @@ body.main
         &:focus,
         &:active
             background: $main
-            color: $white
+            color: $dark-clr
 
     .btn-tab
         padding: 8px 16px
-        color: $grey-1
+        color: $grey-clr
         font-weight: 400
         &:hover,
         &:focus,
         &:active
-            color: $dark
-            box-shadow: inset 0 -2px 0 $dark
-    // footer
-    //     position: fixed
-    //     bottom: 0
-    //     left: 0
-    //     width: 100%
-    //     min-height: 40px
-    //     backdrop-filter: blur(10px) opacity(90%)
-    //     -webkit-backdrop-filter: blur(10px) opacity(90%)
-    //     padding: 8px 40px
-    //     z-index: 1000
-    //     ul
-    //         display: flex
-    //         justify-content: center
-    //         align-items: center
-    //         gap: 24px
-
-    //         li
-    //             width: fit-content
-    //             border-radius: 40px
-    //             padding: 8px 16px
-    //             background: rgba($white ,0.9 )
-    //             display: flex
-    //             justify-content: center
-    //             align-items: center
-    //             text-transform: capitalize
-    //             letter-spacing: 1.2px
-    //             color: $dark
-    //             transition: 0.3s linear
-    //             cursor: pointer
-    //             &:hover
-    //                 a
-    //                     color: $main
+            color: $light-clr
+            box-shadow: inset 0 -2px 0 $light-clr
+    
     .sectionPin
-        // margin-top: 40px
         display: flex
-        justify-content: flex-start
-        align-items: flex-end
-        max-height: 300px
-        color: $dark
+        flex-direction: column
+        color: $light-clr
         border-radius: 20px
         width: 100%
         .title
@@ -371,7 +323,10 @@ body.main
                 margin: 0
                 padding-bottom: 40px
             p
-                font-size: 3rem
+                opacity: 0.7
+                font-weight: 100
+                letter-spacing: calc( $letterspace * 2  )
+                font-size: 2rem
                 white-space: nowrap
 
         .carouselBox
@@ -393,49 +348,86 @@ body.main
                 aspect-ratio: 1/1
                 object-fit: contain
                 border-radius: 8px
-                background-color: $white
+                background-color: $dark-clr
         .marquee
             position: relative
             width: 100%
             height: 60px
-            overflow: hidden
-            margin-left: 40px
-
+            overflow-x: hidden
+            margin: 40px 0
             .marquee-content
                 list-style: none
                 height: 100%
+                width: 100%
                 display: flex
                 animation: scrolling 20s linear infinite
                 gap: 40px
                 &:hover
                     animation-play-state: paused
+                    li
+                        &:hover
+                            box-shadow: inset 0 0 0 0.2px $light-clr, 0 5px 40px rgba($light-clr ,0.2 )
                 li
                     display: flex
                     justify-content: center
                     align-items: center
-                    flex-shrink: 0
                     font-size: 20px
+                    padding: 12px 40px
+                    background: rgba($light-clr, 0.05 )
+                    border-radius: 20px
                     text-transform: uppercase
                     font-weight: 100
-                    color: $dark
+                    color: $light-clr
                     white-space: nowrap
-
-        // .pin-wrap
-        //     height: 40vh
-        //     display: flex
-        //     justify-content: flex-start
-        //     align-items: center
-        //     gap: 40px
-        //     padding: 50px 10vw
-        //     .box
-        //         width: 60%
-        //         background: $grey-1
-        //         border-radius: 40px
-        //         padding: 20px 40px
-        //         display: flex
-        //         justify-content: center
-        //         align-items: center
-
+    .wrapper
+        position: relative
+        width: 100%
+        border: 1px solid rgba($light-clr, .2)
+        background: linear-gradient($dark-clr 0%, rgba($light-clr, 0.1) 100%)
+        border-radius: 20px
+        padding: 28px 32px
+        margin: 12px 0 40px 0
+        color: $light-clr
+        box-shadow: 0px 10px 20px rgba($light-clr, 0.05)
+        .wrapper-title
+            line-height: 40px
+            font-size: 32px
+            line-height: 40px
+            margin-bottom: 20px
+            color: $light-clr
+            max-width: 50%
+            p
+                font-weight: lighter
+                opacity: 0.5
+                font-size: 20px
+                line-height: 150%
+                margin: 20px 0 40px 0
+        .button
+            width: auto
+            white-space: nowrap
+            line-height: 20px
+            font-size: 22px
+            border-radius: 80px
+            padding: 20px 32px
+            border: 0.7px solid rgba($light-clr, .8)
+            display: inline-flex
+            justify-content: center
+            align-items: center
+            gap: 16px
+            .arrow
+                width: 15px
+                height: 7px
+                border-bottom: 2px solid $light-clr
+                border-right: 2px solid $light-clr
+                transform: skew(45deg)
+                transition: all 0.5s
+            &:hover
+                background: $light-clr
+                color: $dark-clr
+                border-color: $dark-clr
+                .arrow
+                    border-color: $dark-clr
+                    transform: rotate(-20deg) skew(45deg)
 // ============================================
 // 關於 ==============================
 // ============================================
@@ -457,7 +449,7 @@ body.main
         justify-content: flex-start
         padding: 24px 64px
         width: 50%
-        color: $dark
+        color: $light-clr
         border-radius: calc(0.5 * 80px)
         h3
             line-height: 40px
@@ -518,7 +510,7 @@ body.main
                         bottom: 12px
                         left: 50%
                         transform: translateX(-50%)
-                        background: $dark
+                        background: $light-clr
                         width: 40%
                         height: 6px
                         border-radius: 8px
@@ -541,7 +533,7 @@ body.main
                         height: 28px
                         border-radius: 4px
                         overflow: hidden
-                        box-shadow: 0 2px 8px $grey-2
+                        box-shadow: 0 2px 8px $light-clr
                         img
                             position: absolute
                             top: 0
@@ -551,7 +543,7 @@ body.main
                             object-fit: cover
                     .project-detail
                         width: calc( 100% - 25px )
-                        color: $dark
+                        color: $light-clr
                         > p
                             font-size: 16px
                             margin: 0
@@ -562,7 +554,7 @@ body.main
                             width: 120px
                             font-size: 14px
                             line-height: 24px
-                            color: $grey-1
+                            color: $grey-clr
                             letter-spacing: $letterspace
                             text-overflow: ellipsis
                             overflow: hidden
@@ -589,13 +581,13 @@ body.main
                     li
                         padding: 4px 0
                         line-height: 20px
-                        color: $grey-1
+                        color: $grey-clr
                         &::before
                             content: ''
                             display: inline-block
                             width: 4px
                             height: 2px
-                            background: $grey-1
+                            background: $grey-clr
                             margin-right: 8px
                             margin-bottom: 3px
 
@@ -613,13 +605,13 @@ body.main
                 bottom: 0
                 width: 100%
                 height: 1px
-                background: $grey-2
+                background: $light-clr
             a.btn-tab
                 position: relative
                 &:hover,
                 &:active,
                 &:focus
-                    color: $dark
+                    color: $light-clr
 
         .container
             flex-wrap: wrap
@@ -642,14 +634,14 @@ body.main
                     line-height: 26px
                     letter-spacing: 0.3px
                     display: block
-                    color: $grey-1
+                    color: $grey-clr
                     font-size: 17px
                     padding: 20px 0px
 
             .project
                 // width: 23%
                 .project-img
-                    box-shadow: inset 0 0 0 4px $dark
+                    box-shadow: inset 0 0 0 4px $light-clr
                     padding: 3px
                     img
                         object-position: center
@@ -674,174 +666,6 @@ body.main
                 img.wireframe
                     display: block !important
 // // =====================================
-// body.mobile
-//     .header_nav
-//         justify-content: space-between
-//         align-items: center
-//         height: 50px
-//         a.logo
-//             max-width: 50px
-//             height: 30px
-//             img
-//                 aspect-ratio: 1/1
-
-//         nav
-//             position: relative
-//             width: 35px
-//             height: 35px
-//             border-radius: 8px
-//             background: $white
-//             box-shadow: inset 0 0 0 1px $grey-2
-//             transition: all 0.2s linear
-//             &::before,
-//             &::after
-//                 content: ''
-//                 position: absolute
-//                 top: 37%
-//                 left: 50%
-//                 transform: translate(-50%, -50%)
-//                 width: 60%
-//                 height: 2.2px
-//                 background: $dark
-//                 border-radius: 10px
-//                 z-index: 1
-//             &::after
-//                 top: auto
-//                 bottom: 37%
-//                 width: 50%
-//             .menu
-//                 display: none
-//             &.active
-//                 background: $main
-//                 box-shadow: none
-//                 &::before,
-//                 &::after
-//                     background: $white
-//                 .menu
-//                     position: absolute
-//                     top: 50px
-//                     right: 3px
-//                     width: auto
-//                     min-height: 100px
-//                     padding: 4px 16px
-//                     border-radius: 8px
-//                     display: flex
-//                     flex-direction: column
-//                     justify-content: center
-//                     align-items: center
-//                     background: $white
-//                     box-shadow: 0 0 0 1px rgba($grey-2, 0.5), 0 4px 10px rgba($grey-2, 0.8)
-//                     a
-//                         padding: 0
-//                         width: 100%
-//                         line-height: 45px
-//     main
-//         .carouselBox
-//             margin: 0
-//     &.main
-//         padding: 0 8px
-//     .big-title
-//         font-size: 24px
-//     .second-title
-//         font-size: 16px
-//     a.btn-default
-//         font-size: 14px
-//         padding: 4px 8px
-//         line-height: 20px
-//         letter-spacing: $letterspace
-//         font-weight: 500
-
-//     &.main.main-project,
-//     &.main.main-wireframe
-//         main
-//             display: flex
-//             flex-direction: column
-//             justify-content: center
-//             align-items: center
-//             margin-top: 50px !important
-//         .project-wrapper
-//             .tab
-//                 display: flex
-//                 justify-content: center
-//                 align-items: center
-//                 width: 100%
-
-//         .container
-//             display: grid
-//             justify-content: center
-//             align-items: center
-//             grid-template-columns: repeat(2, 50%)
-//             gap: 16px 0
-//             overflow: unset
-//             .container-intro
-//                 display: flex
-//                 flex-direction: column
-//                 align-items: center
-//                 justify-content: center
-//                 font-size: 24px
-//                 line-height: 32px
-//                 letter-spacing: $letterspace
-//                 font-weight: 600
-//                 gap: 16px
-//                 > img
-//                     margin: 0
-//                     border-radius: 20px
-//                     width: 64px
-//                     height: 64px
-//                 .intro
-//                     display: none
-//                 a.btn
-//                     margin-top: 35px
-//             .project
-//                 width: 100%
-//                 padding: 8px
-//                 .project-img
-//                     padding: 2px
-//                     border-radius: 16px
-//                     img
-//                         border-radius: 14px
-//                 .project-content
-//                     column-gap: 8px
-//                     .project-detail
-//                         p,
-//                         span
-//                             font-size: 14px
-//                         span
-//                             font-size: 12px
-//     &.main.main-wireframe
-//         .container-side-btn
-//             position: fixed
-//             right: 8px
-//             bottom: calc( 40px + 5% )
-//             width: 40px
-//             height: 40px
-//             box-shadow: rgba($dark, 0.2) 0px 7px 29px 0px
-//             display: flex !important
-//             justify-content: center
-//             align-items: center
-//             background: $white
-//             border-radius: 4px
-//             z-index: 1
-//         .container-side
-//             width: auto
-//             background: $white
-//             max-height: 50vh
-//             border-radius: 4px
-//             z-index: 10
-
-//         .container-intro
-//             display: none !important
-//         .container
-//             padding: 0 !important
-
-//     footer
-//         ul
-//             gap: 16px
-//             li
-//                 padding: 4px 8px
-//                 a
-//                     line-height: 16px
-//                     font-size: 14px
 @keyframes scale-down
     to
         scale: 0.75
@@ -874,4 +698,4 @@ body.main
         transform: translateX(0)
 
     100%
-        transform: translateX( -1000px)
+        transform: translateX( -300px)
