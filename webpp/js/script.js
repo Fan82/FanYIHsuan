@@ -4,6 +4,7 @@ $(document).ready(function () {
   timeLine();
   initializeCarousel();
   mainScroll();
+
 });
 
 function screenWidthCheck() {
@@ -20,16 +21,18 @@ function screenWidthCheck() {
       $(".container-side").toggleClass("show");
     });
   } else {
-    // 如果不符合螢幕寬度小於 1000 的條件，可能需要隱藏 ".container-side-btn"
     $(".container-side-btn").hide();
   }
 }
 
 function gameHall_JS() {
   $(".container-side-btn").hide();
+  $('.contact-menu').hide();
+
   $("a.contact").click(function () {
-    $(".contact-menu").toggleClass("show");
+    $(".contact-menu").show();
   });
+
   $("a.btn-tab.Flow").click(function () {
     $(".main").addClass("main-project").removeClass("main-wireframe");
   });
@@ -42,10 +45,25 @@ function gameHall_JS() {
       }
     });
   });
+
   $(".mobile nav").click(function () {
     $(this).toggleClass("active");
   });
+
+  function runMarquee() {
+    var containerWidth = $(".marquee").width();
+    var contentWidth = $(".marquee-content").width();
+    var distance = contentWidth - containerWidth;
+    $(".marquee-content").animate({ "left": -distance }, 10000, "linear", function () {
+      $(this).css("left", containerWidth);
+      runMarquee();
+    });
+  }
+
+  runMarquee();
 }
+
+
 function initializeCarousel() {
   $("#myCarousel").carousel({
     interval: 1000,
@@ -60,6 +78,7 @@ function initializeCarousel() {
     wrap: false,
   });
 }
+
 function timeLine() {
   $(document).on("scroll", timeline);
 
@@ -86,7 +105,6 @@ function mainScroll() {
         start: "top top",
         end: window.innerHeight * 0.4,
       },
-
       scale: 1,
     });
 
@@ -98,8 +116,20 @@ function mainScroll() {
         start: "top bottom+=20%",
         end: "bottom bottom-=50%",
       },
-
       strokeDashoffset: 0,
     });
   }
+
+  $(window).scroll(function () {
+    var scroll = $(window).scrollTop();
+    var scale = 1 - (scroll / 100);
+
+    // Limiting the minimum scale to 0.5
+    if (scale < 0.5) {
+      scale = 0.5;
+    }
+
+    $('a.logo').css('transform', 'scale(' + scale + ')');
+  });
 }
+
