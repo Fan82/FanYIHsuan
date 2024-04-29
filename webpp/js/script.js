@@ -1,12 +1,15 @@
 $(document).ready(function () {
-  screenWidthCheck();
-  gameHall_JS();
-  timeLine();
-  initializeCarousel();
-  mainScroll();
+  $(".load-backdrop").show();
+  setTimeout(function () {
+    $(".load-backdrop").fadeOut();
+    screenWidthCheck();
+    gameHall_JS();
+    timeLine();
+    initializeCarousel();
+    mainScroll();
+  }, 2500);
 
 });
-
 function screenWidthCheck() {
   var screenWidth = window.innerWidth || document.documentElement.clientWidth;
 
