@@ -84,7 +84,7 @@ body.main .header_nav .contact-menu {
   bottom: 65px;
   width: 100%;
   background: #fafafa;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -92,6 +92,9 @@ body.main .header_nav .contact-menu {
   padding: 4px 8px;
   box-shadow: 0px 0px 5px rgba(250, 250, 250, 0.05), 0px 10px 20px rgba(250, 250, 250, 0.05);
   z-index: 10;
+}
+body.main .header_nav .contact-menu.open {
+  display: flex;
 }
 body.main .header_nav .contact-menu li {
   padding: 4px 8px;
@@ -139,81 +142,6 @@ body.main main section p {
   font-size: clamp(0.5rem, 1.8rem, 80px);
   font-weight: 300;
   color: #9d9d9d;
-}
-body.main main .content {
-  position: relative;
-  width: 100%;
-  scale: 0.95;
-  margin-top: 40px;
-  overflow: hidden;
-}
-body.main main .content svg {
-  position: absolute;
-  height: 100%;
-  right: 35%;
-  top: 0;
-  overflow: visible !important;
-  z-index: -1;
-}
-body.main main .content svg path {
-  stroke-width: 40px;
-}
-body.main main .content svg .backers path {
-  stroke: rgba(5, 2, 6, 0.05);
-}
-body.main main .content svg .fillers path {
-  stroke-dasharray: var(--len);
-  stroke-dashoffset: var(--len);
-  stroke: #050206;
-  stroke: #F84519;
-}
-body.main main .content svg .fillers path:nth-of-type(1) {
-  --len: 8620;
-}
-body.main main .content svg .fillers path:nth-of-type(2) {
-  --len: 7200;
-}
-body.main main .content svg .fillers path:nth-of-type(3) {
-  --len: 7952;
-}
-body.main main .content section {
-  display: grid;
-  align-content: center;
-  margin: 0 auto 0 0px;
-  max-width: 400px;
-}
-body.main main .content section.list {
-  position: relative;
-  height: 60vh;
-  justify-items: start;
-  transition: all 0.2s linear;
-  color: #050206;
-}
-body.main main .content section.list:hover h2 {
-  color: #F84519;
-}
-body.main main .content section h2 {
-  font-size: 80px;
-  color: #050206;
-  width: 100%;
-  font-size: 20px;
-  white-space: nowrap;
-  line-height: 24px;
-  margin-bottom: 24px;
-}
-body.main main .content section h2 .location {
-  font-weight: 240;
-  display: inline-block;
-  font-size: 20px;
-}
-body.main main .content section .job {
-  font-size: 24px;
-  line-height: 16px;
-}
-body.main main .content section .company {
-  font-weight: 200;
-  font-size: 16px;
-  line-height: 40px;
 }
 body.main .big-title {
   position: relative;
@@ -273,59 +201,18 @@ body.main .btn-tab:hover, body.main .btn-tab:focus, body.main .btn-tab:active {
   font-weight: bold;
   box-shadow: inset 0 -2px 0 #fafafa;
 }
-body.main .sectionPin {
-  display: flex;
-  flex-direction: column;
-  color: #050206;
-  border-radius: 20px;
-  width: 100%;
-}
-body.main .sectionPin .title {
+body.main .title {
   position: relative;
+  margin: 40px 0;
   text-align: center;
-  margin: 80px 0;
 }
-body.main .sectionPin .title h2 {
+body.main .title h2 {
   white-space: nowrap;
   color: #050206;
   font-weight: 800;
   font-size: 5rem;
-  line-height: 60px;
+  letter-spacing: calc(0.016em - 8px);
   margin: 0;
-  padding-bottom: 40px;
-}
-body.main .sectionPin .marquee {
-  position: relative;
-  width: 100%;
-  height: 40px;
-  overflow-x: hidden;
-  margin: 20px 0;
-}
-body.main .sectionPin .marquee .marquee-content {
-  list-style: none;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  animation: scrolling 20s linear infinite;
-  gap: 40px;
-}
-body.main .sectionPin .marquee .marquee-content:hover {
-  animation-play-state: paused;
-}
-body.main .sectionPin .marquee .marquee-content:hover li:hover {
-  box-shadow: inset 0 0 0 0.2px #050206, 0 5px 40px rgba(5, 2, 6, 0.2);
-}
-body.main .sectionPin .marquee .marquee-content li {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 8px;
-  text-transform: uppercase;
-  font-weight: 100;
-  color: #050206;
-  white-space: nowrap;
 }
 body.main .wrapper {
   position: relative;
@@ -412,6 +299,69 @@ body.main .load-backdrop h2 {
 
 .main.main-about {
   overflow-y: scroll;
+}
+.main.main-about .wrapper .content {
+  position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+.main.main-about .wrapper .content > span {
+  position: absolute;
+  left: 5px;
+  top: 60px;
+  height: 100%;
+  width: 1px;
+  background: rgba(157, 157, 157, 0.5);
+}
+.main.main-about .wrapper .content h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #050206;
+  margin-bottom: 40px;
+}
+.main.main-about .wrapper .content .job {
+  position: relative;
+  padding-left: 40px;
+  line-height: 24px;
+  font-size: 20px;
+  margin: 40px 0;
+}
+.main.main-about .wrapper .content .job small {
+  display: inline-block;
+  font-size: 14px;
+}
+.main.main-about .wrapper .content .job .time {
+  display: block;
+  font-size: 14px;
+}
+.main.main-about .wrapper .content .job::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fafafa;
+  border: 1px solid #9d9d9d;
+  width: 12px;
+  height: 12px;
+  border-radius: 50px;
+}
+.main.main-about .wrapper .content .job:first-of-type::before {
+  background: #050206;
+  border-color: #050206;
+}
+.main.main-about .wrapper .content .tool-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.main.main-about .wrapper .content .tool-list .badge {
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #222;
 }
 
 .main.main-project,

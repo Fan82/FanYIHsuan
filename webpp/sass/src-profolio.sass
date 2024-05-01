@@ -85,7 +85,8 @@ body.main
             bottom: 65px
             width: 100%
             background: $light-clr
-            display: flex
+            // display: flex
+            display: none
             flex-direction: column
             justify-content: center
             align-items: center
@@ -93,6 +94,8 @@ body.main
             padding: 4px 8px
             box-shadow: 0px 0px 5px rgba($light-clr, 0.05), 0px 10px 20px rgba($light-clr, 0.05)
             z-index: 10
+            &.open
+                display: flex
             li
                 padding: 4px 8px
                 border-radius: 8px
@@ -134,70 +137,69 @@ body.main
                 font-size: clamp(0.5rem, 1.8rem, 80px)
                 font-weight: 300
                 color: $grey-clr
-        .content
-            position: relative
-            width: 100%
-            scale: 0.95
-            margin-top: 40px
-            overflow: hidden
-            svg
-                position: absolute
-                height: 100%
-                right: 35%
-                top: 0
-                overflow: visible !important
-                z-index: -1
-                path
-                    stroke-width: clamp(20px, 40px, 80px)
-                .backers
-                    path
-                        stroke: rgba($dark-clr ,0.05 )
-                .fillers
-                    path
-                        stroke-dasharray: var(--len)
-                        stroke-dashoffset: var(--len)
-                        stroke: $dark-clr
-                        stroke: $main
-                        &:nth-of-type(1)
-                            --len: 8620
-                        &:nth-of-type(2)
-                            --len: 7200
-                        &:nth-of-type(3)
-                            --len: 7952
-            section
-                display: grid
-                align-content: center
-                margin: 0 auto 0 0px
-                max-width: 400px
-                &.list
-                    position: relative
-                    height: 60vh
-                    justify-items: start
-                    transition: all 0.2s linear
-                    color: $dark-clr
-                    &:hover
-                        h2
-                            color: $main
+        // .content
+        //     position: relative
+        //     width: 100%
+        //     margin-top: 40px
+        //     overflow: hidden
+        //     svg
+        //         position: absolute
+        //         height: 100%
+        //         right: 35%
+        //         top: 0
+        //         overflow: visible !important
+        //         z-index: -1
+        //         path
+        //             stroke-width: clamp(20px, 40px, 80px)
+        //         .backers
+        //             path
+        //                 stroke: rgba($dark-clr ,0.05 )
+        //         .fillers
+        //             path
+        //                 stroke-dasharray: var(--len)
+        //                 stroke-dashoffset: var(--len)
+        //                 stroke: $dark-clr
+        //                 stroke: $main
+        //                 &:nth-of-type(1)
+        //                     --len: 8620
+        //                 &:nth-of-type(2)
+        //                     --len: 7200
+        //                 &:nth-of-type(3)
+        //                     --len: 7952
+        //     section
+        //         display: grid
+        //         align-content: center
+        //         margin: 0 auto 0 0px
+        //         max-width: 400px
+        //         &.list
+        //             position: relative
+        //             height: 60vh
+        //             justify-items: start
+        //             transition: all 0.2s linear
+        //             color: $dark-clr
+        //             &:hover
+        //                 h2
+        //                     color: $main
 
-                h2
-                    font-size: clamp(32px, 72px + 16px, 80px)
-                    color: $dark-clr
-                    width: 100%
-                    font-size: 20px
-                    white-space: nowrap
-                    line-height: 24px
-                    margin-bottom: 24px
-                    .location
-                        font-weight: 240
-                        display: inline-block
-                        font-size: 20px
-                .job
-                    font-size: 24px
-                    line-height: 16px
-                .company
-                    font-weight: 200
-                    font-size: 16px
-                    line-height: 40px
+        //         h2
+        //             font-size: clamp(32px, 72px + 16px, 80px)
+        //             color: $dark-clr
+        //             width: 100%
+        //             font-size: 20px
+        //             white-space: nowrap
+        //             line-height: 24px
+        //             margin-bottom: 24px
+        //             .location
+        //                 font-weight: 240
+        //                 display: inline-block
+        //                 font-size: 20px
+        //         .job
+        //             font-size: 24px
+        //             line-height: 16px
+        //         .company
+        //             font-weight: 200
+        //             font-size: 16px
+        //             line-height: 40px
 
     // 一些共用-----------------------------------------
     .big-title
@@ -258,53 +260,53 @@ body.main
             font-weight: bold
             box-shadow: inset 0 -2px 0 $light-clr
     
-    .sectionPin
-        display: flex
-        flex-direction: column
-        color: $dark-clr
-        border-radius: 20px
-        width: 100%
-        .title
-            position: relative
-            text-align: center
-            margin: 80px 0
-            h2
-                white-space: nowrap
-                color: $dark-clr
-                font-weight: 800
-                font-size: 5rem
-                line-height: 60px
-                margin: 0
-                padding-bottom: 40px
-        .marquee
-            position: relative
-            width: 100%
-            height: 40px
-            overflow-x: hidden
-            margin: 20px 0
-            .marquee-content
-                list-style: none
-                height: 100%
-                width: 100%
-                display: flex
-                animation: scrolling 20s linear infinite
-                gap: 40px
-                &:hover
-                    animation-play-state: paused
-                    li
-                        &:hover
-                            box-shadow: inset 0 0 0 0.2px $dark-clr, 0 5px 40px rgba($dark-clr ,0.2 )
-                li
-                    display: flex
-                    justify-content: center
-                    align-items: center
-                    font-size: 14px
-                    padding: 4px 8px
-                    border-radius: 8px
-                    text-transform: uppercase
-                    font-weight: 100
-                    color: $dark-clr
-                    white-space: nowrap
+    .title
+        position: relative
+        margin: 40px 0
+        text-align: center
+        h2
+            white-space: nowrap
+            color: $dark-clr
+            font-weight: 800
+            font-size: 5rem
+            letter-spacing: calc( $letterspace - 8px  )
+            margin: 0
+    // .sectionPin
+    //     display: flex
+    //     flex-direction: column
+    //     color: $dark-clr
+    //     border-radius: 20px
+    //     width: 100%
+
+    //     .marquee
+    //         position: relative
+    //         width: 100%
+    //         height: 40px
+    //         overflow-x: hidden
+    //         margin: 20px 0
+    //         .marquee-content
+    //             list-style: none
+    //             height: 100%
+    //             width: 100%
+    //             display: flex
+    //             animation: scrolling 20s linear infinite
+    //             gap: 40px
+    //             &:hover
+    //                 animation-play-state: paused
+    //                 li
+    //                     &:hover
+    //                         box-shadow: inset 0 0 0 0.2px $dark-clr, 0 5px 40px rgba($dark-clr ,0.2 )
+    //             li
+    //                 display: flex
+    //                 justify-content: center
+    //                 align-items: center
+    //                 font-size: 14px
+    //                 padding: 4px 8px
+    //                 border-radius: 8px
+    //                 text-transform: uppercase
+    //                 font-weight: 100
+    //                 color: $dark-clr
+    //                 white-space: nowrap
     .wrapper
         position: relative
         display: flex
@@ -384,6 +386,64 @@ body.main
 // ============================================
 .main.main-about
     overflow-y: scroll
+    .wrapper
+        .content
+            position: relative
+            width: 50%
+            display: flex
+            flex-direction: column
+            > span
+                position: absolute
+                left: 5px
+                top: 60px
+                height: 100%
+                width: 1px
+                background: rgba( $grey-clr, 0.5 )
+            h3
+                font-size: 24px
+                font-weight: 500
+                color: $dark-clr
+                margin-bottom: 40px
+            .job
+                position: relative
+                padding-left: 40px
+                line-height: 24px
+                font-size: 20px
+                margin: 40px 0
+
+                small
+                    display: inline-block
+                    font-size: 14px
+                .time
+                    display: block
+                    font-size: 14px
+                &::before
+                    content: ''
+                    position: absolute
+                    left: 0
+                    top: 50%
+                    transform: translateY(-50%)
+                    background: $light-clr
+                    border: 1px solid $grey-clr
+                    width: 12px
+                    height: 12px
+                    border-radius: 50px
+                &:first-of-type
+                    &::before
+                        background: $dark-clr
+                        border-color: $dark-clr
+                    
+            .tool-list
+                display: flex
+                justify-content: center
+                align-items: center
+                flex-wrap: wrap
+                .badge
+                    display: block
+                    width: 30px
+                    height: 30px
+                    background: #222
+
 // ============================================
 // project ==============================
 // ============================================

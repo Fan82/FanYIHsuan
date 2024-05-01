@@ -30,10 +30,9 @@ function screenWidthCheck() {
 
 function gameHall_JS() {
   $(".container-side-btn").hide();
-  $('.contact-menu').hide();
 
   $("a.contact").click(function () {
-    $(".contact-menu").show();
+    $(".contact-menu").toggleClass('open');
   });
 
   $("a.btn-tab.Flow").click(function () {
