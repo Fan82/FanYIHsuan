@@ -1,5 +1,5 @@
 $dark-clr: #050206
-$light-clr: #EBEBEB
+$light-clr: #fafafa
 $grey-clr: #9d9d9d
 $main: #F84519
 $letterspace: 0.016em
@@ -26,40 +26,21 @@ body.main
     max-width: 1200px
     margin: 0 auto
     overflow: hidden
-    overflow-y: auto
-    background: $dark-clr
     a.logo
-        position: fixed
-        max-width: 130px
-        top: 40px
-        right: 20%
-        left: 0
-        width: 100%
-        height: 40px
-        cursor: pointer
-        transform-origin: left
-        transition: transform 0.2s linear
-        z-index: 1001
-        mix-blend-mode: difference
+        position: sticky
+        top: -10px
+        left: 40px
+        width: 50px
+        height: 50px
+        z-index: 100
         img
             position: absolute
             top: 0
             left: 0
             width: 100%
-            height: 100%
             object-fit: contain
-        p
-            position: absolute
-            left: 0
-            bottom: -40px
-            width: auto
-            background: $dark-clr
-            text-align: center
-            padding: 4px 8px
-            color: $grey-clr
-            font-size: 20px
-            white-space: nowrap
-            opacity: 0.8
+            aspect-ratio: 1/1
+
 
     .header_nav
         position: fixed
@@ -70,25 +51,29 @@ body.main
         display: flex
         justify-content: space-around
         align-items: center
-        height: 60px
+        height: 50px
         border-radius: 50px
         -webkit-backdrop-filter: blur(16px)
         backdrop-filter: blur(16px)
-        background-color: rgba(255, 255, 255, .08)
-        border: 1px solid rgba(255, 255, 255, .08)
+        background: rgba($light-clr, .05)
+        border: 1px solid rgba($light-clr, .05)
+        box-shadow: 0 3px 7px #6d6d6d1a
         z-index: 1000
         a
             position: relative
             text-align: center
             white-space: nowrap
-            color: $light-clr
+            color: $dark-clr
             text-transform: capitalize
-            line-height: 60px
-            width: 100%
+            line-height: 50px
+            width: 50%
             height: 100%
             transition: 0.2s ease-in-out
             cursor: pointer
             border-radius: 50px
+            display: flex
+            justify-content: center
+            align-items: center
             &:hover,
             &:active,
             &:focus
@@ -97,7 +82,7 @@ body.main
 
         .contact-menu
             position: absolute
-            bottom: 70px
+            bottom: 65px
             width: 100%
             background: $light-clr
             display: flex
@@ -107,52 +92,23 @@ body.main
             border-radius: 8px
             padding: 4px 8px
             box-shadow: 0px 0px 5px rgba($light-clr, 0.05), 0px 10px 20px rgba($light-clr, 0.05)
-            &::before
-                content: ''
-                position: absolute
-                right: 45%
-                bottom: -30px
-                width: 0
-                height: 0
-                border: 15px solid
-                border-color: $dark-clr transparent transparent transparent
+            z-index: 10
             li
                 padding: 4px 8px
-                border-radius: 4px
+                border-radius: 8px
                 width: 100%
                 a
                     color: $dark-clr
                     transition: all 0.02s linear
+                    text-align: center
                 &:hover
-                    background: $main
                     a
-                        color: $dark-clr
-
+                        color: $main
     // --------------------------
     main
         position: relative
         width: 100%
         margin-top: 40px
-        .logoBox
-            position: absolute
-            left: 80px
-            top: -50px
-            z-index: 2
-            img
-                width: 250px
-                aspect-ratio: 1/1
-                object-fit: contain
-            .slogan
-                font-size: 1.8rem
-                margin-top: -30px
-                letter-spacing: 2.2px
-                white-space: nowrap
-                color: $grey-clr
-                font-family: "Playfair Display", serif
-                line-height: 35px
-                &:last-child
-                    margin-top: 8px
-                    margin-left: 100px
         > section
             position: relative
             top: 0
@@ -187,7 +143,7 @@ body.main
             svg
                 position: absolute
                 height: 100%
-                right: 40%
+                right: 35%
                 top: 0
                 overflow: visible !important
                 z-index: -1
@@ -218,27 +174,29 @@ body.main
                     height: 60vh
                     justify-items: start
                     transition: all 0.2s linear
-                    color: $light-clr
+                    color: $dark-clr
                     &:hover
                         h2
                             color: $main
 
                 h2
                     font-size: clamp(32px, 72px + 16px, 80px)
-                    color: $light-clr
+                    color: $dark-clr
                     width: 100%
-                    font-size: 2.4rem
+                    font-size: 20px
                     white-space: nowrap
+                    line-height: 24px
+                    margin-bottom: 24px
                     .location
                         font-weight: 240
                         display: inline-block
-                        font-size: 1.4rem
+                        font-size: 20px
                 .job
-                    font-size: 2.4rem
-                    line-height: 44px
+                    font-size: 24px
+                    line-height: 16px
                 .company
                     font-weight: 200
-                    font-size: 1.6rem
+                    font-size: 16px
                     line-height: 40px
 
     // 一些共用-----------------------------------------
@@ -250,7 +208,7 @@ body.main
         font-size: 32px
         font-weight: 600
         letter-spacing: $letterspace
-        color: $light-clr
+        color: $dark-clr
         text-transform: uppercase
         padding: 8px 0
         z-index: 100
@@ -274,12 +232,13 @@ body.main
             left: 0
             width: 100%
             height: 1px
-            background: $light-clr
+            background: $dark-clr
+
     a.btn-default
         padding: 8px 16px
-        border-radius: 4px
+        border-radius: 8px
         background: $light-clr
-        color: $light-clr
+        color: $dark-clr
         text-transform: capitalize
         font-weight: normal
         font-size: 16px
@@ -287,63 +246,36 @@ body.main
         &:hover,
         &:focus,
         &:active
-            background: $main
-            color: $dark-clr
+            color: $main
 
     .btn-tab
         padding: 8px 16px
-        color: $grey-clr
+        color: $dark-clr
         font-weight: 400
         &:hover,
         &:focus,
         &:active
-            color: $light-clr
+            font-weight: bold
             box-shadow: inset 0 -2px 0 $light-clr
     
     .sectionPin
         display: flex
         flex-direction: column
-        color: $light-clr
+        color: $dark-clr
         border-radius: 20px
         width: 100%
         .title
+            position: relative
             text-align: center
-
+            margin: 80px 0
             h2
                 white-space: nowrap
+                color: $dark-clr
                 font-weight: 800
                 font-size: 5rem
-                line-height: 80px
+                line-height: 60px
                 margin: 0
                 padding-bottom: 40px
-            p
-                display: none
-                opacity: 0.7
-                font-weight: 100
-                letter-spacing: calc( $letterspace * 2  )
-                font-size: 2rem
-                white-space: nowrap
-
-        .carouselBox
-            .carousel-item
-                img
-                    aspect-ratio: 9/ 16
-                    height: 300px
-                    object-fit: contain
-        .tool
-            display: flex
-            justify-content: flex-start
-            align-items: center
-            gap: 8px
-            margin: 12px 0
-            img
-                display: block
-                width: 48px
-                height: 48px
-                aspect-ratio: 1/1
-                object-fit: contain
-                border-radius: 8px
-                background-color: $dark-clr
         .marquee
             position: relative
             width: 100%
@@ -361,68 +293,72 @@ body.main
                     animation-play-state: paused
                     li
                         &:hover
-                            box-shadow: inset 0 0 0 0.2px $light-clr, 0 5px 40px rgba($light-clr ,0.2 )
+                            box-shadow: inset 0 0 0 0.2px $dark-clr, 0 5px 40px rgba($dark-clr ,0.2 )
                 li
                     display: flex
                     justify-content: center
                     align-items: center
-                    font-size: 20px
+                    font-size: 14px
                     padding: 4px 8px
-                    background: rgba($light-clr, 0.05 )
                     border-radius: 8px
                     text-transform: uppercase
                     font-weight: 100
-                    color: $light-clr
+                    color: $dark-clr
                     white-space: nowrap
     .wrapper
         position: relative
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 0 40px
         width: 100%
-        background-color: #1d1c20
-        border: 1px solid rgba(255, 255, 255, .08)
-        border-radius: 20px
-        padding: 28px 32px
         margin: 12px 0 40px 0
-        color: $light-clr
-        box-shadow: 0 2px 2px rgba(0,0,0,.2),0 20px 25px rgba(0,0,0,.5)
-        .wrapper-title
-            line-height: 40px
-            font-size: 32px
-            line-height: 40px
-            margin-bottom: 20px
-            color: $light-clr
-            max-width: 50%
-            p
-                font-weight: lighter
-                opacity: 0.5
+        .wrapper-box
+            color: $dark-clr
+            background: linear-gradient(0deg,rgba($light-clr ,0 ), rgba($light-clr ,0.1 ))
+            box-shadow: 0px 48px 19px rgba(0, 0, 0, 0.01), 0px 27px 16px rgba(0, 0, 0, 0.02), 0px 12px 12px rgba(0, 0, 0, 0.03), 0px 3px 7px rgba(0, 0, 0, 0.04)
+            border: 1px solid rgba($dark-clr, .1)
+            border-radius: 20px
+            padding: 28px 32px
+            // width: 50%
+            .wrapper-title
                 font-size: 20px
-                line-height: 150%
-                margin: 20px 0 40px 0
-        .button
-            width: auto
-            white-space: nowrap
-            line-height: 20px
-            font-size: 22px
-            border-radius: 80px
-            padding: 20px 32px
-            border: 0.7px solid rgba($light-clr, .8)
-            display: inline-flex
-            justify-content: center
-            align-items: center
-            gap: 16px
-            .arrow
-                width: 15px
-                height: 7px
-                border-bottom: 2px solid $light-clr
-                border-right: 2px solid $light-clr
-                transform: skew(45deg)
-                transition: all 0.5s
-            &:hover
-                background: $light-clr
+                line-height: 40px
+                p
+                    font-weight: lighter
+                    opacity: 0.5
+                    font-size: 16px
+                    line-height: 150%
+                    margin: 20px 0
+            .button
+                width: auto
+                white-space: nowrap
+                line-height: 16px
+                font-size: 20px
+                border-radius: 80px
+                padding: 12px 20px
+                border: 0.7px solid $dark-clr
+                background: linear-gradient(rgba(255, 255, 255, 0.125), rgba(255, 255, 255, 0.075))
+                display: inline-flex
+                justify-content: center
+                align-items: center
                 color: $dark-clr
-                border-color: $dark-clr
+                transition: all 0.2s ease-in
+                gap: 16px
                 .arrow
-                    border-color: $dark-clr
-                    transform: rotate(-20deg) skew(45deg)
+                    width: 15px
+                    height: 7px
+                    border-bottom: 2px solid $dark-clr
+                    border-right: 2px solid $dark-clr
+                    transform: skew(45deg)
+                    transition: all 0.5s
+                &:hover
+                    background: $dark-clr
+                    border-color: $light-clr
+                    color: $light-clr
+                    .arrow
+                        border-color: $light-clr
+                        transform: rotate(-20deg) skew(45deg)
     // 前面一開始
     .load-backdrop
         position: fixed
@@ -435,6 +371,8 @@ body.main
         justify-content: center
         align-items: center
         color: $dark-clr
+        -webkit-backdrop-filter: blur(16px)
+        backdrop-filter: blur(16px)
         overflow: hidden
         z-index: 1001
         h2
@@ -444,66 +382,33 @@ body.main
 // ============================================
 // 關於 ==============================
 // ============================================
-.about-container
-    position: relative
-    display: flex
-    justify-content: space-evenly
-    align-items: flex-end
-    width: 100%
-    height: 100px
-    gap: 40px
-    padding: 80px 2vw
-    margin: 20rem 0
-    z-index: 500
-
-    .col
-        flex-direction: column
-        align-items: flex-start
-        justify-content: flex-start
-        padding: 24px 64px
-        width: 50%
-        color: $light-clr
-        border-radius: calc(0.5 * 80px)
-        h3
-            line-height: 40px
-        p
-            line-height: 24px
-            margin: 4px 0
-        .tool
-            display: flex
-            justify-content: flex-start
-            align-items: center
-            gap: 8px
-            margin: 10px 0
-        img
-            display: block
-            width: 40px
-            height: 40px
-            object-fit: cover
-            border-radius: 8px
-            padding: 0
+.main.main-about
+    overflow-y: scroll
 // ============================================
 // project ==============================
 // ============================================
 .main.main-project,
 .main.main-wireframe
+    overflow-y: scroll
     main
-        margin-top: 60px !important
-        margin-bottom: 30px
+        margin-top: 0px !important
+        margin-bottom: 20px
         .container.container-side
             width: 40%
         .container
             position: relative
             display: grid
             grid-template-columns: repeat(5, 1fr)
-            gap: 24px
+            // display: flex
+            // flex-wrap: wrap
+            gap: 32px 12px
             width: 100%
             padding: 20px 0
             overflow-x: auto
             overflow-y: hidden
             .project
                 position: relative
-                width: fit-content
+                width: calc( 1200px / 5 - 10px )
                 height: 100%
                 > a
                     position: absolute
@@ -514,8 +419,8 @@ body.main
                 .project-img
                     position: relative
                     width: 100%
-                    padding: 4px
-                    border-radius: 32px
+                    border-radius: 20px
+                    max-height: 500px
                     overflow: hidden
                     &::before
                         content: ''
@@ -531,20 +436,19 @@ body.main
                         width: 100%
                         height: 100%
                         object-fit: cover
-                        border-radius: 28px
                         object-position: top
 
                 .project-content
                     display: flex
                     justify-content: flex-start
                     align-items: flex-start
-                    column-gap: 16px
-                    margin-top: 20px
+                    column-gap: 8px
+                    margin-top: 16px
                     .project-pic
                         position: relative
-                        width: 28px
-                        height: 28px
-                        border-radius: 4px
+                        width: 30px
+                        height: 30px
+                        border-radius: 8px
                         overflow: hidden
                         box-shadow: 0 2px 8px $light-clr
                         img
@@ -555,18 +459,19 @@ body.main
                             height: 100%
                             object-fit: cover
                     .project-detail
-                        width: calc( 100% - 25px )
-                        color: $light-clr
+                        width: calc( 100% - 30px )
+                        color: $dark-clr
                         > p
                             font-size: 16px
+                            line-height: 20px
                             margin: 0
                             padding: 0
                             letter-spacing: $letterspace
                             font-weight: 500
                         > span
                             width: 120px
-                            font-size: 14px
-                            line-height: 24px
+                            font-size: 12px
+                            line-height: 20px
                             color: $grey-clr
                             letter-spacing: $letterspace
                             text-overflow: ellipsis
@@ -618,13 +523,7 @@ body.main
                 bottom: 0
                 width: 100%
                 height: 1px
-                background: $light-clr
-            a.btn-tab
-                position: relative
-                &:hover,
-                &:active,
-                &:focus
-                    color: $light-clr
+                background: $dark-clr
 
         .container
             flex-wrap: wrap
@@ -640,8 +539,12 @@ body.main
                     width: 35px
                     height: 35px
                     object-fit: contain
-                    border-radius: 4px
+                    border-radius: 8px
                     margin-right: 8px
+                .intro-title
+                    font-size: 24px
+                    font-weight: 800
+                    line-height: 32px
                 .intro
                     position: relative
                     line-height: 26px
@@ -652,10 +555,7 @@ body.main
                     padding: 20px 0px
 
             .project
-                // width: 23%
                 .project-img
-                    box-shadow: inset 0 0 0 4px $light-clr
-                    padding: 3px
                     img
                         object-position: center
                 img.wireframe
@@ -670,10 +570,9 @@ body.main
         .container-intro
             display: none !important
         .container
-            display: inline-flex
             padding-left: 20%
+            grid-template-columns: repeat(4, 1fr)
             .project
-                width: 22%
                 img
                     display: none
                 img.wireframe
@@ -712,3 +611,8 @@ body.main
 
     100%
         transform: translateX( -300px)
+@keyframes blur
+    0%, 100%
+        transform: scale(0)
+    50%
+        transform: scale(2)

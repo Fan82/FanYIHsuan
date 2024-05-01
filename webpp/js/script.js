@@ -128,8 +128,8 @@ function mainScroll() {
     var scale = 1 - (scroll / 100);
 
     // Limiting the minimum scale to 0.5
-    if (scale < 0.5) {
-      scale = 0.5;
+    if (scale < 0.7) {
+      scale = 0.7;
     }
 
     $('a.logo').css('transform', 'scale(' + scale + ')');
