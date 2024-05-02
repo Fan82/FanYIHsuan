@@ -23,7 +23,6 @@ body.main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  overflow: hidden;
 }
 body.main a.logo {
   position: sticky;
@@ -283,6 +282,7 @@ body.main .load-backdrop {
   height: 100%;
   background: #fafafa;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   color: #050206;
@@ -296,60 +296,167 @@ body.main .load-backdrop h2 {
   font-weight: light;
   letter-spacing: 0.016em;
 }
+body.main .load-backdrop #countdown {
+  display: block;
+  font-size: 12px;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 20px 0;
+}
+.container .project {
+  position: relative;
+}
+.container .project > a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.container .project .project-img {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  max-height: 500px;
+  overflow: hidden;
+}
+.container .project .project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.container .project .project-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 8px;
+  margin-top: 16px;
+}
+.container .project .project-content .project-detail {
+  width: calc(100% - 30px);
+  color: #050206;
+}
+.container .project .project-content .project-detail > p {
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.016em;
+  font-weight: 500;
+}
+.container .project .project-content .project-detail > span {
+  width: 120px;
+  font-size: 12px;
+  line-height: 20px;
+  color: #9d9d9d;
+  letter-spacing: 0.016em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 
 .main.main-about {
   overflow-y: scroll;
 }
-.main.main-about .wrapper .content {
-  position: relative;
-  width: 50%;
+.main.main-about .wrapper {
+  align-items: flex-start;
+}
+.main.main-about .wrapper .project-modules {
+  width: 75%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 24px;
 }
-.main.main-about .wrapper .content > span {
-  position: absolute;
-  left: 5px;
-  top: 60px;
-  height: 100%;
-  width: 1px;
-  background: rgba(157, 157, 157, 0.5);
+.main.main-about .wrapper .project-modules:has(img) {
+  width: 45%;
+}
+.main.main-about .wrapper .project-modules img {
+  width: 280px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  object-fit: cover;
+}
+.main.main-about .wrapper .project-modules .intro {
+  margin-top: 20px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 400;
+  text-align: left;
+}
+.main.main-about .wrapper .project-modules .intro ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 24px;
+}
+.main.main-about .wrapper .project-modules .intro ul li a {
+  display: inline-block;
+  font-size: 14px;
+  color: #050206;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+.main.main-about .wrapper .content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  gap: 8px;
+}
+.main.main-about .wrapper .content span {
+  margin: 16px 0;
+  color: #050206;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  padding-bottom: 12px;
+  padding-top: 0px;
+  text-align: left;
+  text-transform: none;
 }
 .main.main-about .wrapper .content h3 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 500;
   color: #050206;
-  margin-bottom: 40px;
 }
 .main.main-about .wrapper .content .job {
   position: relative;
-  padding-left: 40px;
   line-height: 24px;
-  font-size: 20px;
-  margin: 40px 0;
+  font-size: 16px;
+  letter-spacing: 0.016em;
+  font-weight: 800;
 }
 .main.main-about .wrapper .content .job small {
   display: inline-block;
-  font-size: 14px;
+  color: #050206;
+  font-size: 13px;
+  font-weight: normal;
+}
+.main.main-about .wrapper .content .job small::before {
+  content: "";
+  position: relative;
+  background: #050206;
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 10px;
+  margin: 2px 8px;
 }
 .main.main-about .wrapper .content .job .time {
   display: block;
+  font-weight: normal;
+  color: #9d9d9d;
   font-size: 14px;
-}
-.main.main-about .wrapper .content .job::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: #fafafa;
-  border: 1px solid #9d9d9d;
-  width: 12px;
-  height: 12px;
-  border-radius: 50px;
-}
-.main.main-about .wrapper .content .job:first-of-type::before {
-  background: #050206;
-  border-color: #050206;
+  margin-top: 2px;
 }
 .main.main-about .wrapper .content .tool-list {
   display: flex;
@@ -377,145 +484,43 @@ body.main .load-backdrop h2 {
 .main.main-wireframe main .container.container-side {
   width: 40%;
 }
-.main.main-project main .container,
-.main.main-wireframe main .container {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 32px 12px;
-  width: 100%;
-  padding: 20px 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.main.main-project main .container .project,
-.main.main-wireframe main .container .project {
-  position: relative;
-  width: 230px;
-  height: 100%;
-}
-.main.main-project main .container .project > a,
-.main.main-wireframe main .container .project > a {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-}
-.main.main-project main .container .project .project-img,
-.main.main-wireframe main .container .project .project-img {
-  position: relative;
-  width: 100%;
-  border-radius: 20px;
-  max-height: 500px;
-  overflow: hidden;
-}
-.main.main-project main .container .project .project-img::before,
-.main.main-wireframe main .container .project .project-img::before {
-  content: "";
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #fafafa;
-  width: 40%;
-  height: 6px;
-  border-radius: 8px;
-}
-.main.main-project main .container .project .project-img img,
-.main.main-wireframe main .container .project .project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-}
-.main.main-project main .container .project .project-content,
-.main.main-wireframe main .container .project .project-content {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  column-gap: 8px;
-  margin-top: 16px;
-}
-.main.main-project main .container .project .project-content .project-pic,
-.main.main-wireframe main .container .project .project-content .project-pic {
-  position: relative;
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px #fafafa;
-}
-.main.main-project main .container .project .project-content .project-pic img,
-.main.main-wireframe main .container .project .project-content .project-pic img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.main.main-project main .container .project .project-content .project-detail,
-.main.main-wireframe main .container .project .project-content .project-detail {
-  width: calc(100% - 30px);
-  color: #050206;
-}
-.main.main-project main .container .project .project-content .project-detail > p,
-.main.main-wireframe main .container .project .project-content .project-detail > p {
-  font-size: 16px;
-  line-height: 20px;
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0.016em;
-  font-weight: 500;
-}
-.main.main-project main .container .project .project-content .project-detail > span,
-.main.main-wireframe main .container .project .project-content .project-detail > span {
-  width: 120px;
-  font-size: 12px;
-  line-height: 20px;
-  color: #9d9d9d;
-  letter-spacing: 0.016em;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
-.main.main-project main .container-side,
-.main.main-wireframe main .container-side {
+.main.main-project .container-side,
+.main.main-wireframe .container-side {
   display: inline-flex;
   flex-direction: column;
   width: calc(20% - 20px);
   height: 100%;
 }
-.main.main-project main .container-side .side-box,
-.main.main-wireframe main .container-side .side-box {
+.main.main-project .container-side .side-box,
+.main.main-wireframe .container-side .side-box {
   padding-left: 8px;
   margin-bottom: 16px;
 }
-.main.main-project main .container-side .side-box.HOME,
-.main.main-wireframe main .container-side .side-box.HOME {
+.main.main-project .container-side .side-box.HOME,
+.main.main-wireframe .container-side .side-box.HOME {
   padding: 0;
 }
-.main.main-project main .container-side .side-box .side-titel,
-.main.main-wireframe main .container-side .side-box .side-titel {
+.main.main-project .container-side .side-box .side-titel,
+.main.main-wireframe .container-side .side-box .side-titel {
   text-transform: capitalize;
   margin-bottom: 8px;
   letter-spacing: 0.016em;
 }
-.main.main-project main .container-side .side-box .side-container,
-.main.main-wireframe main .container-side .side-box .side-container {
+.main.main-project .container-side .side-box .side-container,
+.main.main-wireframe .container-side .side-box .side-container {
   display: flex;
   flex-direction: column;
   padding-left: 8px;
-  gap: 4px;
+  gap: 8px;
 }
-.main.main-project main .container-side .side-box .side-container li,
-.main.main-wireframe main .container-side .side-box .side-container li {
+.main.main-project .container-side .side-box .side-container li,
+.main.main-wireframe .container-side .side-box .side-container li {
   padding: 4px 0;
-  line-height: 20px;
+  line-height: 24px;
   color: #9d9d9d;
 }
-.main.main-project main .container-side .side-box .side-container li::before,
-.main.main-wireframe main .container-side .side-box .side-container li::before {
+.main.main-project .container-side .side-box .side-container li::before,
+.main.main-wireframe .container-side .side-box .side-container li::before {
   content: "";
   display: inline-block;
   width: 4px;

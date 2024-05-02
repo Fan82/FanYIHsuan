@@ -4,8 +4,6 @@ $(document).ready(function () {
     $(".load-backdrop").fadeOut();
     screenWidthCheck();
     gameHall_JS();
-    timeLine();
-    initializeCarousel();
     mainScroll();
   }, 2500);
 
@@ -52,51 +50,12 @@ function gameHall_JS() {
     $(this).toggleClass("active");
   });
 
-  function runMarquee() {
-    var containerWidth = $(".marquee").width();
-    var contentWidth = $(".marquee-content").width();
-    var distance = contentWidth - containerWidth;
-    $(".marquee-content").animate({ "left": -distance }, 10000, "linear", function () {
-      $(this).css("left", containerWidth);
-      runMarquee();
-    });
-  }
-
-  runMarquee();
+  var gif = $('#gifImage')[0]; // 获取原生 DOM 元素
+  gif.play(); // 自动播放
+  gif.loop = true; // 循环播放
 }
 
 
-function initializeCarousel() {
-  $("#myCarousel").carousel({
-    interval: 1000,
-    wrap: false,
-  });
-  $("#myCarousel1").carousel({
-    interval: 2000,
-    wrap: false,
-  });
-  $("#myCarousel2").carousel({
-    interval: 3000,
-    wrap: false,
-  });
-}
-
-function timeLine() {
-  $(document).on("scroll", timeline);
-
-  function timeline() {
-    var threshold_position =
-      $(window).scrollTop() + ($(window).height() * 1) / 2;
-    $(".timeline li").each(function () {
-      if ($(this).offset().top < threshold_position) {
-        $(this).addClass("visible");
-      } else {
-        $(this).removeClass("visible");
-      }
-    });
-  }
-  timeline();
-}
 function mainScroll() {
   if (!CSS.supports("animation-timeline: scroll()")) {
     gsap.registerPlugin(ScrollTrigger);
@@ -134,4 +93,3 @@ function mainScroll() {
     $('a.logo').css('transform', 'scale(' + scale + ')');
   });
 }
-

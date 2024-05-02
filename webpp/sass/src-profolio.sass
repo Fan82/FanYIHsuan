@@ -25,7 +25,7 @@ body.main
     width: 100%
     max-width: 1200px
     margin: 0 auto
-    overflow: hidden
+    // overflow: hidden
     a.logo
         position: sticky
         top: -10px
@@ -370,6 +370,7 @@ body.main
         height: 100%
         background: $light-clr
         display: flex
+        flex-direction: column
         justify-content: center
         align-items: center
         color: $dark-clr
@@ -381,57 +382,166 @@ body.main
             font-size: 20px
             font-weight: light
             letter-spacing: $letterspace
+        #countdown
+            display: block
+            font-size: 12px
+            text-align: center
+.container
+    position: relative
+    display: flex
+    width: 100%
+    padding: 20px 0
+    .project
+        position: relative
+        > a
+            position: absolute
+            width: 100%
+            height: 100%
+            z-index: 10
+
+        .project-img
+            position: relative
+            width: 100%
+            border-radius: 20px
+            max-height: 500px
+            overflow: hidden
+            // &::before
+            //     content: ''
+            //     position: absolute
+            //     bottom: 12px
+            //     left: 50%
+            //     transform: translateX(-50%)
+            //     background: $light-clr
+            //     width: 40%
+            //     height: 6px
+            //     border-radius: 8px
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                object-position: top
+
+        .project-content
+            display: flex
+            justify-content: flex-start
+            align-items: flex-start
+            column-gap: 8px
+            margin-top: 16px
+            .project-detail
+                width: calc( 100% - 30px )
+                color: $dark-clr
+                > p
+                    font-size: 16px
+                    line-height: 20px
+                    margin: 0
+                    padding: 0
+                    letter-spacing: $letterspace
+                    font-weight: 500
+                > span
+                    width: 120px
+                    font-size: 12px
+                    line-height: 20px
+                    color: $grey-clr
+                    letter-spacing: $letterspace
+                    text-overflow: ellipsis
+                    overflow: hidden
+                    white-space: nowrap
 // ============================================
 // 關於 ==============================
 // ============================================
 .main.main-about
     overflow-y: scroll
     .wrapper
-        .content
-            position: relative
-            width: 50%
+        align-items: flex-start
+        .project-modules
+            width: 75%
             display: flex
             flex-direction: column
-            > span
-                position: absolute
-                left: 5px
-                top: 60px
-                height: 100%
-                width: 1px
-                background: rgba( $grey-clr, 0.5 )
+            align-items: center
+            margin-top: 40px
+            gap: 24px
+            &:has(img)
+                width: 45%
+            img
+                width: 280px
+                aspect-ratio: 1/1
+                border-radius: 100%
+                object-fit: cover
+            .intro
+                margin-top: 20px
+                font-size: 20px
+                line-height: 24px
+                font-weight: 400
+                text-align: left
+                ul
+                    display: flex
+                    justify-content: flex-start
+                    align-items: flex-start
+                    gap: 24px
+                    li
+                        a
+                            display: inline-block
+                            font-size: 14px
+                            color: $dark-clr
+                            text-transform: capitalize
+                            text-decoration: underline
+        .content
+            position: relative
+            width: 100%
+            display: flex
+            flex-direction: column
+            margin-bottom: 40px
+            gap: 8px
+            span
+                margin: 16px 0
+                color: $dark-clr
+                font-size: 14px
+                font-style: normal
+                font-weight: 400
+                line-height: 28px
+                padding-bottom: 12px
+                padding-top: 0px
+                text-align: left
+                text-transform: none
+
+            // > span
+            //     position: absolute
+            //     left: 5px
+            //     top: 60px
+            //     height: 100%
+            //     width: 1px
+            //     background: rgba( $grey-clr, 0.5 )
             h3
-                font-size: 24px
+                font-size: 20px
                 font-weight: 500
                 color: $dark-clr
-                margin-bottom: 40px
             .job
                 position: relative
-                padding-left: 40px
                 line-height: 24px
-                font-size: 20px
-                margin: 40px 0
+                font-size: 16px
+                letter-spacing: $letterspace
+                font-weight: 800
 
                 small
                     display: inline-block
-                    font-size: 14px
+                    color: $dark-clr
+                    font-size: 13px
+                    font-weight: normal
+                    &::before
+                        content: ''
+                        position: relative
+                        background: $dark-clr
+                        display: inline-block
+                        width: 6px
+                        height: 6px
+                        border-radius: 10px
+                        margin: 2px 8px
                 .time
                     display: block
+                    font-weight: normal
+                    color: $grey-clr
                     font-size: 14px
-                &::before
-                    content: ''
-                    position: absolute
-                    left: 0
-                    top: 50%
-                    transform: translateY(-50%)
-                    background: $light-clr
-                    border: 1px solid $grey-clr
-                    width: 12px
-                    height: 12px
-                    border-radius: 50px
-                &:first-of-type
-                    &::before
-                        background: $dark-clr
-                        border-color: $dark-clr
+                    margin-top: 2px
                     
             .tool-list
                 display: flex
@@ -455,119 +565,117 @@ body.main
         margin-bottom: 20px
         .container.container-side
             width: 40%
-        .container
-            position: relative
-            display: grid
-            grid-template-columns: repeat(5, 1fr)
-            // display: flex
-            // flex-wrap: wrap
-            gap: 32px 12px
-            width: 100%
-            padding: 20px 0
-            overflow-x: auto
-            overflow-y: hidden
-            .project
-                position: relative
-                width: calc( 1200px / 5 - 10px )
-                height: 100%
-                > a
-                    position: absolute
-                    width: 100%
-                    height: 100%
-                    z-index: 10
+    // .container
+    //     position: relative
+    //     display: grid
+    //     grid-template-columns: repeat(5, 1fr)
+    //     gap: 32px 12px
+    //     width: 100%
+    //     padding: 20px 0
+    //     overflow-x: auto
+    //     overflow-y: hidden
+    //     .project
+    //         position: relative
+    //         width: calc( 1200px / 5 - 10px )
+    //         height: 100%
+    //         > a
+    //             position: absolute
+    //             width: 100%
+    //             height: 100%
+    //             z-index: 10
 
-                .project-img
-                    position: relative
-                    width: 100%
-                    border-radius: 20px
-                    max-height: 500px
-                    overflow: hidden
+    //         .project-img
+    //             position: relative
+    //             width: 100%
+    //             border-radius: 20px
+    //             max-height: 500px
+    //             overflow: hidden
+    //             &::before
+    //                 content: ''
+    //                 position: absolute
+    //                 bottom: 12px
+    //                 left: 50%
+    //                 transform: translateX(-50%)
+    //                 background: $light-clr
+    //                 width: 40%
+    //                 height: 6px
+    //                 border-radius: 8px
+    //             img
+    //                 width: 100%
+    //                 height: 100%
+    //                 object-fit: cover
+    //                 object-position: top
+
+    //         .project-content
+    //             display: flex
+    //             justify-content: flex-start
+    //             align-items: flex-start
+    //             column-gap: 8px
+    //             margin-top: 16px
+    //             .project-pic
+    //                 position: relative
+    //                 width: 30px
+    //                 height: 30px
+    //                 border-radius: 8px
+    //                 overflow: hidden
+    //                 box-shadow: 0 2px 8px $light-clr
+    //                 img
+    //                     position: absolute
+    //                     top: 0
+    //                     left: 0
+    //                     width: 100%
+    //                     height: 100%
+    //                     object-fit: cover
+    //             .project-detail
+    //                 width: calc( 100% - 30px )
+    //                 color: $dark-clr
+    //                 > p
+    //                     font-size: 16px
+    //                     line-height: 20px
+    //                     margin: 0
+    //                     padding: 0
+    //                     letter-spacing: $letterspace
+    //                     font-weight: 500
+    //                 > span
+    //                     width: 120px
+    //                     font-size: 12px
+    //                     line-height: 20px
+    //                     color: $grey-clr
+    //                     letter-spacing: $letterspace
+    //                     text-overflow: ellipsis
+    //                     overflow: hidden
+    //                     white-space: nowrap
+    .container-side
+        display: inline-flex
+        flex-direction: column
+        width: calc( 100% - 80% - 20px )
+        height: 100%
+        .side-box
+            padding-left: 8px
+            margin-bottom: 16px
+            &.HOME
+                padding: 0
+            .side-titel
+                text-transform: capitalize
+                margin-bottom: 8px
+                letter-spacing: $letterspace
+            .side-container
+                display: flex
+                flex-direction: column
+                padding-left: 8px
+                gap: 8px
+                li
+                    padding: 4px 0
+                    line-height: 24px
+                    color: $grey-clr
                     &::before
                         content: ''
-                        position: absolute
-                        bottom: 12px
-                        left: 50%
-                        transform: translateX(-50%)
-                        background: $light-clr
-                        width: 40%
-                        height: 6px
-                        border-radius: 8px
-                    img
-                        width: 100%
-                        height: 100%
-                        object-fit: cover
-                        object-position: top
-
-                .project-content
-                    display: flex
-                    justify-content: flex-start
-                    align-items: flex-start
-                    column-gap: 8px
-                    margin-top: 16px
-                    .project-pic
-                        position: relative
-                        width: 30px
-                        height: 30px
-                        border-radius: 8px
-                        overflow: hidden
-                        box-shadow: 0 2px 8px $light-clr
-                        img
-                            position: absolute
-                            top: 0
-                            left: 0
-                            width: 100%
-                            height: 100%
-                            object-fit: cover
-                    .project-detail
-                        width: calc( 100% - 30px )
-                        color: $dark-clr
-                        > p
-                            font-size: 16px
-                            line-height: 20px
-                            margin: 0
-                            padding: 0
-                            letter-spacing: $letterspace
-                            font-weight: 500
-                        > span
-                            width: 120px
-                            font-size: 12px
-                            line-height: 20px
-                            color: $grey-clr
-                            letter-spacing: $letterspace
-                            text-overflow: ellipsis
-                            overflow: hidden
-                            white-space: nowrap
-        .container-side
-            display: inline-flex
-            flex-direction: column
-            width: calc( 100% - 80% - 20px )
-            height: 100%
-            .side-box
-                padding-left: 8px
-                margin-bottom: 16px
-                &.HOME
-                    padding: 0
-                .side-titel
-                    text-transform: capitalize
-                    margin-bottom: 8px
-                    letter-spacing: $letterspace
-                .side-container
-                    display: flex
-                    flex-direction: column
-                    padding-left: 8px
-                    gap: 4px
-                    li
-                        padding: 4px 0
-                        line-height: 20px
-                        color: $grey-clr
-                        &::before
-                            content: ''
-                            display: inline-block
-                            width: 4px
-                            height: 2px
-                            background: $grey-clr
-                            margin-right: 8px
-                            margin-bottom: 3px
+                        display: inline-block
+                        width: 4px
+                        height: 2px
+                        background: $grey-clr
+                        margin-right: 8px
+                        margin-bottom: 3px
 
     // 每個project的版面控制
     main.project-wrapper
