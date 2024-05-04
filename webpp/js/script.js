@@ -4,8 +4,7 @@ $(document).ready(function () {
     $(".load-backdrop").fadeOut();
     screenWidthCheck();
     gameHall_JS();
-    mainScroll();
-  }, 2500);
+  }, 4000);
 
 });
 function screenWidthCheck() {
@@ -50,46 +49,4 @@ function gameHall_JS() {
     $(this).toggleClass("active");
   });
 
-  var gif = $('#gifImage')[0]; // 获取原生 DOM 元素
-  gif.play(); // 自动播放
-  gif.loop = true; // 循环播放
-}
-
-
-function mainScroll() {
-  if (!CSS.supports("animation-timeline: scroll()")) {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.to(".content", {
-      scrollTrigger: {
-        trigger: "body",
-        scrub: 0.5,
-        start: "top top",
-        end: window.innerHeight * 0.4,
-      },
-      scale: 1,
-    });
-
-    gsap.to(".fillers path", {
-      scrollTrigger: {
-        trigger: ".content",
-        scrub: 0.5,
-        ease: "power4.in",
-        start: "top bottom+=20%",
-        end: "bottom bottom-=50%",
-      },
-      strokeDashoffset: 0,
-    });
-  }
-
-  $(window).scroll(function () {
-    var scroll = $(window).scrollTop();
-    var scale = 1 - (scroll / 100);
-
-    // Limiting the minimum scale to 0.5
-    if (scale < 0.7) {
-      scale = 0.7;
-    }
-
-    $('a.logo').css('transform', 'scale(' + scale + ')');
-  });
 }
