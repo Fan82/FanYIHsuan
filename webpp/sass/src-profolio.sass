@@ -8,7 +8,7 @@ $light-clr: #fafafa
 $grey-clr: #9d9d9d
 $main: #F84519
 $base: 4
-$letterspace: 4 / 1000 * 4em
+$letterspace: 0.016em
 $center-align: center
 $start-align: flex-start
 $end-align: flex-end
@@ -159,12 +159,15 @@ body.main
         position: relative
         width: 100%
         margin-top: calc( $base * 2.5vh)
+        flex-direction: column
+        @include flex-align($center-align, space-around)
 
     // 一些共用-----------------------------------------
     .tab
         position: relative
+        width: 100%
         margin: calc( $base * 2px) 0
-        @include flex-align($center-align)
+        @include flex-align($align: $center-align, $justify: space-around)
         &::before
             content: ''
             position: absolute
@@ -192,7 +195,8 @@ body.main
         position: relative
         padding: calc( $base * $base * 2px) 0 calc( $base * 10px) 0
         text-align: $center-align
-        @include flex-align($center-align)
+        display: block
+        // @include flex-align($center-align)
         flex-direction: column
         
         > div
@@ -205,7 +209,7 @@ body.main
         img
             position: relative
             display: block
-            margin-bottom: calc( $base * 3px )
+            margin: 0 auto calc( $base * 5px ) auto
             width: calc( $base * $base * 3px )
             aspect-ratio: 1/1
             border-radius: calc( $base * $base * 1px )
@@ -215,8 +219,9 @@ body.main
             max-width: 300px
             padding: 0
             margin: 0
+            white-space: pre-line
             color: $grey-clr
-            font-size: calc( $base * $base * 1px)
+            font-size: calc( $base * 3px)
     .button
         width: auto
         white-space: nowrap
@@ -251,16 +256,16 @@ body.main
         flex-wrap: wrap
         width: 100%
         gap: calc( $base * 5px)
-        margin: calc( $base * 10px) 0
-        padding: 0 calc( $base * 6px)
-        @media screen and ( min-width: 700px )
+        margin: calc( $base * 8px) 0
+        // padding: 0 calc( $base * 6px)
+        @media screen and ( min-width: 768px )
             flex-direction: row
-            height: 200px
+            @include flex-align($align: $start-align, $justify: space-around)
             .wrapper-box
                 width: 45% !important
 
         .wrapper-box
-            width: 100%
+            width: 90%
             height: 100%
             flex-direction: column
             @include flex-align($align: $start-align, $justify: space-between)
@@ -277,6 +282,13 @@ body.main
                     font-size: calc( $base * 4px)
                     line-height: 150%
                     margin: calc( $base * 2px) 0 calc( $base * 3px) 0
+                    height: 46px
+                    overflow: hidden
+                    text-overflow: ellipsis
+                    -webkit-line-clamp: 2
+                    -webkit-box-orient: vertical
+                    display: -webkit-box
+
     
     .container
         position: relative
@@ -295,6 +307,12 @@ body.main
                     border-radius: calc( $base * 6px )
                     img
                         border-radius: calc( $base * 6px )
+        @media screen and ( min-width: 768px )
+            width: calc(100% / 2 - 20px)
+            &.grid
+                width: 100%
+                grid-template-columns: repeat(4, minmax(max(170px), 1fr))
+
         .project
             position: relative
 
@@ -362,11 +380,16 @@ body.main
         @include flex-align($align: $center-align, $justify: center)
         flex-direction: column
         gap: calc( $base * $base * 1px)
+        padding: 0 calc( $base * 4px )
+        @media screen and ( min-width: 768px )
+            width: calc( 100% / 2 - 20px )
         img
-            width: 280px
+            width: 130px
             aspect-ratio: 1/1
             border-radius: 100%
             object-fit: cover
+            @media screen and ( min-width: 768px )
+                width: 200px
         ul.contact-menu
             @include flex-align($start-align)
             gap: 24px
@@ -492,18 +515,14 @@ body.main
                     object-fit: contain
                     border-radius: calc( $base * 2px)
                     margin-right: calc( $base * 2px)
-                .intro-title
-                    font-size: calc( $base * 6px)
-                    font-weight: 800
-                    line-height: calc( $base * $base * 2px)
-                .intro
-                    position: relative
-                    line-height: calc( $base * 6px)
-                    letter-spacing: $letterspace
-                    display: block
-                    color: $grey-clr
-                    font-size: calc( $base * 4px)
-                    padding: calc( $base * 5px) 0px
+                // .intro
+                //     position: relative
+                //     line-height: calc( $base * 6px)
+                //     letter-spacing: $letterspace
+                //     display: block
+                //     color: $grey-clr
+                //     font-size: calc( $base * 4px)
+                //     padding: calc( $base * 5px) 0px
 
             .project
                 .project-img

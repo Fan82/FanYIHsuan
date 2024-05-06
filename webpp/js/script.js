@@ -6,22 +6,6 @@ $(document).ready(function () {
 });
 
 
-// function screenWidthCheck() {
-//   var screenWidth = window.innerWidth || document.documentElement.clientWidth;
-
-// if (screenWidth < 1000) {
-//   if ($("body").hasClass("main-wireframe")) {
-//     $(".container-side-btn").show();
-//   }
-
-//   $(".container-side-btn").click(function () {
-//     $(".container-side").toggleClass("show");
-//   });
-// } else {
-//   $(".container-side-btn").hide();
-// }
-// }
-
 function gameHall_JS() {
   $("a.contact").click(function () {
     $(".contact-menu").toggleClass('open');
@@ -30,6 +14,8 @@ function gameHall_JS() {
   $("a.btn-tab.Screen").click(function () {
     $(".container-side").hide();
     $(this).toggleClass("active");
+    $("a.btn-tab.Flow").removeClass("active");
+    $("a.btn-tab.Wireframe").removeClass("active");
     $(".main").addClass("main-project").removeClass("main-wireframe");
     $(".project-wrapper .container.grid").show();
   });
@@ -39,6 +25,7 @@ function gameHall_JS() {
     $("body").addClass("main-wireframe").removeClass("main-project");
     $(this).addClass("active");
     $("a.btn-tab.Screen").removeClass("active");
+    $("a.btn-tab.Flow").removeClass("active");
     $(".project-wrapper .container.grid").show();
     $(".project").each(function () {
       if ($(this).find("img.wireframe").length === 0) {
@@ -48,6 +35,8 @@ function gameHall_JS() {
   });
   $("a.btn-tab.Flow").click(function () {
     $(this).toggleClass("active");
+    $("a.btn-tab.Screen").removeClass("active");
+    $("a.btn-tab.Wireframe").removeClass("active");
     $("body").removeClass("main-project");
     $("body").removeClass("main-wireframe");
     $(".container-side").show();
