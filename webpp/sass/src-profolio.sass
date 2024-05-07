@@ -92,7 +92,7 @@ body.main
             line-height: calc( $base * 10px)
             color: $dark-clr
             font-size: calc( $base * calc( $base * 1px))
-            padding: calc( $base * 1px) calc( $base * 2px)
+            padding: 2px calc( $base * 2px)
             &:hover
                 font-weight: 600
 
@@ -190,6 +190,12 @@ body.main
             &.active
                 color: $dark-clr
                 border-color: $dark-clr
+        @media screen and ( min-width: 768px )
+            justify-content: $center-align
+            .btn-tab
+                width: 20%
+                &.Flow
+                    display: none
             
     .title
         position: relative
@@ -303,19 +309,22 @@ body.main
             gap: calc( $base * 6px ) calc( $base * 3px )
             padding: calc( $base * 5px) calc( $base * 3px )
             .project
-                .project-img
-                    border-radius: calc( $base * 6px )
-                    img
-                        border-radius: calc( $base * 6px )
+                border-radius: 24px
+                box-shadow: 0 0 rgba($dark-clr, 0.1), 0 0 rgba($dark-clr, 0.1), 0 0 0 2px rgba($dark-clr, 0.1)
+                overflow: hidden
+
         @media screen and ( min-width: 768px )
             width: calc(100% / 2 - 20px)
             &.grid
                 width: 100%
-                grid-template-columns: repeat(4, minmax(max(170px), 1fr))
+                grid-template-columns: repeat(5, minmax(max(170px), 1fr))
+                gap: calc( $base * 6px )
+                .project
+                    .project-img
+                        max-height: none
 
         .project
             position: relative
-
             > a
                 position: absolute
                 width: 100%
@@ -332,6 +341,7 @@ body.main
                 overflow: visible
                 transition: opacity 0.5s ease, transform 0.5s ease
                 transition-delay: transform 1.2s ease
+                
                 img
                     width: 100%
                     height: 100%
@@ -498,7 +508,7 @@ body.main
                         background: $grey-clr
                         margin-right: calc( $base * 2px)
                         margin-bottom: calc( $base * 1px)
-
+        
     // 每個project的版面控制
     main.project-wrapper
         .container
@@ -515,14 +525,6 @@ body.main
                     object-fit: contain
                     border-radius: calc( $base * 2px)
                     margin-right: calc( $base * 2px)
-                // .intro
-                //     position: relative
-                //     line-height: calc( $base * 6px)
-                //     letter-spacing: $letterspace
-                //     display: block
-                //     color: $grey-clr
-                //     font-size: calc( $base * 4px)
-                //     padding: calc( $base * 5px) 0px
 
             .project
                 .project-img
@@ -548,6 +550,16 @@ body.main
                     img.wireframe
                         display: block !important
                         box-shadow: 0 0 0 1px $grey-clr
+        @media screen and ( min-width: 768px )
+            .container-side
+                position: absolute
+                left: 0
+                top: calc(192px + 10vh)
+                display: inline-flex !important
+                width: 30%
+            .container
+                padding-left: 30%
+                grid-template-columns: repeat(4, minmax(max(170px), 1fr))
 
 // // =====================================
 // // ======================

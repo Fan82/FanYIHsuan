@@ -85,7 +85,7 @@ body.main nav a {
   line-height: 40px;
   color: #050206;
   font-size: 16px;
-  padding: 4px 8px;
+  padding: 2px 8px;
 }
 body.main nav a:hover {
   font-weight: 600;
@@ -195,6 +195,17 @@ body.main .tab .btn-tab {
 body.main .tab .btn-tab:hover, body.main .tab .btn-tab:focus, body.main .tab .btn-tab:active, body.main .tab .btn-tab.active {
   color: #050206;
   border-color: #050206;
+}
+@media screen and (min-width: 768px) {
+  body.main .tab {
+    justify-content: center;
+  }
+  body.main .tab .btn-tab {
+    width: 20%;
+  }
+  body.main .tab .btn-tab.Flow {
+    display: none;
+  }
 }
 body.main .title {
   position: relative;
@@ -328,11 +339,10 @@ body.main .container.grid {
   gap: 24px 12px;
   padding: 20px 12px;
 }
-body.main .container.grid .project .project-img {
+body.main .container.grid .project {
   border-radius: 24px;
-}
-body.main .container.grid .project .project-img img {
-  border-radius: 24px;
+  box-shadow: 0 0 rgba(5, 2, 6, 0.1), 0 0 rgba(5, 2, 6, 0.1), 0 0 0 2px rgba(5, 2, 6, 0.1);
+  overflow: hidden;
 }
 @media screen and (min-width: 768px) {
   body.main .container {
@@ -340,7 +350,11 @@ body.main .container.grid .project .project-img img {
   }
   body.main .container.grid {
     width: 100%;
-    grid-template-columns: repeat(4, minmax(170px, 1fr));
+    grid-template-columns: repeat(5, minmax(170px, 1fr));
+    gap: 24px;
+  }
+  body.main .container.grid .project .project-img {
+    max-height: none;
   }
 }
 body.main .container .project {
@@ -605,6 +619,19 @@ body.main.main.main-wireframe main.project-wrapper .container .project img {
 body.main.main.main-wireframe main.project-wrapper .container .project img.wireframe {
   display: block !important;
   box-shadow: 0 0 0 1px #9d9d9d;
+}
+@media screen and (min-width: 768px) {
+  body.main.main.main-wireframe .container-side {
+    position: absolute;
+    left: 0;
+    top: calc(192px + 10vh);
+    display: inline-flex !important;
+    width: 30%;
+  }
+  body.main.main.main-wireframe .container {
+    padding-left: 30%;
+    grid-template-columns: repeat(4, minmax(170px, 1fr));
+  }
 }
 
 @keyframes svg-stroke {
