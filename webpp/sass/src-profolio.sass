@@ -356,16 +356,17 @@ body.main
                 padding: 0 24px
                 .project-pic
                     position: relative
-                    width: calc( $base * 8.5px )
+                    width: calc( $base * 10px )
                     aspect-ratio: 1/1
                     img
                         position: absolute
                         top: 0
                         left: 0
-                        border-radius: calc( $base * 2px )
+                        border-radius: calc( $base * 3px )
                         width: 100%
                         height: 100%
-                        object-fit: contain
+                        object-fit: cover
+
                 .project-detail
                     width: calc( 100% - calc( $base * 7.5px ) )
                     color: $dark-clr
@@ -377,12 +378,11 @@ body.main
                         letter-spacing: $letterspace
                         font-weight: 500
                     > span
-                        width: 120px
                         font-size: 12px
                         line-height: calc( $base * 5px)
                         color: $grey-clr
                         letter-spacing: $letterspace
-                        text-overflow: ellipsis
+                        // text-overflow: ellipsis
                         overflow: hidden
                         white-space: nowrap
     .project-modules
