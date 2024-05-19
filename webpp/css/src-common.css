@@ -162,6 +162,11 @@ nav ul.navbar-nav .box .nav-button:last-child {
   z-index: -1;
   pointer-events: none;
 }
+.wrapper:has(h3) {
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 16px 40px 16px;
+}
 .wrapper h3 {
   font-size: 3.5em;
   line-height: 130%;
@@ -177,24 +182,6 @@ nav ul.navbar-nav .box .nav-button:last-child {
   font-style: italic;
   text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 }
-.wrapper a.button {
-  width: 100%;
-  font-size: 18px;
-  line-height: 1.5rem;
-  text-align: center;
-  border-radius: 12px;
-  background: #004ffa;
-  padding: 16px 0;
-  margin: 20px 0 80px 0;
-  color: #f8f8fd;
-  transition: background 0.2s linear;
-  transition-duration: 0.2s;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
-}
-.wrapper a.button:active, .wrapper a.button:focus, .wrapper a.button:hover {
-  outline: none;
-  background: #0e4abe;
-}
 .wrapper .top {
   width: calc(100% - 48px);
   background: rgba(248, 248, 253, 0.8);
@@ -204,7 +191,7 @@ nav ul.navbar-nav .box .nav-button:last-child {
   gap: 3.3333333333%;
   border-radius: 40px;
   padding: 4px 0;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 .wrapper .top > div {
   width: 30%;
@@ -217,7 +204,7 @@ nav ul.navbar-nav .box .nav-button:last-child {
   text-transform: capitalize;
   transition: background 0.2s ease-in-out, color 0.3s ease-in-out;
 }
-.wrapper .top > div:focus, .wrapper .top > div:hover, .wrapper .top > div:active {
+.wrapper .top > div:focus, .wrapper .top > div:hover, .wrapper .top > div.active {
   background: #004ffa;
   color: #f8f8fd;
 }
@@ -229,7 +216,7 @@ nav ul.navbar-nav .box .nav-button:last-child {
   justify-content: flex-start;
   background: rgba(248, 248, 253, 0.7);
   border-radius: 32px 32px 0 0;
-  padding: 14px 16px;
+  padding: 4px 16px;
   border-top: 2px solid #f8f8fd;
 }
 .wrapper .container > div {
@@ -257,7 +244,8 @@ nav ul.navbar-nav .box .nav-button:last-child {
   border-radius: 10px;
   background: #f8f8fd;
 }
-.wrapper .container .type-box {
+
+.type-box {
   position: relative;
   width: 100%;
   background: #fff;
@@ -268,44 +256,55 @@ nav ul.navbar-nav .box .nav-button:last-child {
   text-transform: capitalize;
   color: #282626;
 }
-.wrapper .container .type-box.inline-block {
+.type-box:has(.icon-add) {
+  background: rgba(255, 255, 255, 0.4588235294);
+}
+.type-box.inline-block {
   padding: 9.75px 12px;
 }
-.wrapper .container .type-box.inline-block .box,
-.wrapper .container .type-box.inline-block .input {
+.type-box.inline-block .box,
+.type-box.inline-block .input {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
-.wrapper .container .type-box .box {
-  padding: 8px 0;
-}
-.wrapper .container .type-box .box.box-r {
-  text-align: right;
-}
-.wrapper .container .type-box p {
+.type-box p {
   font-size: 13px;
   opacity: 0.5;
   line-height: 150%;
 }
-.wrapper .container .type-box .input {
+.type-box .input {
   line-height: 32px;
   white-space: nowrap;
 }
-.wrapper .container .type-box .input .input-item {
+.type-box .input .input-item {
   width: 100%;
   padding: 0 12px;
   text-align: right;
 }
-.wrapper .container .type-box .input .input-item span {
-  padding: 0 4px;
+
+.box {
+  padding: 8px 0;
 }
-.wrapper .container .icon-plane {
-  position: absolute;
-  top: 50%;
+.box.box-r {
+  text-align: right !important;
+}
+
+.icon {
+  padding: 0 4px;
+  color: #282626;
+}
+.icon.icon-add, .icon.icon-plane {
   left: 50%;
+}
+.icon.icon-add {
+  margin: 0px auto;
+}
+.icon.icon-plane {
+  top: 50%;
   transform: translate(-50%, -50%);
+  position: absolute;
 }
 
 footer {
@@ -346,8 +345,171 @@ footer ul li p {
 .overflow {
   overflow: hidden;
 }
-.overflow .wrapper {
+
+.none {
+  display: none !important;
+}
+
+a.button {
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  background: #004ffa;
+  padding: 16px 0;
+  margin: 20px 0;
+  color: #f8f8fd;
+  transition: background 0.2s linear;
+  transition-duration: 0.2s;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+a.button:active, a.button:focus, a.button:hover {
+  outline: none;
+  background: #0e4abe;
+}
+
+.modal-p-bottom .modal-dialog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 100% !important;
+  margin: 0;
+  transform: translateY(100%) !important;
+}
+.modal-p-bottom.show {
+  overflow: hidden;
+}
+.modal-p-bottom.show .modal-dialog {
+  transform: translateY(0%) !important;
+  min-height: 80px;
+}
+
+.modal {
+  font-family: "Asap", sans-serif;
+}
+.modal .modal-footer a {
+  margin: 0;
+  padding: 10px 0;
+  box-shadow: none;
+  font-size: 12px;
+}
+.modal .modal-header {
+  position: relative;
+  justify-content: center;
+  text-transform: capitalize;
+  padding: 10px;
+}
+.modal .modal-header button {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  background: transparent;
+}
+.modal .modal-header button span {
+  font-size: 20px;
+  color: #282626;
+}
+.modal .modal-content {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.modal .modal-body {
+  padding: 0;
+}
+.modal .container {
+  text-align: center;
+  padding: 0;
+}
+.modal .container .calendar > .time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.modal .container .calendar > .time .type-box {
+  background: transparent;
+  box-shadow: none;
+  margin: 0;
+}
+.modal .container .calendar > .time .type-box .box {
+  text-align: left;
+}
+.modal .container .calendar > .time .type-box .box .input {
+  color: #004ffa;
+  font-weight: 500;
+  font-size: 18px;
+}
+.modal .container .calendar .select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+}
+.modal .container .calendar .select .icon {
+  color: #f82727;
+  font-size: 12px;
+}
+.modal .container .calendar .select > div {
+  padding: 12px 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.modal .container .calendar .select > div > div {
+  display: inline-block;
+}
+.modal .container .calendar .select .left {
+  text-align: left;
+}
+.modal .container .calendar .select .right {
   justify-content: flex-end;
-  align-items: flex-start;
-  padding: 0 16px 40px 16px;
+  text-align: right;
+}
+.modal .container .calendar table {
+  width: 100%;
+  margin: 4px 0;
+}
+.modal .container .calendar table thead {
+  text-transform: uppercase;
+}
+.modal .container .calendar table tbody tr td:hover {
+  color: #f8f8fd;
+}
+.modal .container .calendar table tbody tr td:hover::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  background: #004ffa;
+  border-radius: 50px;
+  z-index: -1;
+}
+.modal .container .calendar table tr {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal .container .calendar table tr td {
+  position: relative;
+  width: 14.2857142857%;
+  height: 30px;
+  text-align: center;
+  font-size: 12px;
+  display: inline-block;
+  line-height: 30px;
+  z-index: 1;
+}
+.modal .container .calendar table tr td.prev-month, .modal .container .calendar table tr td.next-month {
+  color: rgba(40, 38, 38, 0.4);
 }

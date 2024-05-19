@@ -8,7 +8,7 @@ $txt: #282626
         display: block
     .logo
         opacity: 0.5
-        
+
 body
     font-family: "Asap", sans-serif
     min-height: 100vh
@@ -53,7 +53,6 @@ nav
         border: none !important
         color: $txt !important
         background: transparent
-        // margin-right: 16px
         padding: 0
         width: calc( 48px - 12px )
         height: calc( 48px - 12px )
@@ -121,8 +120,6 @@ nav
                     color: $light
                     box-shadow: inset 0 0 0 1px $light
 
-
-
 .wrapper
     position: relative
     width: 100%
@@ -149,7 +146,10 @@ nav
         filter: blur(2px)
         z-index: -1
         pointer-events: none
-
+    &:has(h3)
+        justify-content: flex-end
+        align-items: flex-start
+        padding: 0 16px 40px 16px
     h3
         font-size: 3.5em
         line-height: 130%
@@ -165,25 +165,6 @@ nav
         font-style: italic
         text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
 
-    a.button
-        width: 100%
-        font-size: 18px
-        line-height: 1.5rem
-        text-align: center
-        border-radius: 12px
-        background: $main
-        padding: 16px 0
-        margin: 20px 0 80px 0
-        color: $light
-        transition: background 0.2s linear
-        transition-duration: 0.2s
-        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
-
-        &:active,
-        &:focus,
-        &:hover
-            outline: none
-            background: #0e4abe
     .top
         width: calc( 100% - 48px )
         background: rgba( $light ,0.8 )
@@ -193,7 +174,7 @@ nav
         gap: calc( 10% / 3 )
         border-radius: 40px
         padding: 4px 0
-        margin-bottom: 20px
+        margin: 0 auto 20px
         > div
             width: 30%
             color: $txt
@@ -206,7 +187,7 @@ nav
             transition: background 0.2s ease-in-out, color 0.3s ease-in-out
             &:focus,
             &:hover,
-            &:active
+            &.active
                 background: $main
                 color: $light
     .container
@@ -217,7 +198,7 @@ nav
         justify-content: flex-start
         background: rgba( $light ,0.7 )
         border-radius: 32px 32px 0 0
-        padding: 14px 16px
+        padding: 4px 16px
         border-top: 2px solid $light
         > div
             width: 100%
@@ -241,48 +222,55 @@ nav
                 border-radius: 10px
                 background: $light
 
-        .type-box
-            position: relative
+.type-box
+    position: relative
+    width: 100%
+    background: #fff
+    border-radius: 14px
+    box-shadow: 0 0 8px rgba(190, 190, 190, 0.25)
+    padding: 0 12px
+    margin: 6px 0
+    text-transform: capitalize
+    color: $txt
+    &:has(.icon-add)
+        background: #ffffff75
+    &.inline-block
+        padding: 9.75px 12px
+        .box,
+        .input
             width: 100%
-            background: #fff
-            border-radius: 14px
-            box-shadow: 0 0 8px rgba(190, 190, 190, 0.25)
-            padding: 0 12px
-            margin: 6px 0
-            text-transform: capitalize
-            color: $txt
-            &.inline-block
-                padding: 9.75px 12px
-                .box,
-                .input
-                    width: 100%
-                    display: flex
-                    justify-content: flex-end
-                    align-items: center
-                
-            .box
-                padding: 8px 0
-                &.box-r
-                    text-align: right
-            p
-                font-size: 13px
-                opacity: 0.5
-                line-height: 150%
-            .input
-                line-height: 32px
-                white-space: nowrap
-                .input-item
-                    width: 100%
-                    padding: 0 12px
-                    text-align: right
-                    span
-                        padding: 0 4px
+            display: flex
+            justify-content: flex-end
+            align-items: center
 
-        .icon-plane
-            position: absolute
-            top: 50%
-            left: 50%
-            transform: translate(-50%, -50%)
+    p
+        font-size: 13px
+        opacity: 0.5
+        line-height: 150%
+    .input
+        line-height: 32px
+        white-space: nowrap
+        .input-item
+            width: 100%
+            padding: 0 12px
+            text-align: right
+.box
+    padding: 8px 0
+    &.box-r
+        text-align: right !important
+.icon
+    padding: 0 4px
+    color: $txt
+    &.icon-add,
+    &.icon-plane
+        left: 50%
+    &.icon-add
+        margin: 0px auto
+    &.icon-plane
+        top: 50%
+        transform: translate(-50%, -50%)
+        position: absolute
+
 footer
     position: fixed
     bottom: 0
@@ -316,7 +304,40 @@ footer
 
 .overflow
     overflow: hidden
-    .wrapper
-        justify-content: flex-end
-        align-items: flex-start
-        padding: 0 16px 40px 16px
+.none
+    display: none !important
+
+a.button
+    width: 100%
+    font-size: 18px
+    line-height: 1.5rem
+    text-align: center
+    border-radius: 12px
+    background: $main
+    padding: 16px 0
+    margin: 20px 0
+    color: $light
+    transition: background 0.2s linear
+    transition-duration: 0.2s
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
+
+    &:active,
+    &:focus,
+    &:hover
+        outline: none
+        background: #0e4abe
+// ===========================================
+.modal-p-bottom
+    .modal-dialog
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        max-width: 100% !important
+        margin: 0
+        transform: translateY(100%) !important
+    &.show
+        overflow: hidden
+        .modal-dialog
+            transform: translateY(0%) !important
+            min-height: 80px
