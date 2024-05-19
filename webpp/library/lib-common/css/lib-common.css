@@ -65,6 +65,10 @@ a {
   text-decoration: none;
 }
 
+sup {
+  top: 0;
+}
+
 button, input,
 optgroup, select,
 textarea {

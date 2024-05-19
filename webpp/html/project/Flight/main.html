@@ -92,7 +92,7 @@
             <div class="multi-way">multicity</div>
         </div>
         <div class="container">
-            <div class="type-box">
+            <div class="type-box" data-toggle="modal" data-target="#selectLocation">
                 <div class="box">
                     <p class="title">from</p>
                     <div class="input">city or airport</div>
@@ -105,7 +105,7 @@
                     <div class="input">city or airport</div>
                 </div>
             </div>
-            <div class="time" data-toggle="modal" data-target="#modalPBottom">
+            <div class="time" data-toggle="modal" data-target="#selectDate">
                 <div class="type-box">
                     <div class="box">
                         <p class="title">depart</p>
@@ -124,7 +124,7 @@
                     <i class="fa-solid fa-plus"></i>
                 </div>
             </div>
-            <div class="type-box inline-block">
+            <div class="type-box inline-block" data-toggle="modal" data-target="#selectPassenger">
                 <div class="box">
                     <p class="title">passenger</p>
                     <div class="input">
@@ -149,7 +149,7 @@
                     </div>
                 </div>
             </div>
-            <div class="type-box inline-block">
+            <div class="type-box inline-block" data-toggle="modal" data-target="#selectClass">
                 <div class="box">
                     <p class="title">class</p>
                     <div class="input">
@@ -164,16 +164,36 @@
             <a href="#" class="button">Search</a>
         </div>
     </div>
-    <!-- modal -->
-    <div class="modal fade modal-p-bottom" id="modalPBottom">
+    <footer>
+        <ul>
+            <li class="icon">
+                <i class="fa-solid fa-house"></i>
+                <p>home</p>
+            </li>
+            <li class="icon">
+                <i class="fa-solid fa-earth-americas"></i>
+                <p>booking</p>
+            </li>
+            <li class="icon">
+                <i class="fa-regular fa-map"></i>
+                <p>plan</p>
+            </li>
+            <li class="icon">
+                <i class="fa-solid fa-circle-user"></i>
+                <p>account</p>
+            </li>
+        </ul>
+    </footer>
+    <!-- calander -->
+    <div class="modal fade modal-p-bottom" id="selectDate">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                     <div class="modal-title">select date</div>
-                  </div>
+                </div>
                 <div class="modal-body">
                     <div class="container">
                         <div class="calendar">
@@ -275,9 +295,9 @@
 
                             </table>
 
-                        </div> <!-- end calendar -->
+                        </div>
 
-                    </div> <!-- end container -->
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <a class="button" data-dismiss="modal">Done</a>
@@ -285,27 +305,311 @@
             </div>
         </div>
     </div>
+    <!-- location -->
+    <div class="modal fade modal-p-bottom" id="selectLocation">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-title">select location</div>
+                </div>
+                <div class="modal-body">
+                    <div class="search">
+                        <input type="text">
+                        <div class="icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <div class="list-box">
+                        <div class="list-content">
+                            <div class="list-title">Asia</div>
+                            <div class="list">
+                                <div class="list-top">Tokyo</div>
+                                <sup>
+                                    HKD
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Seoul</div>
+                                <sup>
+                                    ICN
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Bangkok</div>
+                                <sup>
+                                    BKK
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Singapore</div>
+                                <sup>
+                                    SIN
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Kuala Lumpur</div>
+                                <sup>
+                                    KUL
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Jakarta</div>
+                                <sup>
+                                    CGK
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Delhi</div>
+                                <sup>
+                                    DEL
+                                </sup>
+                            </div>
+                        </div>
+                        <div class="list-content">
+                            <div class="list-title">Europe</div>
+                            <div class="list">
+                                <div class="list-top">London</div>
+                                <sup>
+                                    LHR
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Paris</div>
+                                <sup>
+                                    CDG
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Berlin</div>
+                                <sup>
+                                    TXL
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Rome</div>
+                                <sup>
+                                    FCO
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Madrid</div>
+                                <sup>
+                                    MAD
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Amsterdam</div>
+                                <sup>
+                                    AMS
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Vienna</div>
+                                <sup>
+                                    VIE
+                                </sup>
+                            </div>
+                        </div>
+                        <div class="list-content">
+                            <div class="list-title">North America</div>
+                            <div class="list">
+                                <div class="list-top">New York</div>
+                                <sup>
+                                    JFK
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Los Angeles</div>
+                                <sup>
+                                    LAX
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Chicago</div>
+                                <sup>
+                                    ORD
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Toronto</div>
+                                <sup>
+                                    YYZ
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Mexico City</div>
+                                <sup>
+                                    MEX
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Miami</div>
+                                <sup>
+                                    MIA
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">San Francisco</div>
+                                <sup>
+                                    SFO
+                                </sup>
+                            </div>
+                        </div>
+                        <div class="list-content">
+                            <div class="list-title">South America</div>
+                            <div class="list">
+                                <div class="list-top">São Paulo</div>
+                                <sup>
+                                    GRU
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Buenos Aires</div>
+                                <sup>
+                                    EZE
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Lima</div>
+                                <sup>
+                                    LIM
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Bogotá</div>
+                                <sup>
+                                    BOG
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Santiago</div>
+                                <sup>
+                                    SCL
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Caracas</div>
+                                <sup>
+                                    CCS
+                                </sup>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Quito</div>
+                                <sup>
+                                    UIO
+                                </sup>
+                            </div>
+                        </div>
 
-    <footer>
-        <ul>
-            <li class="icon">
-                <i class="fa-solid fa-house"></i>
-                <p>home</p>
-            </li>
-            <li class="icon">
-                <i class="fa-solid fa-earth-americas"></i>
-                <p>booking</p>
-            </li>
-            <li class="icon">
-                <i class="fa-regular fa-map"></i>
-                <p>plan</p>
-            </li>
-            <li class="icon">
-                <i class="fa-solid fa-circle-user"></i>
-                <p>account</p>
-            </li>
-        </ul>
-    </footer>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="button" data-dismiss="modal">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- passenger -->
+    <div class="modal fade modal-p-bottom" id="selectPassenger">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-title">passenger</div>
+                </div>
+                <div class="modal-body">
+                    <div class="list-box">
+                        <div class="list-content">
+                            <div class="list">
+                                <div class="list-top">Adult
+                                    <span>12+ years old at time of travel</span>
+                                </div>
+                                <div class="right">
+                                    <div class="icon icon-add">
+                                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                    </div>
+                                    1
+                                    <div class="icon icon-add">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Children
+                                    <span>2-11 years old at time of travel</span>
+                                </div>
+                                <div class="right">
+                                    <div class="icon icon-add">
+                                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                    </div>
+                                    0
+                                    <div class="icon icon-add">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">infants(Lap)
+                                    <span>Under 2 years old at time of travel</span>
+                                </div>
+                                <div class="right">
+                                    <div class="icon icon-add">
+                                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                                    </div>
+                                    0
+                                    <div class="icon icon-add">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="button" data-dismiss="modal">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- class -->
+    <div class="modal fade modal-p-bottom" id="selectClass">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-title">select Class</div>
+                </div>
+                <div class="modal-body">
+                    <div class="list-box">
+                        <div class="list-content">
+                            <div class="list">
+                                <div class="list-top">Economy</div>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Premium Economy</div>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">Business</div>
+                            </div>
+                            <div class="list">
+                                <div class="list-top">First</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="button" data-dismiss="modal">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../../../js/fontawesome.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>

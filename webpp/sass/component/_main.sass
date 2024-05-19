@@ -250,6 +250,11 @@ nav
     .input
         line-height: 32px
         white-space: nowrap
+        text-transform: none
+        color: rgba($txt ,0.8 )
+        &.active
+            color: $main
+            font-weight: 600
         .input-item
             width: 100%
             padding: 0 12px
@@ -341,3 +346,4 @@ a.button
         .modal-dialog
             transform: translateY(0%) !important
             min-height: 80px
+            max-height: 100vh

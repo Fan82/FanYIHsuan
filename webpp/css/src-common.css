@@ -277,6 +277,12 @@ nav ul.navbar-nav .box .nav-button:last-child {
 .type-box .input {
   line-height: 32px;
   white-space: nowrap;
+  text-transform: none;
+  color: rgba(40, 38, 38, 0.8);
+}
+.type-box .input.active {
+  color: #004ffa;
+  font-weight: 600;
 }
 .type-box .input .input-item {
   width: 100%;
@@ -384,10 +390,16 @@ a.button:active, a.button:focus, a.button:hover {
 .modal-p-bottom.show .modal-dialog {
   transform: translateY(0%) !important;
   min-height: 80px;
+  max-height: 100vh;
 }
 
 .modal {
   font-family: "Asap", sans-serif;
+}
+.modal .modal-footer {
+  position: sticky;
+  bottom: 0;
+  left: 0;
 }
 .modal .modal-footer a {
   margin: 0;
@@ -399,7 +411,7 @@ a.button:active, a.button:focus, a.button:hover {
   position: relative;
   justify-content: center;
   text-transform: capitalize;
-  padding: 10px;
+  padding: 8px 16px;
 }
 .modal .modal-header button {
   position: absolute;
@@ -416,9 +428,12 @@ a.button:active, a.button:focus, a.button:hover {
 .modal .modal-content {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  border: none;
 }
 .modal .modal-body {
-  padding: 0;
+  padding: 0 16px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 .modal .container {
   text-align: center;
@@ -512,4 +527,84 @@ a.button:active, a.button:focus, a.button:hover {
 }
 .modal .container .calendar table tr td.prev-month, .modal .container .calendar table tr td.next-month {
   color: rgba(40, 38, 38, 0.4);
+}
+.modal .search {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 0;
+  background: #fff;
+  z-index: 10;
+}
+.modal .search .icon {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  color: #282626;
+}
+.modal .search input {
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(40, 38, 38, 0.2);
+  border-radius: 8px;
+  padding: 8px 4px;
+}
+.modal .list-box .list-content {
+  margin-bottom: 12px;
+}
+.modal .list-box .list-content:not(.list-title) {
+  margin: 12px 0;
+}
+.modal .list-box .list-content:not(.list-title) .list {
+  border-bottom: 1px solid rgba(40, 38, 38, 0.2);
+  padding: 16px 0;
+}
+.modal .list-box .list-content:not(.list-title) .list:last-child {
+  border: none;
+}
+.modal .list-box .list-content .list-title {
+  position: sticky;
+  top: 48px;
+  color: rgba(40, 38, 38, 0.6);
+  font-size: 12px;
+  border-bottom: 1px solid rgba(40, 38, 38, 0.2);
+  padding: 12px 0;
+  background: #fff;
+  z-index: 1;
+}
+.modal .list-box .list-content .list {
+  font-size: 14px;
+  color: #282626;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 12px 12px;
+}
+.modal .list-box .list-content .list:hover {
+  color: #004ffa;
+  font-weight: 600;
+}
+.modal .list-box .list-content .list > div span {
+  display: block;
+  font-size: 12px;
+  color: rgba(40, 38, 38, 0.4);
+  line-height: 20px;
+}
+.modal .list-box .list-content .list .right {
+  font-size: 16px;
+  font-weight: 600;
+}
+.modal .list-box .list-content .list .right > div {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+}
+.modal .list-box .list-content .list .right .icon {
+  background: rgba(40, 38, 38, 0.05);
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: rgba(40, 38, 38, 0.8);
+  margin: 0 8px;
 }
