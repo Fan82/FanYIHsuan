@@ -1,253 +1,322 @@
-$dark: #222222
-$light: #fff
-$grey-1: #dddddd
-$main: #56575a
-$default: #999
-$primary: #09389e
+$main: #004ffa
+$light: #f8f8fd
+$txt: #282626
+@import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap')
 
-.page-web
-    height: 100vh
-    overflow: hidden
-    background: $primary
-    // background: $grey-1
-header
-    position: fixed
+:has(.toggler.active)
+    body::before
+        display: block
+    .logo
+        opacity: 0.5
+        
+body
+    font-family: "Asap", sans-serif
+    min-height: 100vh
+    scroll-behavior: smooth
+    &::before
+        content: ''
+        display: none
+        position: absolute
+        width: 100%
+        height: 100%
+        background: rgba($txt ,0.7 )
+        z-index: 10
+        transition: display 0.5s ease
+
+nav
+    position: fixed !important
     top: 0
     left: 0
     width: 100%
-    height: 40px
-    line-height: 40px
-    padding: 0
-    display: flex
-    justify-content: space-between
-    align-items: center
-    background: $light
-    .icon
-        color: $main
-        font-size: 26px
-        width: 10%
-        height: 100%
-        text-align: center
-        line-height: 50px
+    height: 48px
+    color: $light
+    background: transparent
+    backdrop-filter: blur(5px)
+    z-index: 11
     .logo
         position: relative
-        width: 100px
-        height: 30px
+        height: calc( 48px - 12px )
+        aspect-ratio: 1/1
+        border-radius: 8px
+        margin-left: 16px
+        overflow: hidden
+        pointer-events: all
         img
             position: absolute
-            top: 0
-            left: 0
             width: 100%
             height: 100%
+            top: 0
+            left: 0
             object-fit: contain
+            aspect-ratio: 1/1
+    .toggler
+        border: none !important
+        color: $txt !important
+        background: transparent
+        // margin-right: 16px
+        padding: 0
+        width: calc( 48px - 12px )
+        height: calc( 48px - 12px )
+        z-index: 2
+        i
+            transition: all 0.7s ease 0s
+        &.active
+            i
+                &::before
+                    content: "\f00d" !important
+            & ~ ul
+                overflow-y: auto
+                transform: translate3d(0, 0, 0)
+    ul.navbar-nav
+        position: absolute
+        top: 0
+        right: 0
+        width: 80vw
+        height: 100vh
+        background: $light
+        padding: 40px 8px !important
+        transform: translate3d(80vw, 0, 0)
+        transition: transform 0.7s ease 0s
+        li
+            text-transform: capitalize
+            border-bottom: 1px solid rgba($txt ,0.2 )
+            margin: 8px 0
+            padding: 4px 0
+            &:last-child
+                border: none
+            .nav-link
+                font-size: 14px
+                padding: 8px 0 8px 12px
+            p
+                font-size: 12px
+                color: rgba($txt ,0.5 )
+                margin-bottom: 8px
+        .box
+            text-align: center
+            background: rgba($main ,0.2 )
+            border-radius: 8px
+            border: none
+            padding: 16px 16px 0px 16px
+            font-size: 12px
+            margin-bottom: 12px
+            p
+                color: $txt
+                font-size: 15px
+            span
+                color: $txt
+                display: inline-block
+                font-size: 12px
+                margin: 0 4px
+            .nav-button
+                display: inline-block
+                width: 40%
+                background: $light
+                border-radius: 4px
+                padding: 8px
+                margin: 0 auto
+                color: $main
+                margin: 12px 4px
+                &:last-child
+                    background: $main
+                    color: $light
+                    box-shadow: inset 0 0 0 1px $light
+
+
 
 .wrapper
-    padding-top: 60px
-nav
-    padding: 0 40px
-    ul
-        border-radius: 100px
-        background: $light
-        display: flex
-        justify-content: center
-        align-items: center
-        flex-wrap: nowrap
-        overflow: hidden
-        padding: 3px
-    li
-        width: calc(100% / 3)
-        line-height: 40px
-        text-align: center
-        border-radius: 50px
-        a
-            color: $dark
-
-        &.active
-            background: $primary
-            a
-                color: $light
-
-        &:hover
-            background: rgba($main, 0.1)
-
-main
-    height: calc(100vh - 60px)
-    background: #f7f7f7
-    overflow-y: scroll
-    border-radius: 20px 20px 0 0
-    padding: 5px 10px
-    > a
+    position: relative
+    width: 100%
+    height: 100vh
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: 72px
+    opacity: 1
+    transition: opacity 0.8s ease-in-out
+    &::before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
         width: 100%
-        display: block
-        text-align: center
-        vertical-align: middle
-        line-height: 30px
-        margin: 5px 0
-        font-size: 14px
-        color: $default
+        height: 100%
+        background-color: $main
+        background-image: url('../library/img-common/img-project/UI/FLIGHT/FILGHT-bg.png')
+        background-position: -170px top
+        background-size: cover
+        background-repeat: no-repeat
+        background-attachment: fixed
+        filter: blur(2px)
+        z-index: -1
+        pointer-events: none
 
-        &::before
-            content: ''
-            position: relative
-            display: inline-block
-            border: 1px solid $default
-            border-radius: 100px
-            width: 12px
-            height: 12px
-        &:hover
-            &::after
-                content: ''
-                position: absolute
-                color: $dark
-                font-size: 12px
+    h3
+        font-size: 3.5em
+        line-height: 130%
+        color: $light
+        white-space: nowrap
+        font-style: italic
+        text-transform: capitalize
+        text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
 
-    a.btn-primary
-        display: block
+    .head
+        color: $light
+        font-size: 2em
+        font-style: italic
+        text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
+
+    a.button
         width: 100%
-        background: $primary
-        border-radius: 15px
-        button
-            line-height: 50px
-            background: transparent
-            color: $light
-            font-size: 18px
-            border: none
+        font-size: 18px
+        line-height: 1.5rem
+        text-align: center
+        border-radius: 12px
+        background: $main
+        padding: 16px 0
+        margin: 20px 0 80px 0
+        color: $light
+        transition: background 0.2s linear
+        transition-duration: 0.2s
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5)
+
+        &:active,
+        &:focus,
+        &:hover
             outline: none
-
-        &.search
-            &::before
-                display: none
-
-    .input-box
-        position: relative
-        margin: 17px 0
+            background: #0e4abe
+    .top
+        width: calc( 100% - 48px )
+        background: rgba( $light ,0.8 )
         display: flex
         justify-content: center
         align-items: center
-        border-radius: 10px
-        background: #fff
-        box-shadow: 0 2px 5px rgba($grey-1 ,0.4 )
-        padding: 5px 10px
-        > a.icon
+        gap: calc( 10% / 3 )
+        border-radius: 40px
+        padding: 4px 0
+        margin-bottom: 20px
+        > div
+            width: 30%
+            color: $txt
+            line-height: 24px
+            padding: 4px 8px
+            border-radius: 40px
+            text-align: center
+            white-space: nowrap
+            text-transform: capitalize
+            transition: background 0.2s ease-in-out, color 0.3s ease-in-out
+            &:focus,
+            &:hover,
+            &:active
+                background: $main
+                color: $light
+    .container
+        height: 100%
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
+        background: rgba( $light ,0.7 )
+        border-radius: 32px 32px 0 0
+        padding: 14px 16px
+        border-top: 2px solid $light
+        > div
+            width: 100%
+            display: flex
+            justify-content: space-between
+            align-items: center
+            gap: 12px
+        > p
+            display: flex
+            justify-content: center
+            align-items: center
+            margin: 12px 0 0 0
+            gap: 8px
+            color: $txt
+            text-transform: capitalize
+            sup
+                top: 0
+            a
+                width: 10px
+                height: 10px
+                border-radius: 10px
+                background: $light
+
+        .type-box
+            position: relative
+            width: 100%
+            background: #fff
+            border-radius: 14px
+            box-shadow: 0 0 8px rgba(190, 190, 190, 0.25)
+            padding: 0 12px
+            margin: 6px 0
+            text-transform: capitalize
+            color: $txt
+            &.inline-block
+                padding: 9.75px 12px
+                .box,
+                .input
+                    width: 100%
+                    display: flex
+                    justify-content: flex-end
+                    align-items: center
+                
+            .box
+                padding: 8px 0
+                &.box-r
+                    text-align: right
+            p
+                font-size: 13px
+                opacity: 0.5
+                line-height: 150%
+            .input
+                line-height: 32px
+                white-space: nowrap
+                .input-item
+                    width: 100%
+                    padding: 0 12px
+                    text-align: right
+                    span
+                        padding: 0 4px
+
+        .icon-plane
             position: absolute
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
-            width: 30px
-            height: 30px
-            display: flex
-            justify-content: center
-            align-items: center
-            flex-direction: column
-            font-size: 24px
-            color: $primary
-
-        &.box-m
-            gap: 2%
-            justify-content: space-between
-
-        // .input
-        //     width: 48%
-        &.input-flex
-            .input
-                width: 100%
-                display: flex
-                justify-content: space-between
-                align-items: center
-
-        span.s-title
-            display: inline-block
-
-        .s-title
-            text-transform: capitalize
-            color: $default
-            font-size: 16px
-            line-height: 15px
-            display: block
-
-        .txt
-            font-size: 17px
-            font-weight: 400
-            line-height: 40px
-            margin: 0
-
-        .passenger-content
-            width: 50%
-            display: flex
-            justify-content: space-around
-            align-items: center
-            line-height: 50px
-            .person
-                display: flex
-                justify-content: center
-                align-items: center
-                .icon
-                    color: $default
-                    font-size: 18px
-
-                .number
-                    font-weight: 700
-                    font-size: 20px
-                    margin-left: 5px
-
-        .input
-            width: 100%
-            &.box-R
-                text-align: right
-                &.class
-                    .txt
-                        font-size: 20px
-                        font-weight: 600
-
 footer
     position: fixed
-    bottom: 10px
+    bottom: 0
     left: 0
     width: 100%
-    border-radius: 20px
-    overflow: hidden
-
+    padding: 8px 0
+    backdrop-filter: blur(5px)
+    z-index: 10
     ul
-        width: 100%
+        position: relative
         display: flex
-        justify-content: center
+        justify-content: space-between
         align-items: center
-        margin: 0
+        flex-wrap: nowrap
+        color: $txt
         li
+            width: 100%
             text-align: center
-            width: 25%
-            height: 60px
-            padding: 5px 0
-            a.icon
-                position: relative
-                width: 100%
-                // height: 100%
-                // padding: 10px 5px
-                font-size: 30px
-                color: #0e2f75
-                display: flex
-                justify-content: center
-                align-items: center
-                border-radius: 100px
-                transition: 0.2s ease-in-out
             p
+                text-transform: capitalize
                 font-size: 12px
-                text-align: center
-                width: 100%
-                line-height: 20px
-                color: #0e2f75
-            &:hover
-                a.icon,
-                p
-                    color: $primary
-                    // &::after
-                    //     content: ''
-                    //     position: absolute
-                    //     background: $primary
-                    //     width: 55px
-                    //     height: 55px
-                    //     top: 50%
-                    //     left: 50%
-                    //     transform: translate(-50%, -50%)
-                    //     border-radius: 8px
-                    //     z-index: -1
+                margin: 4px 0
+
+// ==========================================
+.show-animation
+    opacity: 0
+    transition: all 0.8s ease-in
+
+    &.is-view
+        opacity: 1
+
+.overflow
+    overflow: hidden
+    .wrapper
+        justify-content: flex-end
+        align-items: flex-start
+        padding: 0 16px 40px 16px

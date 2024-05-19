@@ -1,476 +1,353 @@
-.page-web {
-  height: 100vh;
-  overflow: hidden;
-  background: #09389e;
+@import url("https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap");
+:has(.toggler.active) body::before {
+  display: block;
+}
+:has(.toggler.active) .logo {
+  opacity: 0.5;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  line-height: 40px;
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #fff;
+body {
+  font-family: "Asap", sans-serif;
+  min-height: 100vh;
+  scroll-behavior: smooth;
 }
-header .icon {
-  color: #56575a;
-  font-size: 26px;
-  width: 10%;
-  height: 100%;
-  text-align: center;
-  line-height: 50px;
-}
-header .logo {
-  position: relative;
-  width: 100px;
-  height: 30px;
-}
-header .logo img {
+body::before {
+  content: "";
+  display: none;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
-}
-
-.wrapper {
-  padding-top: 60px;
+  background: rgba(40, 38, 38, 0.7);
+  z-index: 10;
+  transition: display 0.5s ease;
 }
 
 nav {
-  padding: 0 40px;
-}
-nav ul {
-  border-radius: 100px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  padding: 3px;
-}
-nav li {
-  width: 33.3333333333%;
-  line-height: 40px;
-  text-align: center;
-  border-radius: 50px;
-}
-nav li a {
-  color: #222222;
-}
-nav li.active {
-  background: #09389e;
-}
-nav li.active a {
-  color: #fff;
-}
-nav li:hover {
-  background: rgba(86, 87, 90, 0.1);
-}
-
-main {
-  height: calc(100vh - 60px);
-  background: #f7f7f7;
-  overflow-y: scroll;
-  border-radius: 20px 20px 0 0;
-  padding: 5px 10px;
-}
-main > a {
-  width: 100%;
-  display: block;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 30px;
-  margin: 5px 0;
-  font-size: 14px;
-  color: #999;
-}
-main > a::before {
-  content: "";
-  position: relative;
-  display: inline-block;
-  border: 1px solid #999;
-  border-radius: 100px;
-  width: 12px;
-  height: 12px;
-}
-main > a:hover::after {
-  content: "";
-  position: absolute;
-  color: #222222;
-  font-size: 12px;
-}
-main a.btn-primary {
-  display: block;
-  width: 100%;
-  background: #09389e;
-  border-radius: 15px;
-}
-main a.btn-primary button {
-  line-height: 50px;
-  background: transparent;
-  color: #fff;
-  font-size: 18px;
-  border: none;
-  outline: none;
-}
-main a.btn-primary.search::before {
-  display: none;
-}
-main .input-box {
-  position: relative;
-  margin: 17px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(221, 221, 221, 0.4);
-  padding: 5px 10px;
-}
-main .input-box > a.icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-size: 24px;
-  color: #09389e;
-}
-main .input-box.box-m {
-  gap: 2%;
-  justify-content: space-between;
-}
-main .input-box.input-flex .input {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-main .input-box span.s-title {
-  display: inline-block;
-}
-main .input-box .s-title {
-  text-transform: capitalize;
-  color: #999;
-  font-size: 16px;
-  line-height: 15px;
-  display: block;
-}
-main .input-box .txt {
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 40px;
-  margin: 0;
-}
-main .input-box .passenger-content {
-  width: 50%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  line-height: 50px;
-}
-main .input-box .passenger-content .person {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-main .input-box .passenger-content .person .icon {
-  color: #999;
-  font-size: 18px;
-}
-main .input-box .passenger-content .person .number {
-  font-weight: 700;
-  font-size: 20px;
-  margin-left: 5px;
-}
-main .input-box .input {
-  width: 100%;
-}
-main .input-box .input.box-R {
-  text-align: right;
-}
-main .input-box .input.box-R.class .txt {
-  font-size: 20px;
-  font-weight: 600;
-}
-
-footer {
-  position: fixed;
-  bottom: 10px;
+  position: fixed !important;
+  top: 0;
   left: 0;
   width: 100%;
-  border-radius: 20px;
-  overflow: hidden;
-}
-footer ul {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-}
-footer ul li {
-  text-align: center;
-  width: 25%;
-  height: 60px;
-  padding: 5px 0;
-}
-footer ul li a.icon {
-  position: relative;
-  width: 100%;
-  font-size: 30px;
-  color: #0e2f75;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 100px;
-  transition: 0.2s ease-in-out;
-}
-footer ul li p {
-  font-size: 12px;
-  text-align: center;
-  width: 100%;
-  line-height: 20px;
-  color: #0e2f75;
-}
-footer ul li:hover a.icon,
-footer ul li:hover p {
-  color: #09389e;
-}
-
-.page-booking header {
+  height: 48px;
+  color: #f8f8fd;
   background: transparent;
+  backdrop-filter: blur(5px);
+  z-index: 11;
 }
-.page-booking header a.icon {
-  color: #fff;
-}
-
-.select-date-header .locate {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  color: #fff;
-  width: 100%;
-}
-.select-date-header .locate a.icon {
+nav .logo {
   position: relative;
-  width: 30%;
-  text-align: center;
+  height: 36px;
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  margin-left: 16px;
+  overflow: hidden;
+  pointer-events: all;
 }
-.select-date-header .locate a.icon i {
-  line-height: 30px;
-}
-.select-date-header .locate a.icon i.fa-chevron-right {
+nav .logo img {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+nav .toggler {
+  border: none !important;
+  color: #282626 !important;
+  background: transparent;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  z-index: 2;
+}
+nav .toggler i {
+  transition: all 0.7s ease 0s;
+}
+nav .toggler.active i::before {
+  content: "\f00d" !important;
+}
+nav .toggler.active ~ ul {
+  overflow-y: auto;
+  transform: translate3d(0, 0, 0);
+}
+nav ul.navbar-nav {
+  position: absolute;
+  top: 0;
   right: 0;
-  font-size: 12px;
+  width: 80vw;
+  height: 100vh;
+  background: #f8f8fd;
+  padding: 40px 8px !important;
+  transform: translate3d(80vw, 0, 0);
+  transition: transform 0.7s ease 0s;
 }
-.select-date-header .locate a.icon::before {
+nav ul.navbar-nav li {
+  text-transform: capitalize;
+  border-bottom: 1px solid rgba(40, 38, 38, 0.2);
+  margin: 8px 0;
+  padding: 4px 0;
+}
+nav ul.navbar-nav li:last-child {
+  border: none;
+}
+nav ul.navbar-nav li .nav-link {
+  font-size: 14px;
+  padding: 8px 0 8px 12px;
+}
+nav ul.navbar-nav li p {
+  font-size: 12px;
+  color: rgba(40, 38, 38, 0.5);
+  margin-bottom: 8px;
+}
+nav ul.navbar-nav .box {
+  text-align: center;
+  background: rgba(0, 79, 250, 0.2);
+  border-radius: 8px;
+  border: none;
+  padding: 16px 16px 0px 16px;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+nav ul.navbar-nav .box p {
+  color: #282626;
+  font-size: 15px;
+}
+nav ul.navbar-nav .box span {
+  color: #282626;
+  display: inline-block;
+  font-size: 12px;
+  margin: 0 4px;
+}
+nav ul.navbar-nav .box .nav-button {
+  display: inline-block;
+  width: 40%;
+  background: #f8f8fd;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 0 auto;
+  color: #004ffa;
+  margin: 12px 4px;
+}
+nav ul.navbar-nav .box .nav-button:last-child {
+  background: #004ffa;
+  color: #f8f8fd;
+  box-shadow: inset 0 0 0 1px #f8f8fd;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 72px;
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out;
+}
+.wrapper::before {
   content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
   left: 0;
   width: 100%;
-  border: 0.5px dashed #fff;
+  height: 100%;
+  background-color: #004ffa;
+  background-image: url("../library/img-common/img-project/UI/FLIGHT/FILGHT-bg.png");
+  background-position: -170px top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(2px);
+  z-index: -1;
+  pointer-events: none;
 }
-.select-date-header ul.date {
+.wrapper h3 {
+  font-size: 3.5em;
+  line-height: 130%;
+  color: #f8f8fd;
+  white-space: nowrap;
+  font-style: italic;
+  text-transform: capitalize;
+  text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.wrapper .head {
+  color: #f8f8fd;
+  font-size: 2em;
+  font-style: italic;
+  text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.wrapper a.button {
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  background: #004ffa;
+  padding: 16px 0;
+  margin: 20px 0 80px 0;
+  color: #f8f8fd;
+  transition: background 0.2s linear;
+  transition-duration: 0.2s;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+.wrapper a.button:active, .wrapper a.button:focus, .wrapper a.button:hover {
+  outline: none;
+  background: #0e4abe;
+}
+.wrapper .top {
+  width: calc(100% - 48px);
+  background: rgba(248, 248, 253, 0.8);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-x: auto;
-  overflow-y: hidden;
-  gap: 10px;
-  margin: 20px 0 10px 0;
-}
-.select-date-header ul.date li {
-  border-radius: 5px;
-  width: 25%;
-  height: 60px;
-  color: #dddddd;
-  background: rgba(221, 221, 221, 0.1);
-  text-align: center;
-  cursor: pointer;
-  padding: 10px;
-}
-.select-date-header ul.date li.active {
-  box-shadow: inset 0 0 0 1px #fff;
-}
-.select-date-header ul.date li .s-title {
-  color: #fff;
-  text-transform: uppercase;
-  display: inline-block;
-}
-.select-date-header ul.date li .weekWrap {
-  display: inline-block;
-}
-.select-date-header ul.date li .prise {
-  line-height: 3s0px;
-  white-space: nowrap;
-}
-.select-date-header ul.date li .prise .currency {
-  font-size: 9px;
-}
-
-main.booking {
-  padding-top: 20px;
-}
-main.booking .card {
-  position: relative;
-  box-shadow: 0 2px 5px rgba(221, 221, 221, 0.4);
-  border: none;
-  padding: 5px 10px 10px 10px;
+  gap: 3.3333333333%;
+  border-radius: 40px;
+  padding: 4px 0;
   margin-bottom: 20px;
 }
-main.booking .card:first-child::before {
-  content: "BEST";
-  position: absolute;
-  top: 13px;
-  right: 10px;
-  font-size: 14px;
-  background: #ffc400;
-  color: #fff;
-  border-radius: 3px;
-  padding: 5px;
-  line-height: 12px;
+.wrapper .top > div {
+  width: 30%;
+  color: #282626;
+  line-height: 24px;
+  padding: 4px 8px;
+  border-radius: 40px;
+  text-align: center;
+  white-space: nowrap;
+  text-transform: capitalize;
+  transition: background 0.2s ease-in-out, color 0.3s ease-in-out;
 }
-main.booking .card > span {
-  font-size: 14px;
-  color: #999;
-  margin: 10px 0;
+.wrapper .top > div:focus, .wrapper .top > div:hover, .wrapper .top > div:active {
+  background: #004ffa;
+  color: #f8f8fd;
 }
-main.booking .card .card-box {
-  margin: 10px 0 0 0;
+.wrapper .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: rgba(248, 248, 253, 0.7);
+  border-radius: 32px 32px 0 0;
+  padding: 14px 16px;
+  border-top: 2px solid #f8f8fd;
 }
-main.booking .card .card-box .card-container {
-  position: relative;
+.wrapper .container > div {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-main.booking .card .card-box .card-container .card-item {
-  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
 }
-main.booking .card .card-box .card-container .card-item:last-child {
-  justify-content: flex-end;
-}
-main.booking .card .card-box .card-container .card-item .card-content {
-  width: 100%;
-}
-main.booking .card .card-box .card-container .card-item .card-content:first-child .txt {
-  text-align: left;
-}
-main.booking .card .card-box .card-container .card-item .card-content.prise {
-  text-align: right;
-  white-space: nowrap;
-  font-size: 18px;
-}
-main.booking .card .card-box .card-container .card-item .card-content .txt {
-  display: block;
-  white-space: nowrap;
-  text-align: right;
-}
-main.booking .card .card-box .card-container .card-item .card-content .txt.location {
-  line-height: 14px;
-}
-main.booking .card .card-box .card-container .card-item .card-content .txt.time {
-  font-size: 20px;
-  font-weight: 500;
-}
-main.booking .card .card-box .card-container .card-item .flyTime {
-  width: 60%;
+.wrapper .container > p {
   display: flex;
-  flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
-  white-space: nowrap;
-  font-size: 12px;
-  color: #999;
+  margin: 12px 0 0 0;
+  gap: 8px;
+  color: #282626;
+  text-transform: capitalize;
 }
-main.booking .card .card-box .card-container .card-item .flyTime::before {
-  content: "";
-  width: 100%;
-  border: 0.5px dashed #999;
+.wrapper .container > p sup {
+  top: 0;
 }
-main.booking .card .card-bottom {
-  border-top: 1px solid #999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 40px;
-  margin-top: 10px;
+.wrapper .container > p a {
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  background: #f8f8fd;
 }
-main.booking .card .card-bottom .badge {
+.wrapper .container .type-box {
   position: relative;
-  white-space: nowrap;
-  color: #222222;
-  line-height: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  padding: 0;
-}
-main.booking .card .card-bottom .badge::before {
-  content: "";
-  background: #0b3da8 url(../library/img-common/img-project/UI/FLIGHT/luggage.png) center no-repeat;
-  display: inline-block;
-  width: 17px;
-  height: 17px;
-  border-radius: 4px;
-  background-size: 80%;
-}
-main.booking .card .card-bottom a.icon {
-  color: #222222;
-}
-main.booking ~ footer {
-  bottom: 0;
+  width: 100%;
   background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 0 8px rgba(190, 190, 190, 0.25);
+  padding: 0 12px;
+  margin: 6px 0;
+  text-transform: capitalize;
+  color: #282626;
+}
+.wrapper .container .type-box.inline-block {
+  padding: 9.75px 12px;
+}
+.wrapper .container .type-box.inline-block .box,
+.wrapper .container .type-box.inline-block .input {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 10px;
-  border-radius: 0;
-  box-shadow: 0 0px 5px rgba(153, 153, 153, 0.4);
 }
-main.booking ~ footer .txt {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 5px;
+.wrapper .container .type-box .box {
+  padding: 8px 0;
 }
-main.booking ~ footer .txt .prise {
-  font-size: 20px;
-  font-weight: 600;
+.wrapper .container .type-box .box.box-r {
+  text-align: right;
 }
-main.booking ~ footer .txt .prise .currency {
-  font-size: 18px;
+.wrapper .container .type-box p {
+  font-size: 13px;
+  opacity: 0.5;
+  line-height: 150%;
 }
-main.booking ~ footer .txt a.icon {
-  color: #222222;
+.wrapper .container .type-box .input {
+  line-height: 32px;
+  white-space: nowrap;
 }
-main.booking ~ footer a.btn-primary {
-  background: #09389e;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 5px;
+.wrapper .container .type-box .input .input-item {
+  width: 100%;
+  padding: 0 12px;
+  text-align: right;
+}
+.wrapper .container .type-box .input .input-item span {
+  padding: 0 4px;
+}
+.wrapper .container .icon-plane {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-/*# sourceMappingURL=src-common.css.map */
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px 0;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+footer ul {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: #282626;
+}
+footer ul li {
+  width: 100%;
+  text-align: center;
+}
+footer ul li p {
+  text-transform: capitalize;
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.show-animation {
+  opacity: 0;
+  transition: all 0.8s ease-in;
+}
+.show-animation.is-view {
+  opacity: 1;
+}
+
+.overflow {
+  overflow: hidden;
+}
+.overflow .wrapper {
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 0 16px 40px 16px;
+}

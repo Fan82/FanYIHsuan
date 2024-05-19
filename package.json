@@ -4,13 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass-lib-common": "sass webpp/library/lib-common/lib-common.sass webpp/library/lib-common/css/lib-common.css --no-source-map",
+    "sass-src-profolio": "sass webpp/sass/src-profolio.sass webpp/css/src-profolio.css --no-source-map",
+    "sass-src-common": "sass webpp/sass/src-common.sass webpp/css/src-common.css --no-source-map",
+    "sass-lib-common-watch": "sass webpp/library/lib-common/lib-common.sass webpp/library/lib-common/css/lib-common.css --watch --no-source-map",
+    "sass-src-profolio-watch": "sass webpp/sass/src-profolio.sass webpp/css/src-profolio.css --watch --no-source-map",
+    "sass-src-common-watch": "sass webpp/sass/src-common.sass webpp/css/src-common.css --watch --no-source-map",
+    "sass-all": "concurrently \"npm run sass-lib-common\" \"npm run sass-src-profolio\" \"npm run sass-src-common\"",
+    "sass-all-watch": "concurrently \"npm run sass-lib-common-watch\" \"npm run sass-src-profolio-watch\" \"npm run sass-src-common-watch\""
   },
   "author": "",
-  "license": "ISC",
-  "scripts": {
-    "sass": "sass webpp/library/lib-common/lib-common.sass webpp/library/lib-common/css/lib-common.css --watch",
-    "sass": "sass webpp/sass/src-profolio.sass webpp/css/src-profolio.css --watch",
-    "sass": "sass webpp/sass/src-common.sass webpp/css/src-common.css --watch"
-  }
+  "license": "ISC"
 }
