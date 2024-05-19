@@ -1,3 +1,20 @@
+// ===========================================
+.modal-p-bottom
+    .modal-dialog
+        position: absolute
+        bottom: 0
+        left: 0
+        right: 0
+        max-width: 100% !important
+        margin: 0
+        transform: translateY(100%) !important
+    &.show
+        overflow: hidden
+        .modal-dialog
+            transform: translateY(0%) !important
+            min-height: 80px
+            max-height: 80vh
+
 .modal
     font-family: "Asap", sans-serif
     
@@ -5,6 +22,8 @@
         position: sticky
         bottom: 0
         left: 0
+        z-index: 1
+        background: #fff
         a
             margin: 0
             padding: 10px 0
@@ -142,7 +161,7 @@
                 margin: 12px 0
                 .list
                     border-bottom: 1px solid rgba($txt ,0.2 )
-                    padding: 16px 0
+                    padding: 16px 0 16px 16px
                     &:last-child
                         border: none
 
