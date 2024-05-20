@@ -138,9 +138,12 @@ nav.navbar ul.navbar-nav .box .nav-button:last-child {
 }
 
 header {
+  position: sticky;
+  top: 52px;
   width: 100%;
   padding: 4px 0;
   margin: -20px auto 0;
+  z-index: 10;
 }
 header .location {
   width: 100%;
@@ -224,7 +227,7 @@ header ul li.center {
 .wrapper {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -300,14 +303,15 @@ header ul li.center {
   color: #f8f8fd;
 }
 .wrapper .container {
-  height: 100%;
+  height: 100vh;
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   background: rgba(248, 248, 253, 0.7);
   border-radius: 32px 32px 0 0;
-  padding: 16px 16px 4px 16px;
+  padding: 16px 16px 50vh 16px;
   border-top: 2px solid #f8f8fd;
 }
 .wrapper .container > div {
@@ -362,6 +366,22 @@ header ul li.center {
   align-items: center;
   justify-content: flex-end;
 }
+.wrapper .type-box.over-3 .ticket-prize .box {
+  margin-right: 8px;
+}
+.wrapper .type-box.over-3 .ticket-prize .box:last-of-type {
+  margin-right: 0;
+  margin-left: 8px;
+}
+.wrapper .type-box.over-3 .ticket-prize .box:nth-of-type(2) {
+  margin: 0 12px;
+  text-align: center;
+}
+.wrapper .type-box.over-3 .ticket-prize .spend {
+  width: auto;
+  padding-left: 8px;
+  padding-right: 8px;
+}
 .wrapper .type-box.ticket-box {
   position: relative;
   display: flex;
@@ -371,14 +391,10 @@ header ul li.center {
   gap: 0 !important;
   overflow: hidden;
   padding: 0;
+  min-height: 125px;
 }
-.wrapper .type-box.ticket-box > div {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 12px 4px 12px;
+.wrapper .type-box.ticket-box:not(.mark) > div {
+  padding-top: 16px;
 }
 .wrapper .type-box.ticket-box .mark {
   left: 12px;
@@ -387,27 +403,47 @@ header ul li.center {
   left: auto;
   right: 12px;
 }
-.wrapper .type-box.ticket-box .ticket-prize > div {
+.wrapper .type-box.ticket-box > div {
+  gap: 4px;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 4px 4px 4px;
 }
-.wrapper .type-box.ticket-box .ticket-prize > div .title {
+.wrapper .type-box.ticket-box > div > div:not(.prize):not(.bage):not(.icon) {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .type-box.ticket-box > div > div:not(.prize):not(.bage):not(.icon) .title {
   opacity: 1;
   font-size: 10px;
 }
-.wrapper .type-box.ticket-box .ticket-prize > div .input {
+.wrapper .type-box.ticket-box > div > div:not(.prize):not(.bage):not(.icon) .input {
   line-height: normal;
-  font-weight: 400;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
-.wrapper .type-box.ticket-box .ticket-prize > span {
-  width: 100%;
+.wrapper .type-box.ticket-box > div .prize {
+  width: 30%;
+  margin-left: 16px;
+  text-align: right;
+}
+.wrapper .type-box.ticket-box .spend {
+  width: 50%;
   font-size: 9px;
   text-align: center;
   color: rgba(40, 38, 38, 0.8);
-  padding-bottom: 20px;
+  padding-bottom: 30px;
+  white-space: nowrap;
+  margin: 0 auto;
   position: relative;
 }
-.wrapper .type-box.ticket-box .ticket-prize > span::before {
+.wrapper .type-box.ticket-box .spend::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -418,7 +454,7 @@ header ul li.center {
   background: rgba(40, 38, 38, 0.5);
   z-index: 0;
 }
-.wrapper .type-box.ticket-box .ticket-prize > span::after {
+.wrapper .type-box.ticket-box .spend::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -430,24 +466,30 @@ header ul li.center {
   border-right: 1px solid rgba(40, 38, 38, 0.5);
   z-index: 0;
 }
-.wrapper .type-box.ticket-box .ticket-prize .prize {
+.wrapper .type-box.ticket-box .spend .prize {
   margin-left: 40px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 16px;
 }
 .wrapper .type-box.ticket-box .info {
+  width: 100%;
   border-top: 1px solid rgba(40, 38, 38, 0.2);
-  padding: 6px 12px;
+  padding: 8px 12px;
   color: rgba(40, 38, 38, 0.8);
   font-size: 14px;
 }
 .wrapper .type-box.ticket-box .info .bage {
   white-space: nowrap;
 }
+.wrapper .type-box.ticket-box .info .bage i {
+  background: #004ffa;
+  padding: 4px;
+  border-radius: 4px;
+  color: #f8f8fd;
+}
 .wrapper .type-box p {
-  font-size: 13px;
-  opacity: 0.5;
-  line-height: 150%;
+  opacity: 0.3 !important;
+  line-height: 24px;
 }
 .wrapper .type-box .input {
   line-height: 32px;
@@ -515,6 +557,36 @@ footer ul li p {
   text-transform: capitalize;
   font-size: 12px;
   margin: 4px 0;
+}
+footer.confirm {
+  padding: 0 16px;
+  background: #fff;
+  backdrop-filter: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(40, 38, 38, 0.3);
+}
+footer.confirm .totalPrize {
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  line-height: 45px;
+}
+footer.confirm .totalPrize .prize {
+  font-weight: 500;
+}
+footer.confirm a.button {
+  width: auto;
+  padding: 5px 15px;
+  margin: 0;
+  box-shadow: none;
+  border-radius: 8px;
 }
 
 .show-animation {
@@ -639,9 +711,11 @@ a.button:active, a.button:focus, a.button:hover {
 }
 .modal .container .calendar > .time {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
+  padding: 0 12px;
 }
 .modal .container .calendar > .time .type-box {
   background: transparent;
@@ -658,8 +732,9 @@ a.button:active, a.button:focus, a.button:hover {
 }
 .modal .container .calendar .select {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   padding: 0 12px;
 }
 .modal .container .calendar .select .icon {
@@ -670,8 +745,9 @@ a.button:active, a.button:focus, a.button:hover {
   padding: 12px 0;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   font-size: 14px;
 }

@@ -57,10 +57,9 @@
         padding: 0
         .calendar
             > .time
-                display: flex
-                justify-content: center
-                align-items: center
+                @include flex(row, center, space-between)
                 gap: 8px
+                padding: 0 12px
                 .type-box
                     background: transparent
                     box-shadow: none
@@ -72,9 +71,7 @@
                             font-weight: 500
                             font-size: 18px
             .select
-                display: flex
-                justify-content: space-between
-                align-items: center
+                @include flex(row, center, space-between)
                 padding: 0 12px
                 .icon
                     color: #f82727
@@ -82,9 +79,7 @@
                 > div
                     padding: 12px 0
                     width: 100%
-                    display: flex
-                    justify-content: flex-start
-                    align-items: center
+                    @include flex(row, center, flex-start)
                     gap: 8px
                     font-size: 14px
                     > div
