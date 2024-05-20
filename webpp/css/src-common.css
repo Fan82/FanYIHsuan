@@ -145,8 +145,9 @@ header {
 header .location {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   color: #f8f8fd;
   margin: 12px 0;
   gap: 12px;
@@ -157,6 +158,7 @@ header .location .icon {
   position: relative;
   width: 30%;
   text-align: center;
+  position: relative;
 }
 header .location .icon::before {
   content: "";
@@ -187,8 +189,9 @@ header .location .icon i::before {
 header ul {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   flex-wrap: nowrap;
   gap: 4px;
   overflow-x: scroll;
@@ -225,6 +228,7 @@ header ul li.center {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding-top: 72px;
   opacity: 1;
   transition: opacity 0.8s ease-in-out;
@@ -247,9 +251,11 @@ header ul li.center {
   pointer-events: none;
 }
 .wrapper:has(h3) {
-  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  padding: 0 16px 40px 16px;
+  justify-content: flex-end;
+  padding: 0 16px 120px 16px;
 }
 .wrapper h3 {
   font-size: 3.5em;
@@ -270,8 +276,9 @@ header ul li.center {
   width: calc(100% - 48px);
   background: rgba(248, 248, 253, 0.8);
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 3.3333333333%;
   border-radius: 40px;
   padding: 4px 0;
@@ -306,15 +313,17 @@ header ul li.center {
 .wrapper .container > div {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 12px;
 }
 .wrapper .container > p {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   align-items: center;
-  margin: 12px 0 0 0;
+  justify-content: center;
+  margin: 6px 0;
   gap: 8px;
   color: #282626;
   text-transform: capitalize;
@@ -328,8 +337,7 @@ header ul li.center {
   border-radius: 10px;
   background: #f8f8fd;
 }
-
-.type-box {
+.wrapper .type-box {
   position: relative;
   width: 100%;
   background: #fff;
@@ -340,42 +348,125 @@ header ul li.center {
   text-transform: capitalize;
   color: #282626;
 }
-.type-box:has(.icon-add) {
+.wrapper .type-box:has(.icon-add) {
   background: rgba(255, 255, 255, 0.4588235294);
 }
-.type-box.inline-block {
+.wrapper .type-box.inline-block {
   padding: 9.75px 12px;
 }
-.type-box.inline-block .box,
-.type-box.inline-block .input {
+.wrapper .type-box.inline-block .box,
+.wrapper .type-box.inline-block .input {
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: row;
   align-items: center;
+  justify-content: flex-end;
 }
-.type-box p {
+.wrapper .type-box.ticket-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0 !important;
+  overflow: hidden;
+  padding: 0;
+}
+.wrapper .type-box.ticket-box > div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 12px 4px 12px;
+}
+.wrapper .type-box.ticket-box .mark {
+  left: 12px;
+}
+.wrapper .type-box.ticket-box .mark.focus {
+  left: auto;
+  right: 12px;
+}
+.wrapper .type-box.ticket-box .ticket-prize > div {
+  width: 100%;
+}
+.wrapper .type-box.ticket-box .ticket-prize > div .title {
+  opacity: 1;
+  font-size: 10px;
+}
+.wrapper .type-box.ticket-box .ticket-prize > div .input {
+  line-height: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+.wrapper .type-box.ticket-box .ticket-prize > span {
+  width: 100%;
+  font-size: 9px;
+  text-align: center;
+  color: rgba(40, 38, 38, 0.8);
+  padding-bottom: 20px;
+  position: relative;
+}
+.wrapper .type-box.ticket-box .ticket-prize > span::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 0.3px;
+  background: rgba(40, 38, 38, 0.5);
+  z-index: 0;
+}
+.wrapper .type-box.ticket-box .ticket-prize > span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid rgba(40, 38, 38, 0.5);
+  border-right: 1px solid rgba(40, 38, 38, 0.5);
+  z-index: 0;
+}
+.wrapper .type-box.ticket-box .ticket-prize .prize {
+  margin-left: 40px;
+  font-weight: 500;
+  font-size: 20px;
+}
+.wrapper .type-box.ticket-box .info {
+  border-top: 1px solid rgba(40, 38, 38, 0.2);
+  padding: 6px 12px;
+  color: rgba(40, 38, 38, 0.8);
+  font-size: 14px;
+}
+.wrapper .type-box.ticket-box .info .bage {
+  white-space: nowrap;
+}
+.wrapper .type-box p {
   font-size: 13px;
   opacity: 0.5;
   line-height: 150%;
 }
-.type-box .input {
+.wrapper .type-box .input {
   line-height: 32px;
   white-space: nowrap;
   text-transform: none;
   color: rgba(40, 38, 38, 0.8);
 }
-.type-box .input.active {
+.wrapper .type-box .input.active {
   color: #004ffa;
   font-weight: 600;
 }
-.type-box .input .input-item {
+.wrapper .type-box .input .input-item {
   width: 100%;
   padding: 0 12px;
   text-align: right;
 }
 
 .box {
-  padding: 8px 0;
+  padding: 6px 0;
 }
 .box.box-r {
   text-align: right !important;
@@ -384,6 +475,7 @@ header ul li.center {
 .icon {
   padding: 0 4px;
   color: #282626;
+  display: inline-block;
 }
 .icon.icon-add, .icon.icon-plane {
   left: 50%;
@@ -409,8 +501,9 @@ footer {
 footer ul {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   flex-wrap: nowrap;
   color: #282626;
 }
@@ -436,8 +529,27 @@ footer ul li p {
   overflow: hidden;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .none {
   display: none !important;
+}
+
+.mark {
+  position: absolute;
+  padding: 0;
+  top: 6px;
+  font-size: 10px;
+  background: transparent;
+  color: rgba(40, 38, 38, 0.5);
+}
+.mark.focus {
+  border-radius: 2px;
+  background: #FF9900;
+  color: #f8f8fd;
+  padding: 1px 4px;
 }
 
 a.button {
@@ -448,7 +560,7 @@ a.button {
   border-radius: 12px;
   background: #004ffa;
   padding: 16px 0;
-  margin: 20px 0;
+  margin: 8px 0;
   color: #f8f8fd;
   transition: background 0.2s linear;
   transition-duration: 0.2s;

@@ -9,6 +9,38 @@ $txt: #282626
     .logo
         opacity: 0.5
 
+@mixin flex($direction, $align, $justify)
+  display: flex
+  flex-direction: $direction
+  align-items: $align
+  justify-content: $justify
+
+@mixin line($color, $z-index)
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        top: 50%
+        left: 0
+        transform: translateY(-50%)
+        width: 100%
+        height: 0.3px
+        background: rgba($color ,0.5 )
+        z-index: $z-index
+    &::after
+        content: ''
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translateY(-50%) rotate(45deg)
+        width: 6px
+        height: 6px
+        border-top: 1px solid rgba($color ,0.5 )
+        border-right: 1px solid rgba($color ,0.5 )
+        z-index: $z-index
+    
+
+
 body
     font-family: "Asap", sans-serif
     min-height: 100vh
@@ -127,9 +159,7 @@ header
     margin: -20px auto 0
     .location
         width: 100%
-        display: flex
-        justify-content: center
-        align-items: center
+        @include flex(row, center, center)
         color: $light
         margin: 12px 0
         gap: 12px
@@ -139,35 +169,12 @@ header
             position: relative
             width: 30%
             text-align: center
-            &::before
-                content: ''
-                position: absolute
-                top: 50%
-                left: 0
-                transform: translateY(-50%)
-                width: 100%
-                height: 0.3px
-                background: rgba($light ,0.5 )
-                z-index: -1
-            &::after
-                content: ''
-                position: absolute
-                top: 50%
-                right: 0
-                transform: translateY(-50%) rotate(45deg)
-                width: 6px
-                height: 6px
-                border-top: 1px solid rgba($light ,0.5 )
-                border-right: 1px solid rgba($light ,0.5 )
-                z-index: -1
-                
+            @include line($light, -1)
             i::before
                 color: $light
     ul
         width: 100%
-        display: flex
-        justify-content: center
-        align-items: center
+        @include flex(row, center, center)
         flex-wrap: nowrap
         gap: 4px
         overflow-x: scroll
@@ -196,9 +203,7 @@ header
     position: relative
     width: 100%
     height: 100vh
-    display: flex
-    flex-direction: column
-    align-items: center
+    @include flex(column, center, center)
     padding-top: 72px
     opacity: 1
     transition: opacity 0.8s ease-in-out
@@ -219,9 +224,8 @@ header
         z-index: -1
         pointer-events: none
     &:has(h3)
-        justify-content: flex-end
-        align-items: flex-start
-        padding: 0 16px 40px 16px
+        @include flex(column, flex-start, flex-end)
+        padding: 0 16px 120px 16px
     h3
         font-size: 3.5em
         line-height: 130%
@@ -240,9 +244,7 @@ header
     .top
         width: calc( 100% - 48px )
         background: rgba( $light ,0.8 )
-        display: flex
-        justify-content: center
-        align-items: center
+        @include flex(row, center, center)
         gap: calc( 10% / 3 )
         border-radius: 40px
         padding: 4px 0
@@ -262,27 +264,21 @@ header
             &.active
                 background: $main
                 color: $light
+
     .container
         height: 100%
-        display: flex
-        flex-direction: column
-        align-items: center
-        justify-content: flex-start
+        @include flex(column, center, flex-start)
         background: rgba( $light ,0.7 )
         border-radius: 32px 32px 0 0
         padding: 16px 16px 4px 16px
         border-top: 2px solid $light
         > div
             width: 100%
-            display: flex
-            justify-content: space-between
-            align-items: center
+            @include flex(row, center, space-between)
             gap: 12px
         > p
-            display: flex
-            justify-content: center
-            align-items: center
-            margin: 12px 0 0 0
+            @include flex(row, center, center)
+            margin: 6px 0
             gap: 8px
             color: $txt
             text-transform: capitalize
@@ -293,51 +289,97 @@ header
                 height: 10px
                 border-radius: 10px
                 background: $light
+    .type-box
+        position: relative
+        width: 100%
+        background: #fff
+        border-radius: 14px
+        box-shadow: 0 0 8px rgba(190, 190, 190, 0.25)
+        padding: 0 12px
+        margin: 6px 0
+        text-transform: capitalize
+        color: $txt
+        &:has(.icon-add)
+            background: #ffffff75
+        &.inline-block
+            padding: 9.75px 12px
+            .box,
+            .input
+                width: 100%
+                @include flex(row, center, flex-end)
 
-.type-box
-    position: relative
-    width: 100%
-    background: #fff
-    border-radius: 14px
-    box-shadow: 0 0 8px rgba(190, 190, 190, 0.25)
-    padding: 0 12px
-    margin: 6px 0
-    text-transform: capitalize
-    color: $txt
-    &:has(.icon-add)
-        background: #ffffff75
-    &.inline-block
-        padding: 9.75px 12px
-        .box,
+        &.ticket-box
+            position: relative
+            @include flex(column, center, flex-end)
+            gap: 0 !important
+            overflow: hidden
+            padding: 0
+            > div
+                width: 100%
+                @include flex(row, center, space-between)
+                padding: 24px 12px 4px 12px
+            .mark
+                left: 12px
+                &.focus
+                    left: auto
+                    right: 12px
+            
+            .ticket-prize
+                
+                > div
+                    width: 100%
+                    .title
+                        opacity: 1
+                        font-size: 10px
+                    .input
+                        line-height: normal
+                        font-weight: 400
+                        font-size: 20px
+                > span
+                    width: 100%
+                    font-size: 9px
+                    text-align: center
+                    color: rgba($txt ,0.8)
+                    padding-bottom: 20px
+                    @include line($txt, 0)
+                .prize
+                    margin-left: 40px
+                    font-weight: 500
+                    font-size: 20px
+
+            .info
+                border-top: 1px solid rgba($txt ,0.2 )
+                padding: 6px 12px
+                color: rgba($txt ,0.8)
+                font-size: 14px
+                .bage
+                    white-space: nowrap
+
+        p
+            font-size: 13px
+            opacity: 0.5
+            line-height: 150%
         .input
-            width: 100%
-            display: flex
-            justify-content: flex-end
-            align-items: center
+            line-height: 32px
+            white-space: nowrap
+            text-transform: none
+            color: rgba($txt ,0.8 )
+            &.active
+                color: $main
+                font-weight: 600
+            .input-item
+                width: 100%
+                padding: 0 12px
+                text-align: right
 
-    p
-        font-size: 13px
-        opacity: 0.5
-        line-height: 150%
-    .input
-        line-height: 32px
-        white-space: nowrap
-        text-transform: none
-        color: rgba($txt ,0.8 )
-        &.active
-            color: $main
-            font-weight: 600
-        .input-item
-            width: 100%
-            padding: 0 12px
-            text-align: right
 .box
-    padding: 8px 0
+    padding: 6px 0
     &.box-r
         text-align: right !important
 .icon
     padding: 0 4px
     color: $txt
+    display: inline-block
     &.icon-add,
     &.icon-plane
         left: 50%
@@ -358,9 +400,7 @@ footer
     z-index: 10
     ul
         position: relative
-        display: flex
-        justify-content: space-between
-        align-items: center
+        @include flex(row, center, space-between)
         flex-wrap: nowrap
         color: $txt
         li
@@ -375,15 +415,28 @@ footer
 .show-animation
     opacity: 0
     transition: all 0.8s ease-in
-
     &.is-view
         opacity: 1
 
 .overflow
     overflow: hidden
+
+.inline-block
+    display: inline-block
 .none
     display: none !important
-
+.mark
+    position: absolute
+    padding: 0
+    top: 6px
+    font-size: 10px
+    background: transparent
+    color: rgba($txt ,0.5 )
+    &.focus
+        border-radius: 2px
+        background: #FF9900
+        color: $light
+        padding: 1px 4px
 a.button
     width: 100%
     font-size: 18px
@@ -392,7 +445,7 @@ a.button
     border-radius: 12px
     background: $main
     padding: 16px 0
-    margin: 20px 0
+    margin: 8px 0
     color: $light
     transition: background 0.2s linear
     transition-duration: 0.2s
