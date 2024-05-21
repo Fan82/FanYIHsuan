@@ -3,6 +3,8 @@ $(document).ready(function () {
     var $button = $('a.button');
     var $menu = $(".toggler");
     var $options = $(".one-way, .round-way, .multi-way");
+    var $ticketBox = $(".type-box.ticket-box");
+    var $openBox = $(".class-box");
 
     $options.on('click', function () {
         $options.removeClass('active');
@@ -29,4 +31,13 @@ $(document).ready(function () {
             window.location.href = $button.attr('href');
         }, 800);
     });
+    $ticketBox.on('click', function () {
+        $ticketBox.removeClass('active');
+        $(this).addClass('open');
+    });
+    $openBox.on('click', function () {
+        $openBox.removeClass('active');
+        $(this).toggleClass('active');
+    });
+
 });

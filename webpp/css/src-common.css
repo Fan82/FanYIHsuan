@@ -104,7 +104,7 @@ nav.navbar ul.navbar-nav li p {
 }
 nav.navbar ul.navbar-nav .box {
   text-align: center;
-  background: rgba(0, 79, 250, 0.2);
+  background: rgba(11, 61, 168, 0.2);
   border-radius: 8px;
   border: none;
   padding: 16px 16px 0px 16px;
@@ -128,11 +128,11 @@ nav.navbar ul.navbar-nav .box .nav-button {
   border-radius: 4px;
   padding: 8px;
   margin: 0 auto;
-  color: #004ffa;
+  color: #0B3DA8;
   margin: 12px 4px;
 }
 nav.navbar ul.navbar-nav .box .nav-button:last-child {
-  background: #004ffa;
+  background: #0B3DA8;
   color: #f8f8fd;
   box-shadow: inset 0 0 0 1px #f8f8fd;
 }
@@ -189,6 +189,11 @@ header .location .icon::after {
 header .location .icon i::before {
   color: #f8f8fd;
 }
+header:has(.num) {
+  position: absolute;
+  top: 26px;
+  z-index: 12;
+}
 header ul {
   width: 100%;
   display: flex;
@@ -219,9 +224,45 @@ header ul li .prize {
   width: 100%;
 }
 header ul li.center {
-  background: #004ffa;
+  background: #0B3DA8;
   color: #f8f8fd;
   font-weight: 600;
+}
+header ul.num {
+  margin: 0 auto;
+  padding: 0;
+}
+header ul.num li {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  padding: 4px;
+  margin: 0 20px;
+  color: #f8f8fd;
+  border: 1px solid #f8f8fd;
+  background: rgba(248, 248, 253, 0.01);
+}
+header ul.num li::before, header ul.num li::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 30px);
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: #f8f8fd;
+  border-radius: 50px;
+}
+header ul.num li::after {
+  left: calc(100% + 30px);
+}
+header ul.num li:last-of-type::before, header ul.num li:last-of-type::after {
+  display: none;
+}
+header ul.num li.active {
+  color: #0B3DA8;
+  background: #f8f8fd;
 }
 
 .wrapper {
@@ -243,7 +284,7 @@ header ul li.center {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #004ffa;
+  background-color: #0B3DA8;
   background-image: url("../library/img-common/img-project/UI/FLIGHT/FILGHT-bg.png");
   background-position: -170px top;
   background-size: cover;
@@ -259,6 +300,7 @@ header ul li.center {
   align-items: flex-start;
   justify-content: flex-end;
   padding: 0 16px 120px 16px;
+  height: 100vh;
 }
 .wrapper h3 {
   font-size: 3.5em;
@@ -299,10 +341,11 @@ header ul li.center {
   transition: background 0.2s ease-in-out, color 0.3s ease-in-out;
 }
 .wrapper .top > div:focus, .wrapper .top > div:hover, .wrapper .top > div.active {
-  background: #004ffa;
+  background: #0B3DA8;
   color: #f8f8fd;
 }
 .wrapper .container {
+  position: relative;
   height: 100vh;
   overflow-y: scroll;
   display: flex;
@@ -348,7 +391,7 @@ header ul li.center {
   border-radius: 14px;
   box-shadow: 0 0 8px rgba(190, 190, 190, 0.25);
   padding: 0 12px;
-  margin: 6px 0;
+  margin: 8px 0;
   text-transform: capitalize;
   color: #282626;
 }
@@ -387,14 +430,76 @@ header ul li.center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0 !important;
-  overflow: hidden;
   padding: 0;
-  min-height: 125px;
 }
 .wrapper .type-box.ticket-box:not(.mark) > div {
   padding-top: 16px;
+}
+.wrapper .type-box.ticket-box.open .open-box {
+  display: block;
+  padding-top: 8px;
+  padding-right: 0;
+  margin-right: 8px;
+  overflow: hidden;
+}
+.wrapper .type-box.ticket-box.open .open-box div.scroll {
+  overflow-x: auto;
+  gap: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box {
+  min-width: 90%;
+  background: rgba(40, 38, 38, 0.05);
+  border-radius: 12px;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box.active {
+  box-shadow: inset 0 0 0 1px #0B3DA8;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box > .title {
+  font-size: 14px !important;
+  background: #0B3DA8;
+  color: #f8f8fd;
+  width: 100%;
+  padding: 6px 0;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box .list {
+  width: 100%;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box .list:last-child {
+  border-top: 1px solid rgba(40, 38, 38, 0.2);
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box .list .list-item {
+  margin: 8px;
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box .list .list-item .title {
+  font-size: 12px;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box .list .list-item > span {
+  font-size: 12px;
+  font-weight: normal;
+}
+.wrapper .type-box.ticket-box.open .open-box .class-box .list .list-item .prize {
+  width: auto;
+  font-weight: 500;
+  font-size: 14px;
+}
+.wrapper .type-box.ticket-box.open > .info {
+  display: none;
+}
+.wrapper .type-box.ticket-box .open-box {
+  display: none;
 }
 .wrapper .type-box.ticket-box .mark {
   left: 12px;
@@ -410,7 +515,7 @@ header ul li.center {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 4px 4px 4px;
+  padding: 24px 8px 4px 8px;
 }
 .wrapper .type-box.ticket-box > div > div:not(.prize):not(.bage):not(.icon) {
   width: 100%;
@@ -474,7 +579,7 @@ header ul li.center {
 .wrapper .type-box.ticket-box .info {
   width: 100%;
   border-top: 1px solid rgba(40, 38, 38, 0.2);
-  padding: 8px 12px;
+  padding: 18px 12px;
   color: rgba(40, 38, 38, 0.8);
   font-size: 14px;
 }
@@ -482,7 +587,7 @@ header ul li.center {
   white-space: nowrap;
 }
 .wrapper .type-box.ticket-box .info .bage i {
-  background: #004ffa;
+  background: #0B3DA8;
   padding: 4px;
   border-radius: 4px;
   color: #f8f8fd;
@@ -498,7 +603,7 @@ header ul li.center {
   color: rgba(40, 38, 38, 0.8);
 }
 .wrapper .type-box .input.active {
-  color: #004ffa;
+  color: #0B3DA8;
   font-weight: 600;
 }
 .wrapper .type-box .input .input-item {
@@ -570,7 +675,7 @@ footer.confirm {
 }
 footer.confirm .totalPrize {
   width: 100%;
-  font-size: 18px;
+  font-size: 14px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -579,14 +684,15 @@ footer.confirm .totalPrize {
   line-height: 45px;
 }
 footer.confirm .totalPrize .prize {
+  font-size: 18px;
   font-weight: 500;
 }
 footer.confirm a.button {
   width: auto;
-  padding: 5px 15px;
+  padding: 5px 18px;
   margin: 0;
   box-shadow: none;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 .show-animation {
@@ -617,11 +723,17 @@ footer.confirm a.button {
   background: transparent;
   color: rgba(40, 38, 38, 0.5);
 }
+.mark .icon {
+  color: rgba(40, 38, 38, 0.5);
+}
 .mark.focus {
   border-radius: 2px;
   background: #FF9900;
   color: #f8f8fd;
   padding: 1px 4px;
+}
+.mark.flightInfo {
+  right: 20px;
 }
 
 a.button {
@@ -630,7 +742,7 @@ a.button {
   line-height: 1.5rem;
   text-align: center;
   border-radius: 12px;
-  background: #004ffa;
+  background: #0B3DA8;
   padding: 16px 0;
   margin: 8px 0;
   color: #f8f8fd;
@@ -726,7 +838,7 @@ a.button:active, a.button:focus, a.button:hover {
   text-align: left;
 }
 .modal .container .calendar > .time .type-box .box .input {
-  color: #004ffa;
+  color: #0B3DA8;
   font-weight: 500;
   font-size: 18px;
 }
@@ -779,7 +891,7 @@ a.button:active, a.button:focus, a.button:hover {
   transform: translateX(-50%);
   width: 30px;
   height: 30px;
-  background: #004ffa;
+  background: #0B3DA8;
   border-radius: 50px;
   z-index: -1;
 }
@@ -857,7 +969,7 @@ a.button:active, a.button:focus, a.button:hover {
   padding: 12px 0 12px 12px;
 }
 .modal .list-box .list-content .list:hover {
-  color: #004ffa;
+  color: #0B3DA8;
   font-weight: 600;
 }
 .modal .list-box .list-content .list > div span {

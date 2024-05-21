@@ -1,4 +1,4 @@
-$main: #004ffa
+$main: #0B3DA8
 $light: #f8f8fd
 $txt: #282626
 @import url('https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap')
@@ -175,6 +175,10 @@ header
             @include line($light, -1)
             i::before
                 color: $light
+    &:has(.num)
+        position: absolute
+        top: 26px
+        z-index: 12
     ul
         width: 100%
         @include flex(row, center, center)
@@ -201,6 +205,39 @@ header
                 background: $main
                 color: $light
                 font-weight: 600
+        &.num
+            margin:  0 auto
+            padding: 0
+            li
+                position: relative
+                width: 30px
+                height: 30px
+                border-radius: 50px
+                padding: 4px
+                margin: 0 20px
+                color: $light
+                border: 1px solid $light
+                background: rgba($light ,0.01 )
+                &::before,
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 50%
+                    left: calc( 50% + 30px )
+                    transform: translate(-50%, -50%)
+                    width: 8px
+                    height: 8px
+                    background: $light
+                    border-radius: 50px
+                &::after
+                    left: calc( 100% + 30px )
+                &:last-of-type
+                    &::before,
+                    &::after
+                        display: none
+                &.active
+                    color: $main
+                    background: $light
 
 .wrapper
     position: relative
@@ -229,6 +266,7 @@ header
     &:has(h3)
         @include flex(column, flex-start, flex-end)
         padding: 0 16px 120px 16px
+        height: 100vh
     h3
         font-size: 3.5em
         line-height: 130%
@@ -269,6 +307,7 @@ header
                 color: $light
 
     .container
+        position: relative
         height: 100vh
         overflow-y: scroll
         @include flex(column, center, flex-start)
@@ -301,7 +340,7 @@ header
         border-radius: 14px
         box-shadow: 0 0 8px rgba(190, 190, 190, 0.25)
         padding: 0 12px
-        margin: 6px 0
+        margin: 8px 0
         text-transform: capitalize
         color: $txt
         &:has(.icon-add)
@@ -330,14 +369,63 @@ header
 
         &.ticket-box
             position: relative
-            @include flex(column, center, flex-end)
+            @include flex(column, center, flex-start)
             gap: 0 !important
-            overflow: hidden
+            // overflow: hidden
             padding: 0
-            min-height: 125px
+            // min-height: 125px
             &:not(.mark)
                 > div
                     padding-top: 16px
+            &.open
+                .open-box
+                    display: block
+                    padding-top: 8px
+                    padding-right: 0
+                    margin-right: 8px
+                    overflow: hidden
+                    
+                    div.scroll
+                        overflow-x: auto
+                        gap: 4px
+                        @include flex(row, center, center)
+                    .class-box
+                        min-width: 90%
+                        background: rgba($txt ,0.05 )
+                        border-radius: 12px
+                        &.active
+                            box-shadow: inset 0 0 0 1px $main
+
+                        > .title
+                            font-size: 14px !important
+                            background: $main
+                            color: $light
+                            width: 100%
+                            padding: 6px 0
+                            text-align: center
+                            border-radius: 8px 8px 0 0
+
+                        .list
+                            width: 100%
+                            &:last-child
+                                border-top: 1px solid rgba($txt ,0.2 )
+                            .list-item
+                                margin: 8px
+                                padding: 4px
+                                @include flex(row, center, space-between)
+                                .title
+                                    font-size: 12px
+                                > span
+                                    font-size: 12px
+                                    font-weight: normal
+                                .prize
+                                    width: auto
+                                    font-weight: 500
+                                    font-size: 14px
+                > .info
+                    display: none
+            .open-box
+                display: none
             .mark
                 left: 12px
                 &.focus
@@ -348,7 +436,7 @@ header
                 gap: 4px
                 width: 100%
                 @include flex(row, center, space-between)
-                padding: 24px 4px 4px 4px
+                padding: 24px 8px 4px 8px
                 > div:not(.prize):not(.bage):not(.icon)
                     width: 100%
                     @include flex(row, center, space-between)
@@ -380,7 +468,7 @@ header
             .info
                 width: 100%
                 border-top: 1px solid rgba($txt ,0.2 )
-                padding: 8px 12px
+                padding: 18px 12px
                 color: rgba($txt ,0.8)
                 font-size: 14px
                 .bage
@@ -453,18 +541,19 @@ footer
         border-top: 1px solid rgba($txt ,0.3 )
         .totalPrize
             width: 100%
-            font-size: 18px
+            font-size: 14px
             @include flex(row, center, flex-start)
             gap: 8px
             line-height: 45px
             .prize
+                font-size: 18px
                 font-weight: 500
         a.button
             width: auto
-            padding: 5px 15px
+            padding: 5px 18px
             margin: 0
             box-shadow: none
-            border-radius: 8px
+            border-radius: 4px
 
 // ==========================================
 .show-animation
@@ -487,11 +576,16 @@ footer
     font-size: 10px
     background: transparent
     color: rgba($txt ,0.5 )
+    .icon
+        color: rgba($txt ,0.5 )
     &.focus
         border-radius: 2px
         background: #FF9900
         color: $light
         padding: 1px 4px
+    &.flightInfo
+        right: 20px
+        
 a.button
     width: 100%
     font-size: 18px
