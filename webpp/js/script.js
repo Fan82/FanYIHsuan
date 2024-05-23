@@ -1,8 +1,7 @@
 $(document).ready(function () {
   gameHall_JS();
-  screenWidthCheck();
   scrollProject();
-
+  loadModals();
 });
 
 
@@ -58,5 +57,30 @@ function scrollProject() {
         $(this).css("transform", "translateY(0)");
       }
     });
+  });
+}
+function loadModals() {
+  $("#modals-container").load("../modal.html", function () {
+      $(".modal-trigger").each(function () {
+          var trigger = $(this);
+          var targetModalId = trigger.data("target");
+          var targetModal = $("#" + targetModalId);
+
+          // 打開模態框
+          trigger.on('click', function () {
+              targetModal.modal('show');
+          });
+
+          // 關閉模態框
+          targetModal.find(".close").on('click', function () {
+              targetModal.modal('hide');
+          });
+
+          $(window).on('click', function (event) {
+              if ($(event.target).is(targetModal)) {
+                  targetModal.modal('hide');
+              }
+          });
+      });
   });
 }
