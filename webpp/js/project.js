@@ -5,6 +5,7 @@ $(document).ready(function () {
     var $options = $(".one-way, .round-way, .multi-way");
     var $ticketBox = $(".type-box.ticket-box");
     var $openBox = $(".class-box");
+    var $shownBTN = $(".close");
 
     $options.on('click', function () {
         $options.removeClass('active');
@@ -39,5 +40,9 @@ $(document).ready(function () {
         $openBox.removeClass('active');
         $(this).toggleClass('active');
     });
+    $shownBTN.on('click', function(){
+        $('.type-box.check-box').toggleClass('show');
+        $(this).toggleClass('back')
+    })
 
 });

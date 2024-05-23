@@ -87,10 +87,10 @@
     <div class="wrapper">
         <header>
             <ul class="num">
-                <li class="active">
+                <li>
                     1
                 </li>
-                <li>
+                <li class="active">
                     2
                 </li>
                 <li>
@@ -112,7 +112,7 @@
                         London
                     </p>
                     <div class="time">2024/12/25 - 2025/01/02</div>
-                    <a href="javascript:history.back()" class="icon">
+                    <a href="javascript:void(0)" class="icon close">
                         <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </a>
                 </div>
@@ -207,20 +207,49 @@
                     </div>
                 </div>
             </div>
-            <div class="class-box">
-                <div class="list">
-                    <div class="list-item">
-                        <div class="title">Taxes & fees</div>
-                        <span>$415.00</span>
+            <div class="list-box input-box">
+                <div class="list-content">
+                    <div class="list-title">
+                        Passenger 1
+                        <h5>
+                            Benson Chen
+                        </h5>
                     </div>
-                    <div class="list-item">
-                        <div class="title">Fare</div>
-                        <span>$1200.00</span>
+                    <span>Main ID Information</span>
+                    <div class="list">
+                        <div class="input-box">
+                            <p>Gender</p>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <p>Birth of date</p>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <p>Country</p>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <p>Type of license</p>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <p>license number</p>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <p>license country/ area</p>
+                            <input type="text">
+                        </div>
+                        <div class="input-box">
+                            <p>certificate validity period</p>
+                            <input type="number">
+                        </div>
                     </div>
-                    <div class="list-item">
-                        <div class="title">Total</div>
-                        <span class="prize">$1,615.00</span>
-                    </div>
+                    <a class="save">
+                        <span></span>
+                        <sup>Save your information to use in next time</sup>
+                    </a>
                 </div>
             </div>
         </div>
@@ -230,8 +259,8 @@
             Total
             <div class="prize">$3,230.00</div>
         </div>
-        <a href="#" class="button">
-            Next
+        <a href="./step2.html" class="button">
+            Confirm
         </a>
     </footer>
     <script src="../../../js/fontawesome.js"></script>

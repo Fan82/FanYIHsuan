@@ -65,6 +65,8 @@ nav.navbar
     background: transparent
     backdrop-filter: blur(5px)
     z-index: 11
+    &:has(.toggler.active)
+        z-index: 13
     i::before
         color: $light
     .logo
@@ -316,9 +318,9 @@ header
         @include flex(column, center, flex-start)
         background: rgba( $light ,0.7 )
         border-radius: 32px 32px 0 0
-        padding: 16px 16px 50vh 16px
+        padding: 16px 16px 40vh 16px
         border-top: 2px solid $light
-        
+
         > div
             width: 100%
             @include flex(row, center, space-between)
@@ -446,6 +448,27 @@ header
                         border-radius: 4px
                         color: $light
 
+        // =============================
+        &.check-box
+            flex-wrap: wrap
+            padding: 0
+            gap: 0 !important
+            height: auto
+            > div,
+            & ~ .class-box
+                display: none !important
+                opacity: 0
+
+            &.show
+                height: auto
+                > div
+                    transition: all 0.4s linear
+                    display: flex !important
+                    opacity: 1 !important
+            .toGo
+                display: flex !important
+
+        // =============================
         p
             opacity: 0.3 !important
             line-height: 24px
@@ -494,166 +517,229 @@ header
                     width: auto
                     font-weight: 500
                     font-size: 14px
-.type-box.check-box
-    flex-wrap: wrap
-    padding: 0
-    gap: 0 !important
-    .toGo
-        position: relative
-        width: 100%
-        font-size: 16px
-        background: $main
-        border-radius: 12px 12px 0 0
-        color: $light
-        text-align: center
-        line-height: 20px
-        padding: 12px 0
-        gap: 8px
-        display: flex
-        justify-content: center
-        align-items: center
+// ============================================
+.type-box
+    &.check-box
         flex-wrap: wrap
-        p
-            opacity: 1 !important
-        .icon
+        padding: 0            
+        .toGo
             position: relative
-            display: inline-flex
-            flex-direction: column
-            align-items: center
-            justify-content: center
-            gap: 8px
-            width: 15%
-            height: auto
-            margin: 0px 10px
-            span
-                width: 100%
-                @include line($light, 1)
-                &.back
-                    transform: rotateY(180deg)
-        a.icon
-            position: absolute
-            top: 50%
-            right: 20px
-            margin: 0
-            transform: translateY(-50%)
+            width: 100%
+            font-size: 16px
+            background: $main
+            border-radius: 12px
             color: $light
-            width: auto
-        .time
-            width: 100%
-            font-size: 12px
-            opacity: 0.8
-            letter-spacing: 1.2px
-    .fight-content
-        // background: #999
-        padding: 0 12px
-        margin: 8px 0
-        gap: 12px
-        @include flex(column, flex-start,  flex-start)
-        flex-wrap: wrap
-        .top-content
-            .icon
-                text-align: center
-                vertical-align: middle
-                margin: 0 8px
-                width: 30px
-                @include line($txt, 1)
-        .date
-            display: block
-            font-size: 12px
-            color: rgba($txt ,0.6 )
-    .airport-box
-        position: relative
-        width: 100%
-        margin: 12px 0 0 0
-        padding: 0 12px
-        gap: 4px
-        @include flex(column, flex-start, center)
-        .time
-            position: absolute
-            left: 12px
-            top: 0
-            height: 80%
-            color: rgba($txt ,1 )
             text-align: center
-            gap: 4px
-            @include flex(column, center,  center)
-            span
+            line-height: 20px
+            padding: 12px 0
+            gap: 8px
+            display: flex !important
+            justify-content: center
+            align-items: center
+            flex-wrap: wrap
+            opacity: 1 !important
+            p
+                opacity: 1 !important
+            .icon
                 position: relative
-                width: 1px
-                height: 100%
-                border: 0.2px solid rgba($txt ,1 )
-                &::before
-                    content: ''
-                    position: absolute
-                    top: -3px
-                    left: 50%
-                    transform: translateX(-50%) 
-                    width: 3px
-                    height: 3px
-                    background: rgba($txt ,1 )
-                    border-radius: 10px
-                &:last-child
-                    top: auto
-                    bottom: -3px
-                    transform: rotateX(180deg)
-            > sup
-                font-size: 9px
-                line-height: 10px
-
-        .location
+                display: inline-flex
+                flex-direction: column
+                align-items: center
+                justify-content: center
+                gap: 8px
+                width: 30px
+                height: 30px
+                margin: 0px 10px
+                cursor: pointer
+                span
+                    width: 100%
+                    @include line($light, 1)
+                    &.back
+                        transform: rotateY(180deg)
+                    
+            a.icon
+                position: absolute
+                top: 50%
+                right: 20px
+                margin: 0
+                transform: translateY(-50%)
+                color: $light
+                width: auto
+                &.back
+                    transform: rotateX(180deg) translateY(50%)
+            .time
+                width: 100%
+                font-size: 12px
+                opacity: 0.8
+                letter-spacing: 1.2px
+        .fight-content
+            padding: 8px 12px
+            margin: 8px 0
+            gap: 12px
+            @include flex(column, flex-start,  flex-start)
+            flex-wrap: wrap
+            .top-content
+                .icon
+                    text-align: center
+                    vertical-align: middle
+                    margin: 0 8px
+                    width: 30px
+                    @include line($txt, 1)
+            .date
+                display: block
+                font-size: 12px
+                color: rgba($txt ,0.6 )
+        .airport-box
             position: relative
             width: 100%
-            display: block
-            gap: 8px
-            color: $txt
-            font-size: 14px
-            flex-wrap: wrap
-            justify-content: flex-start
-            color: $txt
-            margin: 0
-            padding-left: 80px
-            margin-bottom: 20px
-            &:last-child
-                .time
-                    top: auto
-                    bottom: -8px
+            margin: 12px 0 0 0
+            padding: 0 12px
+            gap: 4px
+            @include flex(column, flex-start, center)
             .time
                 position: absolute
-                top: -8px
-                left: 35px
-                font-weight: 300
-            .country, .terminal
-                display: inline-block
-                font-size: 15px
-            .country
-                font-weight: 500
-            .filght-num
-                display: block
+                left: 12px
+                top: 0
+                height: 80%
+                color: rgba($txt ,1 )
+                text-align: center
+                gap: 4px
+                @include flex(column, center,  center)
+                span
+                    position: relative
+                    width: 1px
+                    height: 100%
+                    border: 0.2px solid rgba($txt ,1 )
+                    &::before
+                        content: ''
+                        position: absolute
+                        top: -3px
+                        left: 50%
+                        transform: translateX(-50%) 
+                        width: 3px
+                        height: 3px
+                        background: rgba($txt ,1 )
+                        border-radius: 10px
+                    &:last-child
+                        top: auto
+                        bottom: -3px
+                        transform: rotateX(180deg)
+                > sup
+                    font-size: 9px
+                    line-height: 10px
+
+            .location
+                position: relative
                 width: 100%
-                font-size: 10px
-                padding-top: 8px
-                color: rgba($txt ,0.5 )
-    .class-box
-        width: calc( 100% - 24px )
-        border-radius: 12px
-        margin: 10px auto
-        .list
+                display: block
+                gap: 8px
+                color: $txt
+                font-size: 14px
+                flex-wrap: wrap
+                justify-content: flex-start
+                color: $txt
+                margin: 0
+                padding-left: 80px
+                margin-bottom: 20px
+                &:last-child
+                    .time
+                        top: auto
+                        bottom: -8px
+                .time
+                    position: absolute
+                    top: -8px
+                    left: 35px
+                    font-weight: 300
+                .country, .terminal
+                    display: inline-block
+                    font-size: 15px
+                .country
+                    font-weight: 500
+                .filght-num
+                    display: block
+                    width: 100%
+                    font-size: 10px
+                    padding-top: 8px
+                    color: rgba($txt ,0.5 )
+        .class-box
+            width: calc( 100% - 24px )
+            border-radius: 12px
+            margin: 0 auto 5px auto
+
+            .list
+                border: none
+            .list-item
+                padding: 4px 0
+                margin-top: 0
+                margin-bottom: 0
+                display: block
+                .title,
+                span
+                    display: block
+                    width: 100%
+                    font-size: 10px
+                    margin: 8px 0
+                    line-height: normal
+                    color: rgba($txt ,0.5 )
+        ~ .class-box .list
             border: none
-        .list-item
-            padding: 4px 0
-            margin-top: 0
-            margin-bottom: 0
-            display: block
-            .title,
-            span
-                display: block
+// =============================================
+.input-box
+    flex-direction: column !important
+    .list-content
+        margin: 0 !important
+        width: 100%
+        .list-title
+            position: relative !important
+            top: 0 !important
+            padding-bottom: 0 !important
+            background: transparent !important
+            h5
+                color: $txt
+        > span
+            font-size: 12px
+            margin: 8px 0
+        .list
+            padding: 0 !important
+            flex-direction: column !important
+            border: none !important
+
+            .input-box
                 width: 100%
-                font-size: 10px
                 margin: 8px 0
-                line-height: normal
-                color: rgba($txt ,0.5 )
-    ~ .class-box .list
-        border: none
+
+                p
+                    position: relative
+                    color: $txt
+                    font-weight: normal
+                    font-size: 12px
+                    margin-bottom: -6px
+                    margin-left: 6px
+                    opacity: 0.6
+                    z-index: 1
+                input
+                    position: relative
+                    border: 1px solid rgba($txt ,0.2 )
+                    font-weight: 300
+                    width: 100%
+                    padding: 10px 6px
+                    z-index: 0
+                    background: $light
+                    font-size: 18px
+                    border-radius: 8px
+        a.save
+            @include flex(row, center, center)
+            gap: 8px
+            margin: 20px 0
+            > span
+                width: 12px
+                height: 12px
+                border-radius: 2px
+                border: 1px solid rgba($txt ,0.8)
+                font-weight: 300
+            sup
+                line-height: 10px
+                color: rgba($txt ,0.8)
 // ---------------------------------
 .box
     padding: 6px 0
@@ -708,6 +794,9 @@ footer
             .prize
                 font-size: 18px
                 font-weight: 500
+        .icon.close
+            &.back
+                transform: rotateX(180deg)
         
         a.button
             width: auto

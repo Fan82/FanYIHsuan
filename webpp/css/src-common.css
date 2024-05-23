@@ -33,6 +33,9 @@ nav.navbar {
   backdrop-filter: blur(5px);
   z-index: 11;
 }
+nav.navbar:has(.toggler.active) {
+  z-index: 13;
+}
 nav.navbar i::before {
   color: #f8f8fd;
 }
@@ -357,7 +360,7 @@ header ul.num li.active {
   justify-content: flex-start;
   background: rgba(248, 248, 253, 0.7);
   border-radius: 32px 32px 0 0;
-  padding: 16px 16px 50vh 16px;
+  padding: 16px 16px 40vh 16px;
   border-top: 2px solid #f8f8fd;
 }
 .wrapper .container > div {
@@ -550,6 +553,27 @@ header ul.num li.active {
   border-radius: 4px;
   color: #f8f8fd;
 }
+.wrapper .type-box.check-box {
+  flex-wrap: wrap;
+  padding: 0;
+  gap: 0 !important;
+  height: auto;
+}
+.wrapper .type-box.check-box > div, .wrapper .type-box.check-box ~ .class-box {
+  display: none !important;
+  opacity: 0;
+}
+.wrapper .type-box.check-box.show {
+  height: auto;
+}
+.wrapper .type-box.check-box.show > div {
+  transition: all 0.4s linear;
+  display: flex !important;
+  opacity: 1 !important;
+}
+.wrapper .type-box.check-box .toGo {
+  display: flex !important;
+}
 .wrapper .type-box p {
   opacity: 0.3 !important;
   line-height: 24px;
@@ -616,23 +640,23 @@ header ul.num li.active {
 .type-box.check-box {
   flex-wrap: wrap;
   padding: 0;
-  gap: 0 !important;
 }
 .type-box.check-box .toGo {
   position: relative;
   width: 100%;
   font-size: 16px;
   background: #0B3DA8;
-  border-radius: 12px 12px 0 0;
+  border-radius: 12px;
   color: #f8f8fd;
   text-align: center;
   line-height: 20px;
   padding: 12px 0;
   gap: 8px;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  opacity: 1 !important;
 }
 .type-box.check-box .toGo p {
   opacity: 1 !important;
@@ -644,9 +668,10 @@ header ul.num li.active {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 15%;
-  height: auto;
+  width: 30px;
+  height: 30px;
   margin: 0px 10px;
+  cursor: pointer;
 }
 .type-box.check-box .toGo .icon span {
   width: 100%;
@@ -687,6 +712,9 @@ header ul.num li.active {
   color: #f8f8fd;
   width: auto;
 }
+.type-box.check-box .toGo a.icon.back {
+  transform: rotateX(180deg) translateY(50%);
+}
 .type-box.check-box .toGo .time {
   width: 100%;
   font-size: 12px;
@@ -694,7 +722,7 @@ header ul.num li.active {
   letter-spacing: 1.2px;
 }
 .type-box.check-box .fight-content {
-  padding: 0 12px;
+  padding: 8px 12px;
   margin: 8px 0;
   gap: 12px;
   display: flex;
@@ -829,7 +857,7 @@ header ul.num li.active {
 .type-box.check-box .class-box {
   width: calc(100% - 24px);
   border-radius: 12px;
-  margin: 10px auto;
+  margin: 0 auto 5px auto;
 }
 .type-box.check-box .class-box .list {
   border: none;
@@ -851,6 +879,76 @@ header ul.num li.active {
 }
 .type-box.check-box ~ .class-box .list {
   border: none;
+}
+
+.input-box {
+  flex-direction: column !important;
+}
+.input-box .list-content {
+  margin: 0 !important;
+  width: 100%;
+}
+.input-box .list-content .list-title {
+  position: relative !important;
+  top: 0 !important;
+  padding-bottom: 0 !important;
+  background: transparent !important;
+}
+.input-box .list-content .list-title h5 {
+  color: #282626;
+}
+.input-box .list-content > span {
+  font-size: 12px;
+  margin: 8px 0;
+}
+.input-box .list-content .list {
+  padding: 0 !important;
+  flex-direction: column !important;
+  border: none !important;
+}
+.input-box .list-content .list .input-box {
+  width: 100%;
+  margin: 8px 0;
+}
+.input-box .list-content .list .input-box p {
+  position: relative;
+  color: #282626;
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: -6px;
+  margin-left: 6px;
+  opacity: 0.6;
+  z-index: 1;
+}
+.input-box .list-content .list .input-box input {
+  position: relative;
+  border: 1px solid rgba(40, 38, 38, 0.2);
+  font-weight: 300;
+  width: 100%;
+  padding: 10px 6px;
+  z-index: 0;
+  background: #f8f8fd;
+  font-size: 18px;
+  border-radius: 8px;
+}
+.input-box .list-content a.save {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+.input-box .list-content a.save > span {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: 1px solid rgba(40, 38, 38, 0.8);
+  font-weight: 300;
+}
+.input-box .list-content a.save sup {
+  line-height: 10px;
+  color: rgba(40, 38, 38, 0.8);
 }
 
 .box {
@@ -927,6 +1025,9 @@ footer.confirm .totalPrize {
 footer.confirm .totalPrize .prize {
   font-size: 18px;
   font-weight: 500;
+}
+footer.confirm .icon.close.back {
+  transform: rotateX(180deg);
 }
 footer.confirm a.button {
   width: auto;
@@ -1178,20 +1279,21 @@ a.button:active, a.button:focus, a.button:hover {
   border-radius: 8px;
   padding: 8px 4px;
 }
-.modal .list-box .list-content {
+
+.list-box .list-content {
   margin-bottom: 12px;
 }
-.modal .list-box .list-content:not(.list-title) {
+.list-box .list-content:not(.list-title) {
   margin: 12px 0;
 }
-.modal .list-box .list-content:not(.list-title) .list {
+.list-box .list-content:not(.list-title) .list {
   border-bottom: 1px solid rgba(40, 38, 38, 0.2);
   padding: 16px 0 16px 16px;
 }
-.modal .list-box .list-content:not(.list-title) .list:last-child {
+.list-box .list-content:not(.list-title) .list:last-child {
   border: none;
 }
-.modal .list-box .list-content .list-title {
+.list-box .list-content .list-title {
   position: sticky;
   top: 48px;
   color: rgba(40, 38, 38, 0.6);
@@ -1201,7 +1303,7 @@ a.button:active, a.button:focus, a.button:hover {
   background: #fff;
   z-index: 1;
 }
-.modal .list-box .list-content .list {
+.list-box .list-content .list {
   font-size: 14px;
   color: #282626;
   display: flex;
@@ -1209,26 +1311,26 @@ a.button:active, a.button:focus, a.button:hover {
   align-items: center;
   padding: 12px 0 12px 12px;
 }
-.modal .list-box .list-content .list:hover {
+.list-box .list-content .list:hover {
   color: #0B3DA8;
   font-weight: 600;
 }
-.modal .list-box .list-content .list > div span {
+.list-box .list-content .list > div span {
   display: block;
   font-size: 12px;
   color: rgba(40, 38, 38, 0.4);
   line-height: 20px;
 }
-.modal .list-box .list-content .list .right {
+.list-box .list-content .list .right {
   font-size: 16px;
   font-weight: 600;
 }
-.modal .list-box .list-content .list .right > div {
+.list-box .list-content .list .right > div {
   display: inline-block;
   font-size: 14px;
   font-weight: normal;
 }
-.modal .list-box .list-content .list .right .icon {
+.list-box .list-content .list .right .icon {
   background: rgba(40, 38, 38, 0.05);
   padding: 2px 4px;
   border-radius: 4px;
