@@ -45,20 +45,36 @@ function gameHall_JS() {
 function scrollProject() {
   $(window).scroll(function () {
     var scrollPosition = $(this).scrollTop();
-    var projectOffset = $('#section-project').offset().top;
-    var targetOffset = projectOffset - 400;
 
-    // 迭代所有 project-img 元素，对它们进行操作
-    $(".project-img img").each(function () {
-      var imgOffset = $(this).offset().top;
-      if (scrollPosition >= targetOffset) {
-        $(this).css("transform", "translateY(-60px)");
-      } else {
-        $(this).css("transform", "translateY(0)");
-      }
-    });
+    // Get the offset of #section-project
+    var projectOffsetObj = $('#section-project').offset();
+    if (projectOffsetObj) {
+      var projectOffset = projectOffsetObj.top;
+      console.log('Project Offset:', projectOffset); // Log the project offset
+      var targetOffset = projectOffset - 400;
+
+      // Iterate over all .project-img img elements
+      $(".project-img img").each(function () {
+        var imgOffsetObj = $(this).offset();
+        if (imgOffsetObj) {
+          var imgOffset = imgOffsetObj.top;
+          console.log('Image Offset:', imgOffset); // Log the image offset
+          if (scrollPosition >= targetOffset) {
+            $(this).css("transform", "translateY(-60px)");
+          } else {
+            $(this).css("transform", "translateY(0)");
+          }
+        } else {
+          console.log('Image offset is undefined for element:', this);
+        }
+      });
+    } else {
+      console.log('#section-project offset is undefined.');
+    }
   });
 }
+
+
 function loadModals() {
   $("#modals-container").load("../modal.html", function () {
       $(".modal-trigger").each(function () {
