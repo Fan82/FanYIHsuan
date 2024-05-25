@@ -227,6 +227,12 @@ body.main
             white-space: pre-line
             color: $grey-clr
             font-size: calc( $base * 3px)
+    small
+        display: inline-block
+        color: $grey-clr
+        font-size: 13px
+        font-weight: normal
+        
     .button
         width: auto
         white-space: nowrap
@@ -451,10 +457,6 @@ body.main
             width: 100%
             text-align: left
             small
-                display: inline-block
-                color: $grey-clr
-                font-size: 13px
-                font-weight: normal
                 &::before
                     content: ''
                     position: relative
@@ -568,7 +570,6 @@ body.main
                 padding-left: 30%
                 grid-template-columns: repeat(4, minmax(max(170px), 1fr))
 
-// // =====================================
 // // ======================
 
 @keyframes  svg-stroke

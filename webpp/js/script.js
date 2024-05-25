@@ -2,6 +2,7 @@ $(document).ready(function () {
   gameHall_JS();
   scrollProject();
   loadModals();
+  videoPlay();
 });
 
 
@@ -42,37 +43,45 @@ function gameHall_JS() {
     $(".project-wrapper .container.grid").hide();
   });
 }
+
+
+
 function scrollProject() {
   $(window).scroll(function () {
     var scrollPosition = $(this).scrollTop();
 
-    // Get the offset of #section-project
-    var projectOffsetObj = $('#section-project').offset();
-    if (projectOffsetObj) {
-      var projectOffset = projectOffsetObj.top;
-      console.log('Project Offset:', projectOffset); // Log the project offset
-      var targetOffset = projectOffset - 400;
+    // Iterate over each .container
+    $(".container").each(function() {
+      var project = $(this).find(".project");
+      var projectImg = $(this).find(".project-img img");
 
-      // Iterate over all .project-img img elements
-      $(".project-img img").each(function () {
-        var imgOffsetObj = $(this).offset();
+      // Get the offset of .project
+      var projectOffsetObj = project.offset();
+      if (projectOffsetObj) {
+        var projectOffset = projectOffsetObj.top;
+        console.log('Project Offset:', projectOffset); // Log the project offset
+        var targetOffset = projectOffset - 400;
+
+        // Get the offset of .project-img img
+        var imgOffsetObj = projectImg.offset();
         if (imgOffsetObj) {
           var imgOffset = imgOffsetObj.top;
           console.log('Image Offset:', imgOffset); // Log the image offset
           if (scrollPosition >= targetOffset) {
-            $(this).css("transform", "translateY(-60px)");
+            projectImg.css("transform", "translateY(-60px)");
           } else {
-            $(this).css("transform", "translateY(0)");
+            projectImg.css("transform", "translateY(0)");
           }
         } else {
-          console.log('Image offset is undefined for element:', this);
+          console.log('Image offset is undefined for element:', projectImg);
         }
-      });
-    } else {
-      console.log('#section-project offset is undefined.');
-    }
+      } else {
+        console.log('.project offset is undefined.');
+      }
+    });
   });
 }
+
 
 
 function loadModals() {
@@ -99,4 +108,18 @@ function loadModals() {
           });
       });
   });
+  
+}
+function videoPlay() {
+  const video = $('#my-video')[0];
+
+  // 确保视频元素已经加载完毕
+  if (video) {
+    video.currentTime = 0;
+    video.play();
+  } else {
+    // 如果视频元素未找到，动态生成提示消息
+    const errorMessage = "<p>Comming Soon</p>";
+    $('.video-container').append(errorMessage);
+  }
 }
