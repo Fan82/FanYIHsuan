@@ -42,42 +42,43 @@ function gameHall_JS() {
     $(".container-side").show();
     $(".project-wrapper .container.grid").hide();
   });
+
 }
 
-
-
 function scrollProject() {
-  $(window).scroll(function () {
-    var scrollPosition = $(this).scrollTop();
-
-    // Iterate over each .container
-    $(".container").each(function() {
-      var project = $(this).find(".project");
-      var projectImg = $(this).find(".project-img img");
-
-      // Get the offset of .project
-      var projectOffsetObj = project.offset();
-      if (projectOffsetObj) {
-        var projectOffset = projectOffsetObj.top;
-        console.log('Project Offset:', projectOffset); // Log the project offset
-        var targetOffset = projectOffset - 400;
-
-        // Get the offset of .project-img img
-        var imgOffsetObj = projectImg.offset();
-        if (imgOffsetObj) {
-          var imgOffset = imgOffsetObj.top;
-          console.log('Image Offset:', imgOffset); // Log the image offset
-          if (scrollPosition >= targetOffset) {
-            projectImg.css("transform", "translateY(-60px)");
+  $("main:not(.project-wrapper) .container").each(function() {
+    $(window).scroll(function () {
+      var scrollPosition = $(this).scrollTop();
+  
+      // Iterate over each .container
+      $(".container").each(function() {
+        var project = $(this).find(".project");
+        var projectImg = $(this).find(".project-img img");
+  
+        // Get the offset of .project
+        var projectOffsetObj = project.offset();
+        if (projectOffsetObj) {
+          var projectOffset = projectOffsetObj.top;
+          console.log('Project Offset:', projectOffset); // Log the project offset
+          var targetOffset = projectOffset - 400;
+  
+          // Get the offset of .project-img img
+          var imgOffsetObj = projectImg.offset();
+          if (imgOffsetObj) {
+            var imgOffset = imgOffsetObj.top;
+            console.log('Image Offset:', imgOffset); // Log the image offset
+            if (scrollPosition >= targetOffset) {
+              projectImg.css("transform", "translateY(-60px)");
+            } else {
+              projectImg.css("transform", "translateY(0)");
+            }
           } else {
-            projectImg.css("transform", "translateY(0)");
+            console.log('Image offset is undefined for element:', projectImg);
           }
         } else {
-          console.log('Image offset is undefined for element:', projectImg);
+          console.log('.project offset is undefined.');
         }
-      } else {
-        console.log('.project offset is undefined.');
-      }
+      });
     });
   });
 }
