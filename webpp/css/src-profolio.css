@@ -225,9 +225,10 @@ body.main .title > div {
 body.main .title img {
   position: relative;
   display: block;
-  margin: 0 auto 20px auto;
-  width: 48px;
+  margin: 0 auto 10px auto;
+  width: 50px;
   aspect-ratio: 1/1;
+  object-fit: contain;
   border-radius: 16px;
 }
 body.main .title h2 {
