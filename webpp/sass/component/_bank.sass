@@ -2,6 +2,19 @@ $txt: #222424
 $light: #fdfdfd
 $main-clr: #3469F7
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap')
+
+@mixin box($paddingT, $paddingR, $paddingB, $paddingL)
+    background: rgba($light ,0.6 )
+    border-radius: 12px
+    padding: $paddingT $paddingR $paddingB $paddingL
+@mixin currency($fontWeight, $fontSize)
+    font-weight: $fontWeight
+    font-size: $fontSize
+    &::before
+        content: '$'
+        font-size: 20px
+    
+
 body
     font-family: "Noto Sans", "Arial", sans-serif
     min-height: 100vh
@@ -41,7 +54,10 @@ body
         width: 30px
         height: 30px
         border-radius: 4px
+        text-align: center
         color: $txt
+        font-size: 18px
+        line-height: 125%
         &:hover
             background: $light
     .wrapper
@@ -55,6 +71,7 @@ body
             .nav-item
                 width: 50%
                 text-align: center
+                font-size: 12px
                 &:first-child
                     .nav-link
                         border-radius: 8px 0 0 8px
@@ -64,30 +81,89 @@ body
                     box-shadow: 0 2px 5px rgba($txt, 0.03)
                     color: $main-clr
                     border-radius: 0 8px 8px 0
-                    
-                        
                     &.active
                         background: $main-clr
                         box-shadow: none
                         color: $light
         .object
+            @include box(4px, 0, 12px, 0)
+            margin-bottom: 12px
+            .object-top
+                font-size: 14px
+                a.icon
+                    transform: scale(0.7)
             .object-top,
             .txt-currency
                 text-align: center
                 text-transform: uppercase
             .txt-currency
-                font-weight: 500
-                font-size: 30px
-                &::before
-                    content: '$'
-                    font-size: 20px
+                @include currency(500, 30px)
+            .dropdown
+                
         .function
             display: flex
             justify-content: center
             align-items: center
+            gap: 4px
             width: 100%
+            padding: 6px 0
             .function-item
+                position: relative
                 width: inherit
                 font-size: 12px
+                background: $light
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 4px
+                border-radius: 4px
+                padding: 4px 0
+                color: $main-clr
+                box-shadow: 0 2px 5px rgba($txt, 0.03)
+                a.icon
+                    i
+                        color: $main-clr
                 p
-                    white-space: pre-wrap
+                    font-size: 10px
+                    display: inline-block
+                    text-transform: capitalize
+                &.active
+                    background: $main-clr
+                    color: $light
+                    a.icon
+                        i
+                            color: $light
+        .list
+            margin-top: 12px
+            .list-title
+                font-size: 14px
+                font-weight: 500
+                text-transform: capitalize
+                margin: 12px 0
+            .list-item
+                position: relative
+                @include box(8px, 8px, 8px, 8px)
+                margin-bottom: 8px
+                .account-num
+                    font-size: 14px
+                    font-weight: 500
+                .list-bottom
+                    display: flex
+                    align-items: flex-end
+                    margin-top: 40px
+                    justify-content: flex-end
+                    &:has(.date)
+                        justify-content: space-between
+                        
+                .balance
+                    .txt-currency
+                        @include currency(500, 20px)
+                        text-align: right
+                .date
+                    font-size: 12px
+                    color: rgba($txt ,0.3 )
+                > a.icon
+                    position: absolute
+                    top: 4px
+                    right: 5px
+                    color: rgba($txt ,0.4 )

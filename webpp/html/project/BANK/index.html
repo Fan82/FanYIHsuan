@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, shrink-to-fit=no">
+    <title>Bank</title>
+    <link rel="stylesheet" href="../../../library/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../library/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../../library/lib-common/css/lib-common.css">
+    <link rel="stylesheet" href="../../../css/src-bank.css">
+</head>
+
+<body>
+    <nav>
+        <a href="javascript:history.back()" class="icon">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </a>
+        <!-- <a href="javascript:void(0)" class="logo">
+            <img src="../../../library/img-common/img-project/UI/BANK/logo.png" alt="">
+        </a> -->
+        <div class="center">
+            Deposit
+        </div>
+        <div class="box-right">
+            <a href="javascript:void(0)" class="icon">
+                <i class="fa-solid fa-qrcode"></i>
+            </a>
+            <a href="javascript:void(0)" class="icon">
+                <i class="fa-regular fa-comment-dots"></i>
+            </a>
+        </div>
+    </nav>
+    <div class="wrapper">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="taiwanese-tab" data-toggle="tab" href="#taiwanese" role="tab"
+                    aria-controls="taiwanese" aria-selected="true">Taiwanese</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="foreign-tab" data-toggle="tab" href="#foreign" role="tab"
+                    aria-controls="foreign" aria-selected="false">Foreign currency</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="taiwanese" role="tabpanel" aria-labelledby="taiwanese-tab">
+                <div class="object">
+                    <div class="object-top">
+                        your balance
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                    </div>
+                    <div class="txt-currency">
+                        12,200
+                    </div>
+                </div>
+                <div class="function">
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </a>
+                        transfer
+                    </div>
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </a>
+                        transfer
+                    </div>
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                        </a>
+                        time deposit
+                    </div>
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </a>
+                        cardless cash withdraw
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="list-title">
+                        Current account
+                    </div>
+                    <div class="list-item">
+                        <div class="account-num">123-456-789</div>
+                        <div class="balance">
+                            <div class="txt-currency">
+                                12,200
+                            </div>
+                        </div>
+                        <div class="date">
+                            2024/01/01~2030/12/31
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="foreign" role="tabpanel" aria-labelledby="foreign-tab">
+                <div class="object">
+                    <div class="object-top">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown button
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </div>
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                    </div>
+                    <div class="txt-currency">
+                        40,200
+                    </div>
+                </div>
+                <div class="function">
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </a>
+                        <p>transfer</p>
+                    </div>
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-money-bill-transfer"></i>
+                        </a>
+                        <p>transfer</p>
+                    </div>
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-circle-dollar-to-slot"></i>
+                        </a>
+                        <p>time deposit</p>
+                    </div>
+                    <div class="function-item">
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </a>
+                        <p>cardless cash withdraw</p>
+                    </div>
+                </div>
+                <div class="list">
+                    <div class="list-title">
+                        Current account
+                    </div>
+                    <div class="list-item">
+                        <div class="account-num">123-456-789</div>
+                        <div class="balance">
+                            <div class="txt-currency">
+                                12,200
+                            </div>
+                        </div>
+                        <div class="date">
+                            2024/01/01~2030/12/31
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../js/fontawesome.js"></script>
+    <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../../../js/popper.min.js"></script>
+    <script src="../../../library/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../js/project.js"></script>
+</body>
+
+</html>
