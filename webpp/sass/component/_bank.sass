@@ -13,6 +13,10 @@ $main-clr: #3469F7
     &::before
         content: '$'
         font-size: 20px
+@mixin flex($justify-content, $align-items)
+    display: flex
+    justify-content: $justify-content
+    align-items: $align-items
     
 
 body
@@ -98,8 +102,35 @@ body
                 text-transform: uppercase
             .txt-currency
                 @include currency(500, 30px)
-            .dropdown
-                
+            .dropdown-toggle
+                width: 80px
+                height: 30px
+                padding: 0 8px
+                background: $light
+                border: 1px solid rgba($main-clr ,0.3 )
+                border-radius: 50px
+                p
+                    width: 48px
+                    display: inline-block
+                &::after
+                    border-color: rgba($main-clr ,1 )
+                    border-right: .3em solid transparent
+                    border-left: .3em solid transparent
+            &.center
+                .object-top,
+                .txt-currency
+                    text-align: left
+            .dropdown-menu
+                &.show
+                    display: flex
+                    flex-direction: column
+                    justify-content: flex-start
+                    align-items: flex-start
+                    transform: translate3d(-70%, 89px, 0px) !important
+                    left: 50% !important
+                    width: 80px
+                    min-width: fit-content
+                    border-color: rgba($main-clr ,0.3 )
         .function
             display: flex
             justify-content: center
@@ -126,6 +157,7 @@ body
                 p
                     font-size: 10px
                     display: inline-block
+                    width: min-content
                     text-transform: capitalize
                 &.active
                     background: $main-clr
@@ -136,10 +168,30 @@ body
         .list
             margin-top: 12px
             .list-title
+                position: relative
                 font-size: 14px
                 font-weight: 500
                 text-transform: capitalize
                 margin: 12px 0
+                small
+                    display: inline-flex
+                    justify-content: flex-end
+                    align-items: center
+                    width: 79%
+                    white-space: nowrap
+                    right: 0
+                    font-size: 9px
+                    color: rgba($txt ,0.3 )
+                    a.icon
+                        transform: scale(0.7)
+                        color: rgba($txt ,0.3 )
+            .list-tab
+                @include box(8px, 8px, 8px, 8px)
+                border-radius: 12px 12px 0 0
+                @include flex(space-between, center)
+                p
+                    text-transform: capitalize
+
             .list-item
                 position: relative
                 @include box(8px, 8px, 8px, 8px)
@@ -147,6 +199,20 @@ body
                 .account-num
                     font-size: 14px
                     font-weight: 500
+                .country
+                    position: relative
+                    width: 30px
+                    height: 30px
+                    border-radius: 100px
+                    overflow: hidden
+                    img
+                        position: absolute
+                        left: 0
+                        top: 0
+                        width: 100%
+                        height: 100%
+                        object-fit: cover
+                        object-position: center
                 .list-bottom
                     display: flex
                     align-items: flex-end
@@ -154,7 +220,12 @@ body
                     justify-content: flex-end
                     &:has(.date)
                         justify-content: space-between
-                        
+                .list-center
+                    .balance
+                        .txt-currency
+                            text-align: left
+                    a.icon
+
                 .balance
                     .txt-currency
                         @include currency(500, 20px)

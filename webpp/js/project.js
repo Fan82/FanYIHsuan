@@ -40,9 +40,66 @@ $(document).ready(function () {
         $openBox.removeClass('active');
         $(this).toggleClass('active');
     });
-    $shownBTN.on('click', function(){
+    $shownBTN.on('click', function () {
         $('.type-box.check-box').toggleClass('show');
         $(this).toggleClass('back')
     })
 
 });
+$(document).ready(function () {
+    $('.dropdown-item').on('click', function () {
+        var selectedCurrency = $(this).text();
+        $('#dropdownMenu p').text(selectedCurrency);
+    });
+});
+$(document).ready(function () {
+    var exchangeRates = [
+        { date: "2024-05-24", rate: 1.12 },
+        { date: "2024-05-25", rate: 1.11 },
+        { date: "2024-05-26", rate: 1.09 },
+    ];
+
+    $('.chart').each(function (index) {
+        var ctx = $(this);
+        var labels = [];
+        var rates = [];
+        exchangeRates.forEach(function (data) {
+            labels.push(data.date);
+            rates.push(data.rate);
+        });
+
+        var data = {
+            labels: labels,
+            datasets: [{
+                label: "", // 將標籤更改為空字符串以隱藏
+                data: rates,
+                borderColor: "rgba(75, 192, 192, 1)",
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderWidth: 1
+            }]
+        };
+
+        var options = {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false // 不顯示圖例
+                },
+                tooltip: {
+                    enabled: false // 不啟用工具提示
+                }
+            }
+        };
+
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+    });
+});
+
