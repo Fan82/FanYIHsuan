@@ -57,7 +57,7 @@ $(document).ready(function () {
         "USD": [
             { date: "2024-05-24", rate: 32.04 },
             { date: "2024-05-25", rate: 32.05 },
-            { date: "2024-05-26", rate: 32.10 }
+            { date: "2024-05-26", rate: 32.04 }
         ],
         "JPY": [
             { date: "2024-05-24", rate: 0.2099 },
@@ -90,8 +90,8 @@ $(document).ready(function () {
             datasets: [{
                 label: "", // 隱藏標籤
                 data: dataRates,
-                borderColor: "rgba(75, 192, 192, 1)",
-                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderColor: "rgba(34, 36, 36, 0.8)",
+                backgroundColor: "rgba(34, 36, 36, 0.8)",
                 borderWidth: 1
             }]
         };

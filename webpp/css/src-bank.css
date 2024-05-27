@@ -204,7 +204,7 @@ body .wrapper .list .list-title small a.icon {
 body .wrapper .list .list-tab {
   background: rgba(253, 253, 253, 0.6);
   border-radius: 12px;
-  padding: 8px 40px 8px 8px;
+  padding: 8px 44px 8px 8px;
   border-radius: 12px 12px 0 0;
   display: flex;
   justify-content: space-between;
@@ -212,14 +212,34 @@ body .wrapper .list .list-tab {
   border-bottom: 2px solid #fdfdfd;
 }
 body .wrapper .list .list-tab p {
-  font-size: 12px;
+  font-size: 10px;
   text-transform: capitalize;
 }
 body .wrapper .list .list-tab p:first-child {
-  width: 48%;
+  width: 40%;
 }
-body .wrapper .list .list-tab ~ .list-item {
+body .wrapper .list .list-container {
   border-radius: 0 0 12px 12px;
+}
+body .wrapper .list .list-container small {
+  position: relative;
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  text-align: right;
+  color: rgba(34, 36, 36, 0.7);
+  background: rgba(253, 253, 253, 0.6);
+  border-radius: 0 0 12px 12px;
+  padding: 8px;
+}
+body .wrapper .list .list-container .list-item {
+  border-radius: 0;
+  margin: 0;
+  padding: 12px 8px;
+  border-bottom: 1px solid #fdfdfd;
+}
+body .wrapper .list .list-container .list-item:last-child {
+  border: none;
 }
 body .wrapper .list .list-item {
   position: relative;
@@ -273,10 +293,10 @@ body .wrapper .list .list-item .list-right {
   vertical-align: top;
 }
 body .wrapper .list .list-item .list-right p {
-  width: 48%;
+  width: 45%;
   text-align: center;
-  padding: 10px 0;
   line-height: 30px;
+  font-size: 14px;
   display: inline-block;
 }
 body .wrapper .list .list-item .balance .txt-currency {
@@ -294,13 +314,17 @@ body .wrapper .list .list-item .date {
 }
 body .wrapper .list .list-item > a.icon {
   position: absolute;
-  top: 4px;
+  top: 48%;
   right: 5px;
-  color: rgba(34, 36, 36, 0.4);
+  transform: translateY(-50%);
+  color: #3469f7;
 }
 body .wrapper .list .list-item .chart-container {
   display: inline-block;
   max-width: 100px;
   width: 100%;
   margin-left: 12px;
+}
+body .wrapper .list .list-item .chart-container canvas {
+  max-height: 30px;
 }
