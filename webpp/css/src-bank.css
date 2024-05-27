@@ -204,14 +204,22 @@ body .wrapper .list .list-title small a.icon {
 body .wrapper .list .list-tab {
   background: rgba(253, 253, 253, 0.6);
   border-radius: 12px;
-  padding: 8px 8px 8px 8px;
+  padding: 8px 40px 8px 8px;
   border-radius: 12px 12px 0 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 2px solid #fdfdfd;
 }
 body .wrapper .list .list-tab p {
+  font-size: 12px;
   text-transform: capitalize;
+}
+body .wrapper .list .list-tab p:first-child {
+  width: 48%;
+}
+body .wrapper .list .list-tab ~ .list-item {
+  border-radius: 0 0 12px 12px;
 }
 body .wrapper .list .list-item {
   position: relative;
@@ -249,8 +257,27 @@ body .wrapper .list .list-item .list-bottom {
 body .wrapper .list .list-item .list-bottom:has(.date) {
   justify-content: space-between;
 }
+body .wrapper .list .list-item .list-center {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 body .wrapper .list .list-item .list-center .balance .txt-currency {
   text-align: left;
+}
+body .wrapper .list .list-item .list-right {
+  display: inline-block;
+  width: calc(50% - 5px);
+  margin-left: 10px;
+  position: relative;
+  vertical-align: top;
+}
+body .wrapper .list .list-item .list-right p {
+  width: 48%;
+  text-align: center;
+  padding: 10px 0;
+  line-height: 30px;
+  display: inline-block;
 }
 body .wrapper .list .list-item .balance .txt-currency {
   font-weight: 500;
@@ -270,4 +297,10 @@ body .wrapper .list .list-item > a.icon {
   top: 4px;
   right: 5px;
   color: rgba(34, 36, 36, 0.4);
+}
+body .wrapper .list .list-item .chart-container {
+  display: inline-block;
+  max-width: 100px;
+  width: 100%;
+  margin-left: 12px;
 }

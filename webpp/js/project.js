@@ -53,26 +53,43 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
-    var exchangeRates = [
-        { date: "2024-05-24", rate: 1.12 },
-        { date: "2024-05-25", rate: 1.11 },
-        { date: "2024-05-26", rate: 1.09 },
-    ];
+    var exchangeRates = {
+        "USD": [
+            { date: "2024-05-24", rate: 32.04 },
+            { date: "2024-05-25", rate: 32.05 },
+            { date: "2024-05-26", rate: 32.10 }
+        ],
+        "JPY": [
+            { date: "2024-05-24", rate: 0.2099 },
+            { date: "2024-05-25", rate: 0.2105 },
+            { date: "2024-05-26", rate: 0.2129 }
+        ],
+        "CNY": [
+            { date: "2024-05-24", rate: 4.392 },
+            { date: "2024-05-25", rate: 4.510 },
+            { date: "2024-05-26", rate: 4.773 }
+        ],
+        "EUR": [
+            { date: "2024-05-24", rate: 34.50 },
+            { date: "2024-05-25", rate: 34.55 },
+            { date: "2024-05-26", rate: 34.49 }
+        ]
+    };
 
-    $('.chart').each(function (index) {
-        var ctx = $(this);
+    function createChart(canvasId, rates) {
+        var ctx = document.getElementById(canvasId).getContext('2d');
         var labels = [];
-        var rates = [];
-        exchangeRates.forEach(function (data) {
+        var dataRates = [];
+        rates.forEach(function (data) {
             labels.push(data.date);
-            rates.push(data.rate);
+            dataRates.push(data.rate);
         });
 
         var data = {
             labels: labels,
             datasets: [{
-                label: "", // 將標籤更改為空字符串以隱藏
-                data: rates,
+                label: "", // 隱藏標籤
+                data: dataRates,
                 borderColor: "rgba(75, 192, 192, 1)",
                 backgroundColor: "rgba(75, 192, 192, 0.2)",
                 borderWidth: 1
@@ -81,8 +98,11 @@ $(document).ready(function () {
 
         var options = {
             scales: {
+                x: {
+                    display: false // 隱藏 x 軸
+                },
                 y: {
-                    beginAtZero: false
+                    display: false // 隱藏 y 軸
                 }
             },
             plugins: {
@@ -95,11 +115,15 @@ $(document).ready(function () {
             }
         };
 
-        var myLineChart = new Chart(ctx, {
+        new Chart(ctx, {
             type: 'line',
             data: data,
             options: options
         });
-    });
-});
+    }
 
+    createChart('chart-usd', exchangeRates.USD);
+    createChart('chart-jpy', exchangeRates.JPY);
+    createChart('chart-cny', exchangeRates.CNY);
+    createChart('chart-eur', exchangeRates.EUR);
+});

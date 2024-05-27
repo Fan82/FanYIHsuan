@@ -186,15 +186,21 @@ body
                         transform: scale(0.7)
                         color: rgba($txt ,0.3 )
             .list-tab
-                @include box(8px, 8px, 8px, 8px)
+                @include box(8px, 40px, 8px, 8px)
                 border-radius: 12px 12px 0 0
                 @include flex(space-between, center)
+                border-bottom: 2px solid $light
                 p
+                    font-size: 12px
                     text-transform: capitalize
-
+                    &:first-child
+                        width: 48%
+                ~ .list-item
+                    border-radius: 0 0 12px 12px
             .list-item
                 position: relative
                 @include box(8px, 8px, 8px, 8px)
+                // @include flex(flex-start, center)
                 margin-bottom: 8px
                 .account-num
                     font-size: 14px
@@ -221,10 +227,26 @@ body
                     &:has(.date)
                         justify-content: space-between
                 .list-center
+                    display: inline-flex
+                    justify-content: flex-start
+                    align-items: center
+
                     .balance
                         .txt-currency
                             text-align: left
                     a.icon
+                .list-right
+                    display: inline-block
+                    width: calc( 50% - 5px )
+                    margin-left: 10px
+                    position: relative
+                    vertical-align: top
+                    p
+                        width: 48%
+                        text-align: center
+                        padding: 10px 0
+                        line-height: 30px
+                        display: inline-block
 
                 .balance
                     .txt-currency
@@ -238,3 +260,9 @@ body
                     top: 4px
                     right: 5px
                     color: rgba($txt ,0.4 )
+                .chart-container
+                    display: inline-block
+                    max-width: 100px
+                    width: 100%
+                    margin-left: 12px
+                
