@@ -25,17 +25,35 @@ body nav {
   height: 40px;
   padding: 8px 24px;
   text-align: center;
-  backdrop-filter: blur(10px);
+  background: rgba(253, 253, 253, 0.9);
 }
 body nav > a.icon {
   position: absolute;
   left: 16px;
   top: 4px;
 }
+body nav .logo {
+  position: absolute;
+  left: 20px;
+  aspect-ratio: 2/1;
+  height: 32px;
+  top: 4px;
+}
+body nav .logo img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 body .box-right {
   position: absolute;
   right: 16px;
   top: 4px;
+}
+body .box-right a.icon {
+  color: #3469F7;
 }
 body a.icon {
   background: transparent;
