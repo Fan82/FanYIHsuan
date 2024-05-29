@@ -55,7 +55,7 @@ body .box-right {
 body .box-right a.icon {
   color: #3469F7;
 }
-body a.icon {
+body .icon {
   background: transparent;
   padding: 4px;
   width: 30px;
@@ -66,8 +66,20 @@ body a.icon {
   font-size: 18px;
   line-height: 125%;
 }
-body a.icon:hover {
+body .icon:hover {
   background: #fdfdfd;
+}
+body .default-btn {
+  border: none !important;
+  background: #fdfdfd !important;
+  box-shadow: 0 2px 5px rgba(34, 36, 36, 0.03);
+  color: #3469F7 !important;
+  border-radius: 0 8px 8px 0;
+}
+body .default-btn.active {
+  background: #3469F7 !important;
+  box-shadow: none;
+  color: #fdfdfd !important;
 }
 body .wrapper {
   margin-top: 50px;
@@ -87,18 +99,6 @@ body .wrapper .nav-tabs .nav-item {
 }
 body .wrapper .nav-tabs .nav-item:first-child .nav-link {
   border-radius: 8px 0 0 8px;
-}
-body .wrapper .nav-tabs .nav-item .nav-link {
-  border: none;
-  background: #fdfdfd;
-  box-shadow: 0 2px 5px rgba(34, 36, 36, 0.03);
-  color: #3469F7;
-  border-radius: 0 8px 8px 0;
-}
-body .wrapper .nav-tabs .nav-item .nav-link.active {
-  background: #3469F7;
-  box-shadow: none;
-  color: #fdfdfd;
 }
 body .wrapper .object {
   background: rgba(253, 253, 253, 0.6);
@@ -253,7 +253,6 @@ body .wrapper .list .list-container small {
 body .wrapper .list .list-container .list-item {
   border-radius: 0;
   margin: 0;
-  padding: 12px 8px;
   border-bottom: 1px solid #fdfdfd;
 }
 body .wrapper .list .list-container .list-item:last-child {
@@ -263,12 +262,45 @@ body .wrapper .list .list-item {
   position: relative;
   background: rgba(253, 253, 253, 0.6);
   border-radius: 12px;
-  padding: 8px 8px 8px 8px;
+  padding: 12px 8px 12px 8px;
   margin-bottom: 8px;
+}
+body .wrapper .list .list-item:has(.account-group) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+body .wrapper .list .list-item .account-group {
+  width: 100%;
+}
+body .wrapper .list .list-item .account-group .account-num {
+  line-height: 20px;
+  font-size: 14px;
+  color: #222424;
 }
 body .wrapper .list .list-item .account-num {
   font-size: 14px;
   font-weight: 500;
+}
+body .wrapper .list .list-item .state {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  text-transform: capitalize;
+  color: #222424;
+  width: 30%;
+  font-size: 14px;
+}
+body .wrapper .list .list-item .state.complete {
+  color: #158234;
+}
+body .wrapper .list .list-item .state small {
+  width: 100%;
+  text-align: right;
+  font-size: 10px;
+  color: rgba(34, 36, 36, 0.5);
 }
 body .wrapper .list .list-item .country {
   position: relative;

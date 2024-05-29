@@ -21,54 +21,128 @@
         </div>
     </nav>
     <div class="wrapper">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link default-btn active" id="taiwanese-tab" data-toggle="tab" href="#taiwanese" role="tab"
+                    aria-controls="taiwanese" aria-selected="true">Taiwanese</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link default-btn" id="foreign-tab" data-toggle="tab" href="#foreign" role="tab"
+                    aria-controls="foreign" aria-selected="false">Foreign currency</a>
+            </li>
+        </ul>
         <div class="tab-content" id="myTabContent">
+            <div class="object">
+                <div class="object-top">
+                    Statement Balance
+                    <a href="javascript:void(0)" class="icon">
+                        <i class="fa-regular fa-eye"></i>
+                    </a>
+                </div>
+                <div class="txt-currency">
+                    290
+                </div>
+                <small>
+                    Unbilled amount
+                    <div class="txt-currency">
+                        1,290
+                    </div>
+                </small>
+            </div>
+            <div class="botton-group">
+                <div class="default-btn active">pay by cash</div>
+                <div class="default-btn">pay by online</div>
+            </div>
             <div class="list">
-                <div class="list-item">
-                    <a href="javascript:void(0)" class="icon">
-                        <i class="fa-regular fa-credit-card"></i>
-                    </a>
-                    <div class="account-num">My credit card</div>
-                    <div class="account-num">123-456-789</div>
-                </div>
                 <div class="list-title">
-                    History
+                    Consumption details for this period
                 </div>
-                <small>Feburary</small>
-                <div class="list-item">
-                    <a href="javascript:void(0)" class="icon">
-                        <i class="fa-solid fa-check-double"></i>
-                    </a>
-                    <div class="account-num">My credit card</div>
-                    <div class="account-num">123-456-789</div>
+                <div class="list-tab">
+                    <p>all</p>
                 </div>
-                <small>January</small>
-                <div class="list-item">
-                    <a href="javascript:void(0)" class="icon">
-                        <i class="fa-solid fa-check-double"></i>
-                    </a>
-                    <div class="account-num">My credit card</div>
-                    <div class="account-num">123-456-789</div>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="list-top">
+                            4/30
+                        </div>
+                        <div class="list-center">
+                            Store
+                        </div>
+                        <div class="list-right">
+                            <p>32.04</p>
+                            <p>32.10</p>
+                        </div>
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-top">
+                            4/30
+                        </div>
+                        <div class="list-center">
+                            Store
+                        </div>
+                        <div class="list-right">
+                            <p>0.2099</p>
+                            <p>0.2129</p>
+                        </div>
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-top">
+                            4/30
+                        </div>
+                        <div class="list-center">
+                            Store
+                        </div>
+                        <div class="list-right">
+                            <p>34.55</p>
+                            <p>34.93</p>
+                        </div>
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="list-item">
+                        <div class="list-top">
+                            4/30
+                        </div>
+                        <div class="list-center">
+                            Store
+                        </div>
+                        <div class="list-right">
+                            <p>4.392</p>
+                            <p>4.773</p>
+                        </div>
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <small>
+                        more
+                    </small>
                 </div>
-                <!--  -->
-                <span class="line">2024</span>
-                <small>Feburary</small>
-                <div class="list-item">
-                    <a href="javascript:void(0)" class="icon">
-                        <i class="fa-solid fa-check-double"></i>
-                    </a>
-                    <div class="account-num">My credit card</div>
-                    <div class="account-num">123-456-789</div>
+            </div>
+            <div class="list">
+                <div class="list-title">
+                    Consumption details for this period
                 </div>
-                <small>January</small>
-                <div class="list-item">
-                    <a href="javascript:void(0)" class="icon">
-                        <i class="fa-solid fa-check-double"></i>
-                    </a>
-                    <div class="account-num">My credit card</div>
-                    <div class="account-num">123-456-789</div>
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="list-center">
+                            2024/3
+                        </div>
+                        <a href="javascript:void(0)" class="icon">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="../../../js/fontawesome.js"></script>
     <script src="../../../js/jquery-3.5.1.slim.min.js"></script>

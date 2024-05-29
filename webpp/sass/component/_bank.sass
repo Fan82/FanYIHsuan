@@ -67,7 +67,7 @@ body
         top: 4px
         a.icon
             color: $main-clr
-    a.icon
+    .icon
         background: transparent
         padding: 4px
         width: 30px
@@ -79,6 +79,16 @@ body
         line-height: 125%
         &:hover
             background: $light
+    .default-btn
+        border: none !important
+        background: $light !important
+        box-shadow: 0 2px 5px rgba($txt, 0.03)
+        color: $main-clr !important
+        border-radius: 0 8px 8px 0
+        &.active
+            background: $main-clr !important
+            box-shadow: none
+            color: $light !important
     .wrapper
         margin-top: 50px
         padding: 8px 24px
@@ -94,16 +104,7 @@ body
                 &:first-child
                     .nav-link
                         border-radius: 8px 0 0 8px
-                .nav-link
-                    border: none
-                    background: $light
-                    box-shadow: 0 2px 5px rgba($txt, 0.03)
-                    color: $main-clr
-                    border-radius: 0 8px 8px 0
-                    &.active
-                        background: $main-clr
-                        box-shadow: none
-                        color: $light
+                
         .object
             @include box(4px, 0, 12px, 0)
             margin-bottom: 12px
@@ -228,17 +229,42 @@ body
                 .list-item
                     border-radius: 0
                     margin: 0
-                    padding: 12px 8px
                     border-bottom: 1px solid $light
                     &:last-child
                         border: none
             .list-item
                 position: relative
-                @include box(8px, 8px, 8px, 8px)
+                @include box(12px, 8px, 12px, 8px)
                 margin-bottom: 8px
+                &:has(.account-group)
+                    @include flex(space-between , center)
+                    gap: 8px
+                .account-group
+                    width: 100%
+                    .account-num
+                        line-height: 20px
+                        font-size: 14px
+                        color: $txt
+
                 .account-num
                     font-size: 14px
                     font-weight: 500
+                    
+                .state
+                    @include flex(space-between , center)
+                    flex-wrap: wrap
+                    text-transform: capitalize
+                    color: $txt
+                    width: 30%
+                    font-size: 14px
+                    &.complete
+                        color: #158234
+                    small
+                        width: 100%
+                        text-align: right
+                        font-size: 10px
+                        color: rgba($txt ,0.5 )
+
                 .country
                     position: relative
                     width: 30px
