@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    flight();
+    bank();
+    chart();
+});
+
+function flight(){
     var $animated = $('.show-animation');
     var $button = $('a.button');
     var $menu = $(".toggler");
@@ -44,15 +50,20 @@ $(document).ready(function () {
         $('.type-box.check-box').toggleClass('show');
         $(this).toggleClass('back')
     })
-
-});
-$(document).ready(function () {
-    $('.dropdown-item').on('click', function () {
-        var selectedCurrency = $(this).text();
-        $('#dropdownMenu p').text(selectedCurrency);
+}
+function bank() {
+    $('.toggle').on('click', function () {
+        $('.dropdown-menu').toggleClass('show');
     });
-});
-$(document).ready(function () {
+
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.dropdown-menu').length && !$(e.target).closest('.toggle').length) {
+            $('.dropdown-menu').removeClass('show');
+        }
+    });
+}
+
+function chart(){
     var exchangeRates = {
         "USD": [
             { date: "2024-05-24", rate: 32.04 },
@@ -75,7 +86,7 @@ $(document).ready(function () {
             { date: "2024-05-26", rate: 34.49 }
         ]
     };
-
+    
     function createChart(canvasId, rates) {
         var ctx = document.getElementById(canvasId).getContext('2d');
         var labels = [];
@@ -84,7 +95,7 @@ $(document).ready(function () {
             labels.push(data.date);
             dataRates.push(data.rate);
         });
-
+    
         var data = {
             labels: labels,
             datasets: [{
@@ -95,7 +106,7 @@ $(document).ready(function () {
                 borderWidth: 1
             }]
         };
-
+    
         var options = {
             scales: {
                 x: {
@@ -114,16 +125,16 @@ $(document).ready(function () {
                 }
             }
         };
-
+    
         new Chart(ctx, {
             type: 'line',
             data: data,
             options: options
         });
     }
-
+    
     createChart('chart-usd', exchangeRates.USD);
     createChart('chart-jpy', exchangeRates.JPY);
     createChart('chart-cny', exchangeRates.CNY);
     createChart('chart-eur', exchangeRates.EUR);
-});
+}
