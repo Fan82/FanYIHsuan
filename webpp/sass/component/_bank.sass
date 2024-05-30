@@ -17,7 +17,18 @@ $main-clr: #3469F7
     display: flex
     justify-content: $justify-content
     align-items: $align-items
-    
+@mixin default-btn($borderRadius)
+    border: none
+    background: $light
+    box-shadow: 0 2px 5px rgba($txt, 0.03)
+    color: $main-clr
+    border-radius: $borderRadius
+    padding: 0.5rem 1rem
+    font-size: 12px
+    &.active
+        background: $main-clr
+        box-shadow: none
+        color: $light
 
 body
     font-family: "Noto Sans", "Arial", sans-serif
@@ -69,26 +80,21 @@ body
             color: $main-clr
     .icon
         background: transparent
-        padding: 4px
-        width: 30px
-        height: 30px
-        border-radius: 4px
         text-align: center
         color: $txt
         font-size: 18px
-        line-height: 125%
+        width: auto
+        border-radius: 4px
+        transition: 0.2s ease-in-out
         &:hover
-            background: $light
-    .default-btn
-        border: none !important
-        background: $light !important
-        box-shadow: 0 2px 5px rgba($txt, 0.03)
-        color: $main-clr !important
-        border-radius: 0 8px 8px 0
-        &.active
-            background: $main-clr !important
-            box-shadow: none
-            color: $light !important
+            background: rgba($main-clr ,0.02 )
+        i
+            width: 30px
+            height: 30px
+            line-height: 30px
+    .txt-currency
+        @include currency(500 , 20px )
+        
     .wrapper
         margin-top: 50px
         padding: 8px 24px
@@ -104,12 +110,15 @@ body
                 &:first-child
                     .nav-link
                         border-radius: 8px 0 0 8px
+                .nav-link
+                    @include default-btn(0 8px 8px 0)
+                    
                 
         .object
             @include box(4px, 0, 12px, 0)
             margin-bottom: 12px
             .object-top
-                font-size: 14px
+                font-size: 12px
                 a.icon
                     transform: scale(0.7)
             .object-top,
@@ -132,6 +141,18 @@ body
                     border-color: rgba($main-clr ,1 )
                     border-right: .3em solid transparent
                     border-left: .3em solid transparent
+            small
+                display: block
+                font-size: 12px
+                width: 100%
+                text-align: center
+                color: rgba($txt ,0.6 )
+                margin-top: 12px
+                .txt-currency,
+                .txt-currency::before
+                    line-height: normal
+                    font-size: 12px
+                    display: inline-block
             &.center
                 .object-top,
                 .txt-currency
@@ -147,6 +168,21 @@ body
                     width: 80px
                     min-width: fit-content
                     border-color: rgba($main-clr ,0.3 )
+        .botton-group
+            @include flex(center , center )
+            gap: 12px
+            width: 100%
+            margin: 20px 0
+            div
+                width: calc( 50% - 6px )
+                @include default-btn(8px)
+                text-transform: capitalize
+                text-align: center
+            .cash
+                box-shadow: inset 0 0 0 1px $main-clr
+            .online
+                background: $main-clr
+                color: $light
         .function
             display: flex
             justify-content: center
@@ -185,10 +221,10 @@ body
             margin-top: 12px
             .list-title
                 position: relative
-                font-size: 14px
+                font-size: 12px
                 font-weight: 500
                 text-transform: capitalize
-                margin: 12px 0
+                margin: 20px 0
                 small
                     display: inline-flex
                     justify-content: flex-end
@@ -201,11 +237,15 @@ body
                     a.icon
                         transform: scale(0.7)
                         color: rgba($txt ,0.3 )
+            &:has(.list-tab)
+                .list-container .list-item
+                    border-radius: 0
             .list-tab
                 @include box(8px, 44px, 8px, 8px)
                 border-radius: 12px 12px 0 0
                 @include flex(space-between, center)
                 border-bottom: 2px solid $light
+                
                 p
                     font-size: 10px
                     text-transform: capitalize
@@ -213,8 +253,6 @@ body
                         width: 40%
 
             .list-container
-                border-radius: 0 0 12px 12px
-                // padding-bottom: 12px
                 small
                     position: relative
                     display: block
@@ -227,15 +265,19 @@ body
                     padding: 8px
                     
                 .list-item
-                    border-radius: 0
+                    border-radius: 12px 12px 0 0
                     margin: 0
                     border-bottom: 1px solid $light
                     &:last-child
                         border: none
+                        border-radius: 0 0 12px 12px
             .list-item
                 position: relative
                 @include box(12px, 8px, 12px, 8px)
                 margin-bottom: 8px
+                &:nth-of-type(even)
+                    background: $light
+                    
                 &:has(.account-group)
                     @include flex(space-between , center)
                     gap: 8px
@@ -243,11 +285,11 @@ body
                     width: 100%
                     .account-num
                         line-height: 20px
-                        font-size: 14px
+                        font-size: 12px
                         color: $txt
 
                 .account-num
-                    font-size: 14px
+                    font-size: 12px
                     font-weight: 500
                     
                 .state
@@ -256,7 +298,7 @@ body
                     text-transform: capitalize
                     color: $txt
                     width: 30%
-                    font-size: 14px
+                    font-size: 12px
                     &.complete
                         color: #158234
                     small
@@ -279,6 +321,36 @@ body
                         height: 100%
                         object-fit: cover
                         object-position: center
+                .list-top
+                    width: 12%
+                    display: inline-block
+                    vertical-align: middle
+                    font-size: 12px
+                    & ~ .icon
+                        color: $txt
+                        i
+                            font-size: 12px
+                            width: 20px
+                            height: 20px
+                            line-height: 20px
+                    & ~ .list-center
+                        display: inline-block
+                        white-space: nowrap
+                        width: calc( 60% - 50px )
+                        text-overflow: ellipsis
+                        overflow: hidden
+                        vertical-align: middle
+                        font-size: 12px
+                    & ~ .list-right
+                        width: 30%
+                        text-align: right
+                        margin: 0
+                        vertical-align: middle
+                        white-space: nowrap
+                        .txt-currency
+                            font-size: 12px
+                            &::before
+                                font-size: 12px
                 .list-bottom
                     display: flex
                     align-items: flex-end
@@ -290,11 +362,9 @@ body
                     display: inline-flex
                     justify-content: flex-start
                     align-items: center
-
                     .balance
                         .txt-currency
                             text-align: left
-
                 .list-right
                     display: inline-block
                     width: calc( 50% - 5px )
@@ -305,12 +375,10 @@ body
                         width: 45%
                         text-align: center
                         line-height: 30px
-                        font-size: 14px
+                        font-size: 12px
                         display: inline-block
-
                 .balance
                     .txt-currency
-                        @include currency(500, 20px)
                         text-align: right
                 .date
                     font-size: 12px
