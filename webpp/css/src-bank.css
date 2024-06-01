@@ -19,6 +19,8 @@ body::before {
   height: 100vh;
   background: url("../library/img-common/img-project/UI/BANK/BANK-bg.png") center;
   background-size: cover;
+  cursor: none;
+  pointer-events: none;
   z-index: -1;
 }
 body:has(.dropdown-menu.show) {
@@ -34,6 +36,31 @@ body:has(.dropdown-menu.show)::after {
   background: rgba(0, 0, 0, 0.737254902);
   z-index: 0;
 }
+body.overflow {
+  position: relative;
+  overflow: hidden;
+}
+body.overflow .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  z-index: 10;
+}
+body.overflow .wrapper > p {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  margin: 4px 0;
+  text-transform: capitalize;
+  color: rgba(34, 36, 36, 0.9);
+}
+body.overflow .logo {
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
 body nav {
   position: fixed;
   top: 0;
@@ -48,14 +75,13 @@ body nav {
 body nav > a.icon {
   position: absolute;
   left: 16px;
-  top: 4px;
+  top: 10px;
 }
 body nav .logo {
-  position: absolute;
-  left: 20px;
-  aspect-ratio: 2/1;
+  transform: translateX(0) !important;
+  left: 20px !important;
+  top: 0px !important;
   height: 32px;
-  top: 4px;
 }
 body nav .logo img {
   position: absolute;
@@ -72,6 +98,58 @@ body .box-right {
 }
 body .box-right a.icon {
   color: #3469F7;
+}
+body .icon.face {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  padding: 20px;
+}
+body .icon.face img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+}
+body a.logo {
+  position: absolute;
+  left: 50%;
+  top: -40px;
+  transform: translate(-50%, 0%);
+  aspect-ratio: 2/1;
+  height: 40px;
+}
+body a.link {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  margin: 4px 0;
+  text-transform: capitalize;
+  color: rgba(34, 36, 36, 0.4);
+}
+body .default-btn {
+  border: none;
+  background: #fdfdfd;
+  box-shadow: 0 2px 5px rgba(34, 36, 36, 0.03);
+  color: #3469F7;
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  font-size: 12px;
+  background: #3469F7;
+  color: #fdfdfd;
+  width: 100%;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 12px 0;
+}
+body .default-btn.active {
+  background: #3469F7;
+  box-shadow: none;
+  color: #fdfdfd;
 }
 body .icon {
   background: transparent;
@@ -150,7 +228,42 @@ body .dropdown-menu.show {
   height: 50vh;
   bottom: 0;
 }
+body .creditBox {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 12px 0;
+  box-shadow: 0px 2px 4px rgba(34, 36, 36, 0.25);
+  background: rgba(52, 105, 247, 0.02);
+  backdrop-filter: blur(3px);
+  height: 45vw;
+}
+body .creditBox:last-child {
+  background: #3469f7;
+  color: #fdfdfd;
+}
+body .creditBox h2 {
+  margin-bottom: 18px;
+}
+body .creditBox h6 {
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+body .creditBox a.icon {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  background: #fdfdfd;
+  color: #3469F7;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 1.3rem;
+}
 body .wrapper {
+  position: relative;
   margin-top: 50px;
   padding: 8px 24px;
 }
@@ -161,10 +274,19 @@ body .wrapper .nav-tabs {
   justify-content: center;
   border: none;
 }
+body .wrapper .nav-tabs#transferTab {
+  gap: 4px;
+}
+body .wrapper .nav-tabs#transferTab .nav-link {
+  border-radius: 8px;
+}
 body .wrapper .nav-tabs .nav-item {
-  width: 50%;
+  width: fit-content;
+  order: 1;
+  flex-grow: 1;
   text-align: center;
   font-size: 12px;
+  text-transform: capitalize;
 }
 body .wrapper .nav-tabs .nav-item:first-child .nav-link {
   border-radius: 8px 0 0 8px;
@@ -232,6 +354,20 @@ body .wrapper .object small .icon i {
 body .wrapper .object.center .object-top,
 body .wrapper .object.center .txt-currency {
   text-align: left;
+}
+body .wrapper .object.dark {
+  padding: 8px 8px 12px 8px;
+  background: #222424;
+  color: #fdfdfd;
+  margin-bottom: 20px;
+}
+body .wrapper .object.dark p, body .wrapper .object.dark a {
+  color: #fdfdfd;
+}
+body .wrapper .object.dark .object-top {
+  text-align: left;
+  margin: 8px 0;
+  font-weight: 600;
 }
 body .wrapper .botton-group {
   display: flex;
@@ -557,4 +693,173 @@ body .wrapper .list .list-item .chart-container {
 }
 body .wrapper .list .list-item .chart-container canvas {
   max-height: 30px;
+}
+body .wrapper .input-box {
+  width: 100%;
+}
+body .wrapper .input-box .input-list .input-item {
+  position: relative;
+  margin: 20px 0;
+}
+body .wrapper .input-box .input-list .input-item:hover .input-label {
+  color: #3469F7;
+}
+body .wrapper .input-box .input-list .input-item:hover input {
+  border-color: #3469F7;
+}
+body .wrapper .input-box .input-list .input-item .input-label,
+body .wrapper .input-box .input-list .input-item label {
+  position: relative;
+  font-size: 12px;
+  padding-left: 12px;
+  padding-bottom: 4px;
+  text-transform: capitalize;
+  color: rgba(34, 36, 36, 0.8);
+  width: 100%;
+}
+body .wrapper .input-box .input-list .input-item .input-label {
+  color: #222424;
+  font-size: 14px;
+}
+body .wrapper .input-box .input-list .input-item small {
+  position: absolute;
+  text-align: right;
+  right: 8px;
+  bottom: 4px;
+  font-size: 9px;
+  color: rgba(34, 36, 36, 0.5);
+}
+body .wrapper .input-box .input-list .input-item .input {
+  position: relative;
+}
+body .wrapper .input-box .input-list .input-item input {
+  position: relative;
+  width: 100%;
+  outline: none;
+  border: 1px solid rgba(34, 36, 36, 0.3);
+  padding: 4px 8px;
+  height: 50px;
+  border-radius: 8px;
+  background: rgba(253, 253, 253, 0.7);
+  margin: 4px 0;
+}
+body .wrapper .input-box .input-list .input-item input::placeholder {
+  font-size: 12px;
+  color: rgba(34, 36, 36, 0.3);
+  text-transform: capitalize;
+}
+body .wrapper .input-box .input-list .input-item a.icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+body .wrapper .input-box .input-list .input-item a.icon i {
+  font-size: 18px;
+  color: rgba(34, 36, 36, 0.9);
+}
+body .wrapper .input-box .input-list .input-item p {
+  font-size: 14px;
+  color: rgba(34, 36, 36, 0.5);
+  text-transform: capitalize;
+  line-height: 15px;
+  vertical-align: middle;
+  margin: 8px;
+}
+body .wrapper .input-box .input-list .input-item p::before {
+  content: "";
+  position: relative;
+  display: inline-block;
+  margin-bottom: -4px;
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: #fdfdfd;
+  border: 1px solid rgba(34, 36, 36, 0.3);
+}
+body .wrapper .input-box .note {
+  font-size: 10px;
+  background: rgba(34, 36, 36, 0.05);
+  border-radius: 8px;
+  padding: 8px;
+  line-height: 150%;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+body.show-scan {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.show-scan::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.737254902);
+  z-index: 0;
+}
+body.show-scan div {
+  position: relative;
+  width: 80vw;
+  aspect-ratio: 1/1;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+body.show-scan div::before, body.show-scan div::after {
+  content: "";
+  position: absolute;
+  width: 25%;
+  height: 25%;
+  border: 8px solid #fdfdfd;
+}
+body.show-scan div::before {
+  top: -8px;
+  left: -8px;
+  border-right: none;
+  border-bottom: none;
+  border-top-left-radius: 20px;
+}
+body.show-scan div::after {
+  bottom: -8px;
+  right: -8px;
+  border-left: none;
+  border-top: none;
+  border-bottom-right-radius: 20px;
+}
+body.show-scan i {
+  position: relative;
+  text-align: center;
+  color: #fdfdfd;
+  font-size: 18rem;
+}
+body.show-scan a.icon {
+  background: #222424;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  margin-top: 30px;
+  z-index: 1;
+}
+body.show-scan a.icon i {
+  font-size: 30px;
+  line-height: 50px;
+}
+body.show-scan a {
+  color: #fdfdfd;
+  text-decoration: underline;
+  text-transform: capitalize;
+  font-size: 18px;
+  z-index: 10;
+  margin: 10px 0;
 }

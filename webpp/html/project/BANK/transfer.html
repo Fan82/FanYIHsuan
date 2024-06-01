@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, shrink-to-fit=no">
+    <title>Bank</title>
+    <link rel="stylesheet" href="../../../library/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../library/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="../../../library/lib-common/css/lib-common.css">
+    <link rel="stylesheet" href="../../../css/src-bank.css">
+</head>
+
+<body>
+    <nav>
+        <a href="javascript:history.back()" class="icon">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </a>
+    </nav>
+    <div class="wrapper">
+        <ul class="nav nav-tabs" id="transferTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="transfer-tab" data-toggle="tab" href="#transfer" role="tab"
+                    aria-controls="transfer" aria-selected="true">transfer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="cardless-tab" data-toggle="tab" href="#cardless" role="tab"
+                    aria-controls="cardless" aria-selected="false">cardless transfer</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="scan-tab" data-toggle="tab" href="#scan" role="tab" aria-controls="scan"
+                    aria-selected="false">scan QR code</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="transferTabContent">
+            <div class="tab-pane fade show active" id="transfer" role="tabpanel" aria-labelledby="transfer-tab">
+                <div class="object dark">
+                    <div class="object-top">
+                        Transfer From Account
+                    </div>
+                    <p>(123)123-456-789</p>
+                </div>
+                <div class="input-box">
+                    <div class="input-list">
+                        <div class="input-item">
+                            <div class="input-label">
+                                Amount transfered
+                                <small>
+                                    Balance 6,500
+                                </small>
+                            </div>
+                            <input type="text">
+                        </div>
+                        <div class="input-item">
+                            <div class="input-label">
+                                Transfer receipient
+                            </div>
+                            <input type="text">
+                            <div class="input">
+                                <input type="text">
+                                <a href="./scan.html" class="icon">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                </a>
+                            </div>
+                            <p>transfer reservation</p>
+                        </div>
+                        <div class="input-item">
+                            <div class="input-label">
+                                transfer note
+                            </div>
+                            <label for="transferSelf">For yourself</label>
+                            <input id="transferSelf" type="text">
+                            <label for="transferNote">For the receipient
+                                <small>same</small>
+                            </label>
+                            <input id="transferNote" type="text">
+                        </div>
+                    </div>
+                    <div class="note">
+                        note:
+                        <p>
+                            Verify Account Information, Confirm the Amount, Transaction Fees, Transfer Method, Timing, Confirmation Notifications, Security, Inquiry and Disputes
+                            Following these guidelines can help minimize risks and ensure the security of your funds
+                            during the transfer process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="cardless" role="tabpanel" aria-labelledby="cardless-tab">
+                <div class="object dark">
+                    <div class="object-top">
+                        Transfer From Account
+                    </div>
+                    <p>(123)123-456-789</p>
+                </div>
+                <div class="input-box">
+                    <div class="input-list">
+                        <div class="input-item">
+                            <div class="input-label">
+                                Amount transfered
+                                <small>
+                                    Balance 6,500
+                                </small>
+                            </div>
+                            <input type="text">
+                        </div>
+                        <div class="input-item">
+                            <div class="input-label">
+                                setting withdraw password
+                            </div>
+                            <label for="transferSelf">provide your password to receipient</label>
+                            <input id="transferSelf" placeholder="withdraw password (6-digit number)" type="text">
+                            <input id="transferNote" placeholder="enter again withdraw password (6-digit number)" type="text">
+                        </div>
+                        <div class="input-item">
+                            <div class="input-label">
+                                transfer note
+                            </div>
+                            <label for="transferSelf">For yourself</label>
+                            <input id="transferSelf" type="text">
+                            <label for="transferNote">For the receipient
+                                <small>same</small>
+                            </label>
+                            <input id="transferNote" type="text">
+                        </div>
+                    </div>
+                    <div class="note">
+                        note:
+                        <p>
+                            Verify Account Information, Confirm the Amount, Transaction Fees, Transfer Method, Timing, Confirmation
+                            Notifications, Security, Inquiry and Disputes
+                            Following these guidelines can help minimize risks and ensure the security of your funds
+                            during the transfer process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="scan" role="tabpanel" aria-labelledby="scan-tab">
+                <div class="object dark">
+                    <div class="object-top">
+                        Transfer From Account
+                    </div>
+                    <p>(123)123-456-789</p>
+                </div>
+                <div class="input-box">
+                    <div class="input-list">
+                        <div class="input-item">
+                            <div class="input-label">
+                                Amount transfered
+                                <small>
+                                    Balance 6,500
+                                </small>
+                            </div>
+                            <input type="text">
+                        </div>
+                        <div class="input-item">
+                            <div class="input-label">
+                                Transfer receipient
+                            </div>
+                            <div class="input">
+                                <input type="text">
+                                <a href="./scan.html" class="icon">
+                                    <i class="fa-solid fa-qrcode"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="input-item">
+                            <div class="input-label">
+                                transfer note
+                            </div>
+                            <label for="transferSelf">For yourself</label>
+                            <input id="transferSelf" type="text">
+                            <label for="transferNote">For the receipient
+                                <small>same</small>
+                            </label>
+                            <input id="transferNote" type="text">
+                        </div>
+                    </div>
+                    <div class="note">
+                        note:
+                        <p>
+                            Verify Account Information, Confirm the Amount, Transaction Fees, Transfer Method, Timing, Confirmation Notifications, Security, Inquiry and Disputes
+                            Following these guidelines can help minimize risks and ensure the security of your funds
+                            during the transfer process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../../js/fontawesome.js"></script>
+    <script src="../../../js/jquery-3.5.1.slim.min.js"></script>
+    <script src="../../../js/popper.min.js"></script>
+    <script src="../../../library/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../../js/project.js"></script>
+</body>
+
+</html>
