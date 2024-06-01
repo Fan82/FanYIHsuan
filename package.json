@@ -12,7 +12,7 @@
     "sass-lib-common-watch": "sass webpp/library/lib-common/lib-common.sass webpp/library/lib-common/css/lib-common.css --watch --no-source-map",
     "sass-src-profolio-watch": "sass webpp/sass/src-profolio.sass webpp/css/src-profolio.css --watch --no-source-map",
     "sass-src-common-watch": "sass webpp/sass/src-common.sass webpp/css/src-common.css --watch --no-source-map",
-    "sass-src-bank-watch": "sass webpp/sass/src-bank.sass webpp/css/src-bank.css --watch --no-source-map",
+    "sass-src-bank-watch": "npm run sass-all",
     "sass-all": "concurrently \"npm run sass-lib-common\" \"npm run sass-src-profolio\" \"npm run sass-src-common\"\"npm run sass-src-bank\"",
     "sass-all-watch": "concurrently \"npm run sass-lib-common-watch\" \"npm run sass-src-profolio-watch\" \"npm run sass-src-common-watch\"\"npm run sass-src-bank-watch\""
   },
