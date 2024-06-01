@@ -145,6 +145,7 @@ body .default-btn {
   font-size: 20px;
   line-height: 30px;
   margin: 12px 0;
+  text-align: center;
 }
 body .default-btn.active {
   background: #3469F7;

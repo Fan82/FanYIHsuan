@@ -109,7 +109,6 @@ function loadModals() {
           });
       });
   });
-  
 }
 function videoPlay() {
   const video = $('#my-video')[0];
