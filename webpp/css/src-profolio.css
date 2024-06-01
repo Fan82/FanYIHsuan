@@ -632,7 +632,7 @@ body.main.main.main-wireframe main.project-wrapper .container .project img.wiref
   body.main.main.main-wireframe .container-side {
     position: absolute;
     left: 0;
-    top: calc(192px + 10vh);
+    top: calc(263px + 10vh);
     display: inline-flex !important;
     width: 30%;
   }
