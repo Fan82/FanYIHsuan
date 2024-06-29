@@ -23,46 +23,12 @@ body.main {
   padding-bottom: 120px;
   scroll-behavior: smooth;
 }
-body.main ~ .load-backdrop {
-  overflow: hidden;
-}
-body.main .load-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fafafa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #050206;
-  -webkit-backdrop-filter: blur(16px);
-  backdrop-filter: blur(16px);
-  overflow: hidden;
-  z-index: 1001;
-}
-body.main .load-backdrop svg {
-  stroke-width: 2px;
-  stroke-dashoffset: -200;
-  stroke-dasharray: 2000;
-  animation-name: svg-stroke;
-  animation-duration: 4s;
-  animation-iteration-count: 1;
-  animation-direction: alternate;
-  aniamtion-timing-function: ease-out;
-  animation-fill-mode: forwards;
-  fill: #fafafa;
-}
 body.main a.logo {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 8px 0 8px 24px;
-  backdrop-filter: blur(16px) opacity(0.8);
-  -webkit-backdrop-filter: blur(16px) opacity(0.8);
+  top: 20px;
+  left: 20px;
+  mix-blend-mode: luminosity;
+  -webkit-mix-mix-blend-mode: luminosity;
   z-index: 100;
 }
 body.main a.logo img {
@@ -72,14 +38,15 @@ body.main a.logo img {
 }
 body.main nav {
   position: fixed;
-  top: 8px;
-  right: 0;
+  top: 20px;
+  right: 20px;
   height: 44px;
   padding-right: 24px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
   z-index: 100;
+  backdrop-filter: blur(1px);
 }
 body.main nav a {
   line-height: 40px;
@@ -264,10 +231,10 @@ body.main .button {
 body.main .button .arrow {
   width: 16px;
   height: 8px;
-  border-bottom: 2px solid #fafafa;
-  border-right: 2px solid #fafafa;
   transform: skew(45deg);
   transition: all 0.5s;
+  border-bottom: 2px solid #fafafa;
+  border-right: 2px solid #fafafa;
 }
 body.main .button:hover {
   background: #050206;
@@ -621,6 +588,24 @@ body.main.main.main-project .container-side {
 body.main.main.main-project main .container .project img.wireframe {
   display: none !important;
 }
+body.main.main.main-project main .button {
+  color: #050206;
+  background: #fafafa;
+  box-shadow: inset 0 0 1px #9d9d9d;
+  margin: 0 4px;
+  transform: scale(0.98);
+  transition: all 0.2s linear;
+}
+body.main.main.main-project main .button.active, body.main.main.main-project main .button:hover:not(.disable) {
+  background: #050206;
+  color: #fafafa;
+  box-shadow: inset 0 0 1px #fafafa;
+  transform: scale(1);
+}
+body.main.main.main-project main .button.disable {
+  opacity: 0.5;
+  cursor: none;
+}
 body.main.main.main-wireframe main.project-wrapper .container .project img {
   display: none;
 }
@@ -653,6 +638,17 @@ body.main.main.main-wireframe main.project-wrapper .container .project img.wiref
   100% {
     stroke-dashoffset: 0;
     stroke: #050206;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 .modal .modal-dialog {

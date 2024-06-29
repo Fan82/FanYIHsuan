@@ -1,25 +1,3 @@
-// -------------------
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
-
-// 一些預設樣式
-$dark-clr: #050206
-$light-clr: #fafafa
-$grey-clr: #9d9d9d
-$main: #F84519
-$base: 4
-$letterspace: 0.016em
-$center-align: center
-$start-align: flex-start
-$end-align: flex-end
-
-
-@mixin flex-align($align: $center-align, $justify: center)
-  display: flex
-  justify-content: $justify
-  align-items: $align
-
-
 body
     font-family: "Poppins" ,"Roboto" ,"SF Pro TC","PingFang TC",'Noto Sans TC',"微軟正黑體"
 a
@@ -33,60 +11,38 @@ body, p, div, ul
 
 body.main
     width: 100%
-    max-width:  calc( $base * 300px)
+    max-width: calc( $base * 300px)
     margin: 0 auto
     min-height: 100vh
     padding-bottom: calc( $base * 30px)
     scroll-behavior: smooth
-    ~ .load-backdrop
-        overflow: hidden
-    .load-backdrop
-        position: fixed
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-        background: $light-clr
-        @include flex-align($center-align)
-        flex-direction: column
-        color: $dark-clr
-        -webkit-backdrop-filter: blur(16px)
-        backdrop-filter: blur(16px)
-        overflow: hidden
-        z-index: 1001
-        svg
-            stroke-width: 2px
-            stroke-dashoffset: -200
-            stroke-dasharray: 2000
-            animation-name: svg-stroke
-            animation-duration: 4s
-            animation-iteration-count: 1
-            animation-direction: alternate
-            aniamtion-timing-function: ease-out
-            animation-fill-mode: forwards
-            fill: $light-clr
+
     a.logo
         position: fixed
-        top: 0
-        left: 0
-        @mixin flex-align($align: $center-align, $justify: center)
-        width: 100%
-        padding: calc( $base * 2px) 0 calc( $base * 2px) calc( $base * 6px)
-        backdrop-filter: blur(16px) opacity(0.8)
-        -webkit-backdrop-filter: blur(16px) opacity(0.8)
+        top: 20px
+        left: 20px
+        mix-blend-mode: luminosity
+        -webkit-mix-mix-blend-mode: luminosity
         z-index: 100
+        @mixin flex-align($align: $center-align, $justify: center)
+            width: 100%
+            padding: calc( $base * 2px) 0 calc( $base * 2px) calc( $base * 6px)
+            backdrop-filter: blur(16px) opacity(0.8)
+            -webkit-backdrop-filter: blur(16px) opacity(0.8)
+            z-index: 100
         img
             height: calc( $base * 10px)
             aspect-ratio: 1/1
             object-fit: contain
     nav
         position: fixed
-        top: calc( $base * 2px)
-        right: 0
+        top: 20px
+        right: 20px
         height: calc( $base * 11px)
         padding-right: calc( $base * 6px)
         @include flex-align($end-align)
         z-index: 100
+        backdrop-filter: blur(10px)
         a
             line-height: calc( $base * 10px)
             color: $dark-clr
@@ -94,7 +50,6 @@ body.main
             padding: 2px calc( $base * 2px)
             &:hover
                 font-weight: 600
-
 
     .header_nav
         position: fixed
@@ -195,7 +150,7 @@ body.main
                 width: 20%
                 &.Flow
                     display: none
-            
+
     .title
         position: relative
         padding: calc( $base * $base * 2px) 0 calc( $base * 10px) 0
@@ -203,7 +158,7 @@ body.main
         display: block
         // @include flex-align($center-align)
         flex-direction: column
-        
+
         > div
             font-family: "Playfair Display", serif
             color: $dark-clr
@@ -233,34 +188,11 @@ body.main
         color: $grey-clr
         font-size: 13px
         font-weight: normal
-        
+
     .button
-        width: auto
-        white-space: nowrap
-        border-radius: calc( $base * 6px)
-        padding: calc( $base * 2px) calc( $base * 3px)
-        background: $dark-clr
-        display: inline-flex
-        justify-content: $center-align
-        align-items: $center-align
-        color: $light-clr
-        transition: box-shadow 0.2s linear
-        gap: calc( $base * $base * 1px)
-        .arrow
-            width: calc( $base * 4px)
-            height: calc( $base * 2px)
-            border-bottom: 2px solid $light-clr
-            border-right: 2px solid $light-clr
-            transform: skew(45deg)
-            transition: all 0.5s
-        &:hover
-            background: $dark-clr
-            border-color: $light-clr
-            color: $light-clr
-            box-shadow: 0 0 0 calc( $base * 1px) rgba($grey-clr ,0.1 ), 0 0 0 calc( $base * 2px) rgba($grey-clr ,0.09 )
-            .arrow
-                border-color: $light-clr
-                transform: rotate(-20deg) skew(45deg)
+        @include button($dark-clr, $light-clr, $light-clr)
+        
+                
     .wrapper
         position: relative
         flex-direction: column
@@ -309,7 +241,6 @@ body.main
         margin: 10px auto
         color: $dark-clr
 
-    
     .container
         position: relative
         flex-direction: column
@@ -355,7 +286,7 @@ body.main
                 overflow: visible
                 transition: opacity 0.5s ease, transform 0.5s ease
                 transition-delay: transform 1.2s ease
-                
+
                 img
                     width: 100%
                     height: 100%
@@ -518,7 +449,7 @@ body.main
                         background: $grey-clr
                         margin-right: calc( $base * 2px)
                         margin-bottom: calc( $base * 1px)
-        
+
     // 每個project的版面控制
     main.project-wrapper
         .container
@@ -551,6 +482,22 @@ body.main
                 .project
                     img.wireframe
                         display: none !important
+            .button
+                color: $dark-clr
+                background: $light-clr
+                box-shadow: inset 0 0 1px $grey-clr
+                margin: 0 4px
+                transform: scale(0.98)
+                transition: all 0.2s linear
+                &.active,
+                &:hover:not(.disable)
+                    background: $dark-clr
+                    color: $light-clr
+                    box-shadow: inset 0 0 1px $light-clr
+                    transform: scale(1)
+                &.disable
+                    opacity: 0.5
+                    cursor: none
     &.main.main-wireframe
         main.project-wrapper
             .container
@@ -582,3 +529,12 @@ body.main
     100%
         stroke-dashoffset: 0
         stroke: $dark-clr
+@keyframes gradient
+    0%
+        background-position: 0% 50%
+
+    50%
+        background-position: 100% 50%
+
+    100%
+        background-position: 0% 50%
