@@ -23,39 +23,39 @@ body.main {
   padding-bottom: 120px;
   scroll-behavior: smooth;
 }
-body.main a.logo {
+body.main .top {
   position: fixed;
-  top: 20px;
-  left: 20px;
+  width: 100%;
+  max-width: 1200px;
+  top: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   mix-blend-mode: luminosity;
   -webkit-mix-mix-blend-mode: luminosity;
   z-index: 100;
+  backdrop-filter: blur(16px) opacity(0.8);
+  -webkit-backdrop-filter: blur(16px) opacity(0.8);
 }
-body.main a.logo img {
-  height: 40px;
-  aspect-ratio: 1/1;
-  object-fit: contain;
+body.main .top a.logo {
+  font-weight: 400;
+  font-size: 1.375rem;
+  color: #050206;
 }
-body.main nav {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  height: 44px;
-  padding-right: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  z-index: 100;
-  backdrop-filter: blur(1px);
+body.main .top a.logo:hover {
+  text-decoration: underline;
 }
-body.main nav a {
+body.main .top nav a {
   line-height: 40px;
   color: #050206;
   font-size: 16px;
-  padding: 2px 8px;
 }
-body.main nav a:hover {
-  font-weight: 600;
+body.main .top nav a:first-child {
+  margin-right: 20px;
+}
+body.main .top nav a:hover {
+  text-decoration: underline;
 }
 body.main .header_nav {
   position: fixed;
@@ -176,36 +176,44 @@ body.main .tab .btn-tab:hover, body.main .tab .btn-tab:focus, body.main .tab .bt
 }
 body.main .title {
   position: relative;
-  padding: 32px 0 40px 0;
-  text-align: center;
+  width: 100%;
+  text-align: left;
   display: block;
-  flex-direction: column;
 }
 body.main .title > div {
-  font-family: "Playfair Display", serif;
+  animation: slide 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+  animation-fill-mode: backwards;
   color: #050206;
-  font-weight: 800;
-  font-size: 80px;
+  font-size: 2rem;
+  line-height: 120%;
+  font-weight: 600;
   text-transform: capitalize;
-  letter-spacing: calc(0.016em - 4px);
+  padding: 32px 5% 0;
+}
+@media screen and (min-width: 768px) {
+  body.main .title > div {
+    font-size: 3.5rem;
+    line-height: 150%;
+  }
 }
 body.main .title img {
   position: relative;
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto;
   width: 50px;
   aspect-ratio: 1/1;
   object-fit: contain;
-  border-radius: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(157, 157, 157, 0.5);
 }
 body.main .title h2 {
   font-size: 24px;
+  padding: 32px 5% 0;
 }
 body.main .title span {
   max-width: 300px;
   padding: 0;
   margin: 0;
-  white-space: pre-line;
   color: #9d9d9d;
   font-size: 12px;
 }
@@ -253,6 +261,8 @@ body.main .wrapper {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  animation: slide 0.6s cubic-bezier(0.2, 0.6, 0.2, 1);
+  animation-fill-mode: backwards;
   width: 100%;
   gap: 20px;
   margin: 32px 0;
@@ -353,12 +363,11 @@ body.main .container .project .project-img {
   position: relative;
   width: 100%;
   max-height: 500px;
-  overflow: hidden;
   background: rgba(157, 157, 157, 0.1);
+  border-radius: 20px;
   transform-origin: center;
+  margin: 0 auto;
   overflow: visible;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transition-delay: transform 1.2s ease;
 }
 body.main .container .project .project-img img {
   width: 100%;
@@ -420,7 +429,11 @@ body.main .project-modules {
 }
 @media screen and (min-width: 768px) {
   body.main .project-modules {
-    width: calc(50% - 20px);
+    width: 400px;
+    padding: 0;
+  }
+  body.main .project-modules:last-child {
+    width: 700px;
   }
 }
 body.main .project-modules img {
@@ -452,9 +465,9 @@ body.main .content {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  gap: 32px;
+  gap: 8px;
   margin: 12px 0;
 }
 body.main .content:has(.contact-menu) {
@@ -462,6 +475,11 @@ body.main .content:has(.contact-menu) {
 }
 body.main .content:has(.contact-menu) .title {
   padding: 0;
+}
+@media screen and (min-width: 768px) {
+  body.main .content:has(.contact-menu) .title {
+    text-align: center;
+  }
 }
 body.main .content span {
   font-size: 14px;
@@ -485,6 +503,7 @@ body.main .content .content-list {
   font-weight: 500;
   width: 100%;
   text-align: left;
+  margin: 12px 0;
 }
 body.main .content .content-list small::before {
   content: "";
@@ -557,8 +576,13 @@ body.main .container-side .side-box .side-container li::before {
   margin-right: 8px;
   margin-bottom: 4px;
 }
+body.main main.project-wrapper .title {
+  text-align: center;
+}
+body.main main.project-wrapper .title h2 {
+  padding: 32px 0 0 0;
+}
 body.main main.project-wrapper .container {
-  flex-wrap: wrap;
   overflow: visible;
 }
 body.main main.project-wrapper .container .container-intro {
@@ -584,6 +608,20 @@ body.main main.project-wrapper .container .project img.wireframe {
 }
 body.main.main.main-project .container-side {
   display: none;
+}
+@media screen and (min-width: 768px) {
+  body.main.main.main-project main.project-wrapper .title h2, body.main.main.main-project main.project-wrapper .title span {
+    text-align: center;
+    margin: 0px auto;
+    max-width: none;
+    width: 100%;
+  }
+  body.main.main.main-project main.project-wrapper .title h2 {
+    margin-top: 30px;
+  }
+  body.main.main.main-project main.project-wrapper .title span {
+    margin-bottom: 30px;
+  }
 }
 body.main.main.main-project main .container .project img.wireframe {
   display: none !important;
@@ -617,7 +655,7 @@ body.main.main.main-wireframe main.project-wrapper .container .project img.wiref
   body.main.main.main-wireframe .container-side {
     position: absolute;
     left: 0;
-    top: calc(263px + 10vh);
+    top: calc(163px + 10vh);
     display: inline-flex !important;
     width: 30%;
   }
@@ -649,6 +687,16 @@ body.main.main.main-wireframe main.project-wrapper .container .project img.wiref
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+@keyframes slide {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(10vh);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
   }
 }
 .modal .modal-dialog {
