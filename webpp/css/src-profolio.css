@@ -498,7 +498,7 @@ body.main .content h3 {
 body.main .content .content-list {
   position: relative;
   line-height: 24px;
-  font-size: 16px;
+  font-size: 12.8px;
   letter-spacing: 0.016em;
   font-weight: 500;
   width: 100%;
@@ -523,8 +523,7 @@ body.main .content .content-list .time {
   margin-top: 2px;
 }
 body.main .content .content-list .content-item {
-  display: inline-block;
-  margin-right: 12px;
+  display: block;
   font-weight: normal;
 }
 body.main .content .content-list .content-item::after {
@@ -535,6 +534,18 @@ body.main .content .content-list .content-item::after {
 }
 body.main .content .content-list .content-item:last-of-type::after {
   display: none;
+}
+body.main .content .content-list .content-item:has(img) {
+  display: inline-block;
+}
+body.main .content .content-list .content-item:has(img)::after {
+  display: none;
+}
+body.main .content .content-list .content-item:has(img) ~ .content-item {
+  display: inline-block;
+}
+body.main .content .content-list .content-item img {
+  width: 80px;
 }
 body.main .container-side {
   display: inline-flex;

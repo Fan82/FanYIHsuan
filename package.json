@@ -16,8 +16,13 @@
     "sass-src-bank-watch": "sass webpp/sass/src-bank.sass webpp/css/src-bank.css --watch --no-source-map",
     "sass-src-public-watch": "sass webpp/sass/src-public.sass webpp/css/src-public.css --watch --no-source-map",
     "sass-all": "concurrently \"npm run sass-lib-common\" \"npm run sass-src-profolio\" \"npm run sass-src-common\" \"npm run sass-src-bank\" \"npm run sass-src-public\"",
-    "sass-all-watch": "concurrently \"npm run sass-lib-common-watch\" \"npm run sass-src-profolio-watch\" \"npm run sass-src-common-watch\" \"npm run sass-src-bank-watch\" \"npm run sass-src-public-watch\""
+    "sass-all-watch": "concurrently \"npm run sass-lib-common-watch\" \"npm run sass-src-profolio-watch\" \"npm run sass-src-common-watch\" \"npm run sass-src-bank-watch\" \"npm run sass-src-public-watch\"",
+    "sass-merge": "sass webpp/sass/main.sass webpp/css/main.css --no-source-map",
+    "sass-all-merged": "npm run sass-all && npm run sass-merge"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
